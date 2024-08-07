@@ -82,7 +82,7 @@ header{
     border-right: 1px solid;
     width: 11ch;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -95,7 +95,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -108,7 +108,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -121,7 +121,7 @@ header{
     width: 10ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -134,7 +134,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
