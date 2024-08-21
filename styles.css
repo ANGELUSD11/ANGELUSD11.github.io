@@ -21,8 +21,8 @@ body::before{
     position: absolute;
     top: 0%;
     left:0%;
-    width: 100%;
-    height: 225%;
+    width: 110%;
+    height: 235%;
     background: linear-gradient(90deg, rgba(0, 99, 99, 0.221) 0%, rgb(0, 13, 24) 100%);
     background-attachment: scroll;
     filter: blur(1px);
@@ -82,7 +82,7 @@ header{
     border-right: 1px solid;
     width: 11ch;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -95,7 +95,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -108,7 +108,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -121,7 +121,7 @@ header{
     width: 10ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -134,7 +134,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -211,7 +211,7 @@ header{
     position: absolute;
     top: 5;
     left: 5;
-    max-width: 100%;
+    max-width: 110%;
     pointer-events: none;
 }
 
@@ -296,9 +296,9 @@ header{
         height: auto;
     }
 
-    .video-container iframe{
+    .video-container lite-youtube{
         width: 375px;
-        height: 225px;
+        height: 40px;
     }
 
     #presentation{
@@ -309,35 +309,35 @@ header{
 }
 
 @media (max-width: 478px){
-    .video-container iframe{
+    .video-container lite-youtube{
         width: 410px;
     }
 }
 
 @media (max-width: 450px){
-    .video-container iframe{
-        width: 380px;
+    .video-container lite-youtube{
+        width: 405px;
     }
 }
 
 @media (max-width: 430px){
-    .video-container iframe{
-        width: 330px;
+    .video-container lite-youtube{
+        width: 395px;
     }
 }
 @media (max-width: 420px){
     body::before{
         height: 280%;
     }
-    .video-container iframe{
+    .video-container ilite-youtube{
         width: 350px;
     }
 }
 
 @media (max-width: 400px){
-    .video-container iframe{
+    .video-container lite-youtube{
         width: 320px;
-        height: 205px;
+        height: 30px;
     }    
 }
 
@@ -345,8 +345,8 @@ header{
     body::before{
         height: 310%;
     }
-    .video-container iframe{
-        width: 340px;
+    .video-container lite-youtube{
+        width: 395px;
     }    
 }
 
@@ -355,7 +355,7 @@ header{
         height: 385%;
     }
 
-    .video-container iframe{
+    .video-container lite-youtube{
         width: 340px;
     }
     
@@ -369,8 +369,8 @@ header{
     body::before{
         height: 300%;
     }
-    .video-container iframe{
-        width: 310px;
-        height: 190px;
+    .video-container lite-youtube{
+        width: 325px;
+        height: 15px;
     }    
 }
