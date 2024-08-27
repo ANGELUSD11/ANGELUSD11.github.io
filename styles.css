@@ -22,7 +22,7 @@ body::before{
     top: 0%;
     left:0%;
     width: 110%;
-    height: 235%;
+    height: 260%;
     background: linear-gradient(90deg, rgba(0, 99, 99, 0.221) 0%, rgb(0, 13, 24) 100%);
     background-attachment: scroll;
     filter: blur(1px);
@@ -213,6 +213,17 @@ header{
     left: 5;
     max-width: 110%;
     pointer-events: none;
+}
+
+.suscriber-count span{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(178, 255, 255);
+    padding-top: 5px;
 }
 
 @media (max-width: 1300px) {
