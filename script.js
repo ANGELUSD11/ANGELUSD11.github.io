@@ -1,6 +1,6 @@
 const suscribersNumber = document.querySelector("#contadorsubs");
 const channelID = 'UCFYLLqA03vesXUt-3eTP81A'
-const APIkey = YOUTUBE_API_KEY = 'AIzaSyDhieh_xHzxX8pjn_joqDJpYs7NHGqnitU'
+const APIkey = YOUTUBE_API_KEY = 'api key'
 const proxyUrl = 'https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/channels?part=statistics&id=';
 
 document.addEventListener("DOMContentLoaded", () =>{
