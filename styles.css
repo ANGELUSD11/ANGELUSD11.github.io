@@ -47,11 +47,11 @@ header{
     align-items: center
 }
 
-
 #diamond{
     max-width: 20%;
     height: auto;
-    border-radius: 30px;
+    border: 7px solid rgb(0, 255, 174);
+    border-radius: 50%;
 }
 
 .redes{
@@ -367,7 +367,7 @@ header{
     }
 
     .video-container lite-youtube{
-        width: 340px;
+        width: 360px;
     }
     
     #presentation{
