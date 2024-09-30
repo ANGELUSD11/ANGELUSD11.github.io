@@ -211,19 +211,9 @@ header{
     padding-top: 5px;
 }
 
-@media (max-width: 1300px) {
-    body::before{
-        height: 200%;
-    }
-}
-
 @media (max-width: 1200px) {
     #diamond {
         max-width: 50%;
-    }
-
-    body::before{
-        height: 250%;
     }
 
     .redes img {
@@ -231,31 +221,12 @@ header{
     }
 }
 
-@media (max-width: 1024px) {
-    body::before{
-        height: 320%;
-    }
-}
-
-@media (max-width: 900px) {
-    body::before{
-        height: 255%;
-    }
-}
-
 @media (max-width: 820px) {
-    body::before{
-        height: 255%;
-    }
 }
 
 @media (max-width: 768px) {
     #diamond {
         max-width: 50%;
-    }
-
-    body::before{
-        height: 290%;
     }
 
     .redes img {
@@ -271,10 +242,6 @@ header{
 
     #titulo{
         max-width: 350px;
-    }
-
-    body::before{
-        height: 300%;
     }
 
     .redes{
@@ -322,9 +289,6 @@ header{
     }
 }
 @media (max-width: 420px){
-    body::before{
-        height: 280%;
-    }
     .video-container ilite-youtube{
         width: 350px;
     }
@@ -338,19 +302,12 @@ header{
 }
 
 @media (max-width: 395px){
-    body::before{
-        height: 310%;
-    }
     .video-container lite-youtube{
         width: 395px;
     }    
 }
 
 @media (max-width: 390px){
-    body::before{
-        height: 385%;
-    }
-
     .video-container lite-youtube{
         width: 360px;
     }
@@ -362,9 +319,6 @@ header{
 }
 
 @media (max-width: 350px){
-    body::before{
-        height: 300%;
-    }
     .video-container lite-youtube{
         width: 325px;
         height: 15px;
