@@ -14,21 +14,6 @@ body{
     background-attachment: fixed;
 }
 
-body::before{
-    display: flex;
-    justify-content: center;
-    content: '';
-    position: absolute;
-    top: 0%;
-    left:0%;
-    width: 110%;
-    height: 320%;
-    background: linear-gradient(90deg, rgba(0, 99, 99, 0.221) 0%, rgb(0, 13, 24) 100%);
-    background-attachment: scroll;
-    filter: blur(1px);
-    z-index: -1;
-}
-
 header{
     display: flex;
     justify-content: center;
