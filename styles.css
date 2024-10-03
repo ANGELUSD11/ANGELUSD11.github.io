@@ -200,15 +200,50 @@ header{
     pointer-events: none;
 }
 
-.suscriber-count span{
+.proyects-title{
     display: flex;
     justify-content: center;
-    text-align: center;
     font-family: "Kanit", sans-serif;
     font-weight: bold;
     font-size: 50px;
-    color: rgb(178, 255, 255);
+    color: rgb(0, 255, 255);
     padding-top: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.proyectos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.proyectos img{
+    width: 200px;
+    height: auto;
+    transition: 0.10s ease-out;
+    border: 7px solid rgb(0, 255, 174);
+    border-radius: 50%;
+}
+
+.proyectos a:hover img{
+    transform: scale(1.1);
+}
+
+#tdm{
+    display: block;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    color: rgb(112, 253, 253);
+    padding-top: 5px;
+}
+
+#discordbot{
+    display: block;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    color: rgb(112, 253, 253);
 }
 
 @media (max-width: 1200px) {
