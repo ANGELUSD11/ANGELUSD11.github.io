@@ -6,27 +6,12 @@ html{
 }
 
 body{
-    background-image: url(araña.png);
+    background-image: url(images/background.jpg);
     background-position: absolute;
     justify-content: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-
-body::before{
-    display: flex;
-    justify-content: center;
-    content: '';
-    position: absolute;
-    top: 0%;
-    left:0%;
-    width: 100%;
-    height: 225%;
-    background: linear-gradient(90deg, rgba(0, 99, 99, 0.221) 0%, rgb(0, 13, 24) 100%);
-    background-attachment: scroll;
-    filter: blur(1px);
-    z-index: -1;
 }
 
 header{
@@ -51,7 +36,20 @@ header{
 #diamond{
     max-width: 20%;
     height: auto;
-    border-radius: 30px;
+    border: 7px solid rgb(0, 255, 174);
+    border-radius: 50%;
+    animation: fadeIn 3s ease;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;
+    filter: blur(20px);
+    }
+
+    10% {
+        opacity: 1;
+        filter: brightness(2) blur(10px);
+    }
 }
 
 .redes{
@@ -82,7 +80,7 @@ header{
     border-right: 1px solid;
     width: 11ch;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -95,7 +93,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -108,7 +106,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -121,7 +119,7 @@ header{
     width: 10ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -134,7 +132,7 @@ header{
     width: 9.5ch;
     text-align: center;
     font-size: 15px;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -211,8 +209,88 @@ header{
     position: absolute;
     top: 5;
     left: 5;
-    max-width: 100%;
+    max-width: 110%;
     pointer-events: none;
+}
+
+.proyects-title{
+    display: flex;
+    justify-content: center;
+    font-family: "Kanit", sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(0, 255, 255);
+    padding-top: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.proyectos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.proyectos img{
+    width: 200px;
+    height: auto;
+    transition: 0.10s ease-out;
+    border: 7px solid rgb(0, 255, 174);
+    border-radius: 50%;
+}
+
+.proyectos a:hover img{
+    transform: scale(1.1);
+}
+
+#tdm{
+    display: block;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    color: rgb(112, 253, 253);
+    padding-top: 5px;
+}
+
+#discordbot{
+    display: block;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    color: rgb(112, 253, 253);
+}
+
+.documentation h1{
+    display: flex;
+    justify-content: center;
+    font-family: "Kanit", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(173, 255, 255);
+    padding-top: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.documentation p{
+    text-align: justify;
+    font-family: "Kanit", sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    color: rgb(162, 242, 242);
+    padding-top: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.suscriber-count span{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(178, 255, 255);
+    padding-top: 5px;
 }
 
 @media (max-width: 1300px) {
@@ -296,9 +374,9 @@ header{
         height: auto;
     }
 
-    .video-container iframe{
+    .video-container lite-youtube{
         width: 375px;
-        height: 225px;
+        height: 40px;
     }
 
     #presentation{
@@ -309,44 +387,70 @@ header{
 }
 
 @media (max-width: 478px){
-    .video-container iframe{
+    .video-container lite-youtube{
         width: 410px;
     }
 }
 
 @media (max-width: 450px){
-    .video-container iframe{
-        width: 380px;
+    .video-container lite-youtube{
+        width: 405px;
+    }
+    #presentation{
+        font-size: 22px;
+    }
+    .documentation p{
+        font-size: 22px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
 @media (max-width: 430px){
-    .video-container iframe{
-        width: 330px;
+    .video-container lite-youtube{
+        width: 395px;
     }
 }
 @media (max-width: 420px){
     body::before{
         height: 280%;
     }
-    .video-container iframe{
-        width: 350px;
+    #presentation{
+        font-size: 22px;
+    }
+    .video-container lite-youtube{
+        width: 395px;
+    }
+    .documentation p{
+        font-size: 22px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
 @media (max-width: 400px){
-    .video-container iframe{
+    .video-container lite-youtube{
         width: 320px;
-        height: 205px;
+        height: 30px;
     }    
+    .documentation p{
+        font-size: 22px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }
 
 @media (max-width: 395px){
     body::before{
         height: 310%;
     }
-    .video-container iframe{
-        width: 340px;
+    .video-container lite-youtube{
+        width: 395px;
+    }
+    .documentation p{
+        font-size: 22px;
+        padding-left: 5px;
+        padding-right: 5px;
     }    
 }
 
@@ -355,13 +459,19 @@ header{
         height: 385%;
     }
 
-    .video-container iframe{
-        width: 340px;
+    .video-container lite-youtube{
+        width: 360px;
     }
     
     #presentation{
+        font-size: 20px;
         padding-left: 10px;
         padding-right: 6px;
+    }
+    .documentation p{
+        font-size: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
@@ -369,8 +479,8 @@ header{
     body::before{
         height: 300%;
     }
-    .video-container iframe{
-        width: 310px;
-        height: 190px;
+    .video-container lite-youtube{
+        width: 325px;
+        height: 15px;
     }    
 }

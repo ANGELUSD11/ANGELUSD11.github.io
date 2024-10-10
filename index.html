@@ -4,40 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANGELUS11</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.5.0/lite-youtube.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="icon_41.png">
+    <link rel="icon" type="image/png" href="icons/logotransparente.png">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <img id="titulo" src="logo - ANGELUS11 .png">
+            <img id="titulo" src="icons/logo - ANGELUS11 .png">
         </header>
     </div>
 
     <section class="mainpage">
-        <img id="diamond" src="fondobrillo.png">
+        <img id="diamond" src="icons/fondobrillo.png">
     </section>
 
 <section class="redes">
         <a href="https://discord.gg/ne3U8RS8bA" target="_blank" style="text-decoration: none;">
-            <img id="discord" src="dlogo.png">
+            <img id="discord" src="icons/discord pixel 1.png">
             <span id="Discord">Discord Server</span>
         </a>
         <a href="https://github.com/ANGELUSD11" target="_blank" style="text-decoration: none;">
-            <img id="github" src="githubpage.png">
+            <img id="github" src="icons/github pixel art.png">
             <span id="Github">Github</span>
         </a>
         <a href="https://www.youtube.com/@ANGELUS11" target="_blank" style="text-decoration: none;">
-            <img id="youtube" src="ytconrelleno.png">
+            <img id="youtube" src="icons/youtube pixel art.png">
             <span id="YT">YouTube</span>
         </a>
         <a href="https://x.com/ANGELUSD11" target="_blank" style="text-decoration: none;">
-            <img id="twitter" src="X_logo_2023_(white).png">
+            <img id="twitter" src="icons/x pixel art.png">
             <span id="X">Twitter(X)</span>
         </a>
         <a href="https://steamcommunity.com/profiles/76561199084301784?tscn=1719858429" target="_blank" style="text-decoration: none;">
-            <img id="steam" src="steam.png">
+            <img id="steam" src="icons/steam pixel art.png">
             <span id="Steam">Steam</span>
         </a>
 </section>
@@ -60,19 +61,62 @@
         <h1 id="bio">¿Quién soy?</h1>
         <p id="presentation">Me llamo Angel, soy de Colombia, actualmente tengo 19 años,
             si estás aquí seguramente me hayas conocido de mi canal de YouTube,
-            me encanta hacer contenido de Geometry Dash en español, estudio desarrollo
+            me encanta hacer contenido de Geometry Dash en español, entre niveles, datos
+            curiosos y empezando a indagar en crear contenido variado y original
+            para el juego, no subo muchos videos pero intento que tengan la mejor caldad posible estudio desarrollo
             de software y me apasiona la tecnología, por eso quiero transmitir mi conocimiento
             mediante el contenido de este gran juego, no es todo el contenido que encontrarás
             pero si una gran parte de este, me gusta programar y jugar de vez en cuando, si quieres
-            hablar conmigo por algún motivo, puedes entrar a mi servidor de Discord
+            hablar conmigo por algún motivo, puedes entrar a mi servidor de Discord.
         </p>
     </div>
 </div>
-    <section class="fondospider">
+
+    <div>
+        <h1 class="proyects-title">Proyectos</h1>
+    </div>
+
+<section class="proyectos">
+    <a href="https://discord.com/oauth2/authorize?client_id=1146866029708984331" target="_blank" style="text-decoration: none;">
+        <img id="tdmlogo" src="proyectos/caradiamante.png">
+        <span id="tdm">TDMBOT</span>
+        <span id="discordbot">Discord Bot</span>
+    </a>
+</section>
+<div class="documentation">
+<h1 id="doc-tdmbot">Comandos</h1>
+<p id="tdm-com">TDMBOT💠es un bot de discord con multiples funciones útiles para tu servidor, puedes usarlo para una variedad de comandos
+    <br>
+    <br>
+    -diamond: ¿Quién soy?
+    <br>
+    -img: Busca una imagen en Google
+    <br>
+    -google: Hace una búsqueda simple en Google
+    <br>
+    -yt: Buscar un video en YouTube
+    <br>
+    -wiki: Buscar un artículo en Wikipedia
+    <br>
+    -meme/dankmeme/shitpost: Mandar un meme random de Reddit
+    <br>
+    -cat: Muestra una imagen random de gatitos :3
+    <br>
+    -avatar: Mostrar el avatar de un usuario
+    <br>
+    -spotify (username): Ver que está escuchando tú o un miembro en Spotify
+    <br>
+    -binary: Convierte un valor entero a binario
+    <br>
+    -madewith: Información técnica sobre el bot
+</p>
+</div>
+
+<section class="fondospider">
     <h1 id="videoyt">Último video</h1>
     <div class="video-container">
-        <iframe width="507" height="315" src="https://www.youtube.com/embed/hK3nhz1UE9w?si=H2c3mUglPNZatLvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <img src="Marco 1.png" alt="marco">
+        <lite-youtube id="latestvideo" videoid="t3KXzpbuBXc"></lite-youtube>
+        <img src="images/Marco 1.png" alt="marco">
     </div>
 </section>
 </body>
