@@ -6,7 +6,7 @@ html{
 }
 
 body{
-    background-image: url(images/background.jpg);
+    background-image: url(images/patron.png);
     background-position: absolute;
     justify-content: center;
     background-size: cover;
@@ -282,6 +282,44 @@ header{
     padding-right: 100px;
 }
 
+.gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    width: 700px; 
+    height: auto;
+    margin: 0 auto;
+}
+
+.content-wrapper{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.gif {
+    position: relative;
+    width: 100%; 
+    height: auto;
+    margin: 0 auto;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-radius: 10%;
+    border: solid rgb(0, 255, 213);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.marco2 {
+    position: absolute; 
+    top: -276px;
+    left: -120px;
+    z-index: 2; 
+    width: 135%;
+    height: 200%;
+}
+
 .suscriber-count span{
     display: flex;
     justify-content: center;
@@ -397,12 +435,30 @@ header{
         width: 405px;
     }
     #presentation{
-        font-size: 22px;
+        font-size: 20px;
     }
     .documentation p{
         font-size: 22px;
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .gif-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+        width: 430px; 
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .marco2{
+        position: absolute; 
+        top: -175px;
+        left: -70px;
+        z-index: 2; 
+        width: 131%;
+        height: 211%;
     }
 }
 
@@ -416,7 +472,7 @@ header{
         height: 280%;
     }
     #presentation{
-        font-size: 22px;
+        font-size: 20px;
     }
     .video-container lite-youtube{
         width: 395px;
@@ -425,6 +481,24 @@ header{
         font-size: 22px;
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .gif-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+        width: 370px; 
+        height: auto;
+        margin: 0 auto;
+    }
+    .marco2{
+        position: absolute; 
+        top: -162px;
+        left: -55px;
+        z-index: 2; 
+        width: 131%;
+        height: 211%;
     }
 }
 
