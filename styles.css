@@ -182,7 +182,8 @@ header{
     font-family: "Kanit", sans-serif;
     font-size: 50px;
     color: rgb(0, 255, 255);
-    padding-top: 5px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .container-info{
@@ -284,6 +285,11 @@ header{
     padding-top: 5px;
     padding-left: 100px;
     padding-right: 100px;
+}
+
+#tdm-com{
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .gif-container {
@@ -437,7 +443,7 @@ header{
 
 @media (max-width: 450px){
     .video-container lite-youtube{
-        width: 405px;
+        width: 430px;
     }
     #presentation{
         font-size: 20px;
@@ -480,7 +486,7 @@ header{
         font-size: 20px;
     }
     .video-container lite-youtube{
-        width: 395px;
+        width: 410px;
     }
     .documentation p{
         font-size: 22px;
@@ -539,7 +545,7 @@ header{
     }
 
     .video-container lite-youtube{
-        width: 360px;
+        width: 375px;
     }
     
     #presentation{
