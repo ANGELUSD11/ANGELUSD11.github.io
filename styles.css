@@ -21,6 +21,10 @@ header{
     padding-top: 50px;
 }
 
+.main{
+    padding-top: 1.0rem;
+}
+
 .navbar{
     background: linear-gradient(to bottom, #000000, #000e17);
 }
@@ -174,7 +178,7 @@ header{
     font-family: "Kanit", sans-serif;
     font-size: 50px;
     color: rgb(0, 255, 255);
-    padding-top: 5px;
+    padding-top: 2.5rem;
 }
 
 #videoyt{
@@ -264,14 +268,14 @@ header{
     color: rgb(112, 253, 253);
 }
 
-.documentation h1{
+.commands{
     display: flex;
     justify-content: center;
     font-family: "Kanit", sans-serif;
     font-weight: bold;
     font-size: 30px;
     color: rgb(173, 255, 255);
-    padding-top: 5px;
+    padding-top: 30px;
     padding-left: 100px;
     padding-right: 100px;
 }
@@ -282,14 +286,10 @@ header{
     font-size: 25px;
     font-style: normal;
     color: rgb(162, 242, 242);
-    padding-top: 5px;
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
     padding-left: 100px;
     padding-right: 100px;
-}
-
-#tdm-com{
-    padding-top: 40px;
-    padding-bottom: 40px;
 }
 
 .gif-container {
