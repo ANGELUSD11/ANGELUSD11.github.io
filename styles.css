@@ -173,12 +173,15 @@ header{
     margin-top: 15px;
 }
 
-#bio{
+.bio{
     text-align: center;
     font-family: "Kanit", sans-serif;
     font-size: 50px;
+    margin-top: 1.5rem;
     color: rgb(0, 255, 255);
-    padding-top: 2.5rem;
+    background-color: #000e17;
+    border: 5px solid aqua;
+    border-radius: 15px;
 }
 
 #videoyt{
@@ -194,15 +197,19 @@ header{
     display: flex;
 }
 
-#presentation{
+.presentation{
     text-align: justify;
     font-family: "Kanit", sans-serif;
     font-size: 25px;
     font-style: normal;
     color: rgb(162, 242, 242);
-    padding-top: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-left: 100px;
     padding-right: 100px;
+    background-color: #101010;
+    border: 5px solid aqua;
+    border-radius: 15px;
 }
 
 .video-container{
@@ -222,16 +229,18 @@ header{
     pointer-events: none;
 }
 
-.proyects-title{
+.projects-title{
     display: flex;
     justify-content: center;
     font-family: "Kanit", sans-serif;
     font-weight: bold;
     font-size: 50px;
     color: rgb(0, 255, 255);
-    padding-top: 5px;
     padding-left: 100px;
     padding-right: 100px;
+    background-color: #000e17;
+    border: 5px solid aqua;
+    border-radius: 15px;
 }
 
 .proyectos{
@@ -286,10 +295,14 @@ header{
     font-size: 25px;
     font-style: normal;
     color: rgb(162, 242, 242);
-    padding-top: 0.5rem;
+    padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     padding-left: 100px;
     padding-right: 100px;
+    background-color: #101010;
+    border: 5px solid aqua;
+    border-radius: 15px;
+    margin-bottom: 2.5rem;
 }
 
 .gif-container {
@@ -428,7 +441,7 @@ header{
         height: 40px;
     }
 
-    #presentation{
+    .presentation{
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -445,7 +458,7 @@ header{
     .video-container lite-youtube{
         width: 430px;
     }
-    #presentation{
+    .presentation{
         font-size: 20px;
     }
     .documentation p{
@@ -482,7 +495,7 @@ header{
     body::before{
         height: 280%;
     }
-    #presentation{
+    .presentation{
         font-size: 20px;
     }
     .video-container lite-youtube{
@@ -548,7 +561,7 @@ header{
         width: 375px;
     }
     
-    #presentation{
+    .presentation{
         font-size: 18px;
         padding-left: 10px;
         padding-right: 6px;
