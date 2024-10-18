@@ -976,8 +976,8 @@ header{
         width: 375px;
     }
     .presentation{
-        font-size: 17px;
-        padding-left: 10px;
+        font-size: 16px;
+        padding-left: 6px;
         padding-right: 6px;
     }
     .documentation p{
