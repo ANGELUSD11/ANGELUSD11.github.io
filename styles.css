@@ -396,24 +396,120 @@ header{
 }
 
 @media (max-width: 820px) {
-    body::before{
-        height: 255%;
-    }
-}
-
-@media (max-width: 768px) {
     .redes{
         flex-direction: column;
     }
 
-    #diamond {
-        max-width: 50%;
+    .presentation{
+        font-size: 19px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
-    .redes img {
-        width: 100px;
+    .gif-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+        width: 370px; 
+        height: auto;
+        margin: 0 auto;
     }
-    
+
+    .marco2{
+        position: absolute; 
+        top: -147px;
+        left: -60px;
+        z-index: 2; 
+        width: 134%;
+        height: 201%;
+    }
+    .documentation p{
+        font-size: 18px;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+    .video-container{
+        width: 470px;
+    }
+}
+
+@media (max-width: 780px) {
+    .redes{
+        flex-direction: column;
+    }
+
+    .presentation{
+        font-size: 19px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .gif-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+        width: 370px; 
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .marco2{
+        position: absolute; 
+        top: -147px;
+        left: -60px;
+        z-index: 2; 
+        width: 134%;
+        height: 201%;
+    }
+    .documentation p{
+        font-size: 18px;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+    .video-container{
+        width: 470px;
+    }
+}
+
+@media (max-width: 750px) {
+    .redes{
+        flex-direction: column;
+    }
+
+    .presentation{
+        font-size: 19px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .gif-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+        width: 370px; 
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .marco2{
+        position: absolute; 
+        top: -147px;
+        left: -60px;
+        z-index: 2; 
+        width: 134%;
+        height: 201%;
+    }
+    .documentation p{
+        font-size: 18px;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+    .video-container{
+        width: 470px;
+    }
 }
 
 @media (max-width: 650px) {
