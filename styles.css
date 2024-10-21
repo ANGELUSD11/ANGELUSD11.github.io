@@ -36,11 +36,7 @@ header{
     padding-top: 1.0rem;
 }
 
-.navbar{
-    background: linear-gradient(to bottom, #000000, #000e17);
-}
-
-#titulo{
+.title{
     width: 450px;
     height: auto;
 }
@@ -184,16 +180,11 @@ header{
 
 .videoyt{
     text-align: center;
-    font-family: "Kanit", sans-serif;
-    font-size: 50px;
     color: rgb(0, 255, 255);
     background-color: #000e17c7;
+    font-size: 50px;
     border: 5px solid aqua;
     border-radius: 15px;
-}
-
-.container-info{
-    display: flex;
 }
 
 .presentation{
@@ -357,30 +348,12 @@ header{
     padding-top: 5px;
 }
 
-@media (max-width: 1300px) {
-    body::before{
-        height: 200%;
-    }
-}
-
 @media (max-width: 1200px) {
     .diamond {
         max-width: 50%;
     }
     .redes img {
         width: 100px;
-    }
-}
-
-@media (max-width: 1024px) {
-    body::before{
-        height: 320%;
-    }
-}
-
-@media (max-width: 900px) {
-    body::before{
-        height: 255%;
     }
 }
 
@@ -427,9 +400,6 @@ header{
     }
 
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
         width: 370px; 
         height: auto;
@@ -462,9 +432,6 @@ header{
     }
 
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
         width: 370px; 
         height: auto;
@@ -497,44 +464,6 @@ header{
     }
 
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .marco2{
-        position: absolute; 
-        top: -147px;
-        left: -60px;
-        z-index: 2; 
-        width: 134%;
-        height: 201%;
-    }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
-    .video-container{
-        width: 470px;
-    }
-}
-
-@media (max-width: 610px) {
-    .presentation{
-        font-size: 19px;
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-
-    .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
         width: 370px; 
         height: auto;
@@ -567,9 +496,6 @@ header{
     }
 
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
         width: 370px; 
         height: auto;
@@ -602,9 +528,6 @@ header{
     }
 
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
         width: 370px; 
         height: auto;
@@ -637,9 +560,6 @@ header{
     }
 
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
         width: 370px; 
         height: auto;
@@ -659,6 +579,9 @@ header{
         padding-left: 35px;
         padding-right: 35px;
     }
+    .videoyt{
+        font-size: 45px;
+    }
     .video-container{
         width: 470px;
     }
@@ -672,9 +595,6 @@ header{
         padding-right: 25px;
     }
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
         width: 370px; 
         height: auto;
@@ -700,19 +620,23 @@ header{
 }
 
 @media (max-width: 480px) {
-    header{
-        flex-direction: column;
-    }
     .redes{
         flex-direction: column;
     }
 
-    #titulo{
-        max-width: 350px;
+    .title{
+        max-width: 325px;
     }
 
     .redes img{
         width: 100px;
+    }
+    .bio{
+        font-size: 49px;
+    }
+
+    .videoyt{
+        font-size: 43px;
     }
 
     .video-container{
@@ -732,18 +656,7 @@ header{
     }
 
 }
-@media (max-width: 478px){
-    header{
-        flex-direction: column;
-    }
-    .video-container lite-youtube{
-        width: 410px;
-    }
-}
 @media (max-width: 450px){
-    header{
-        flex-direction: column;
-    }
     .video-container lite-youtube{
         width: 430px;
     }
@@ -757,14 +670,11 @@ header{
         font-size: 40px;
     }
     .documentation p{
-        font-size: 22px;
+        font-size: 17px;
         padding-left: 10px;
         padding-right: 10px;
     }
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
         width: 370px; 
         height: auto;
@@ -778,25 +688,16 @@ header{
         width: 131%;
         height: 211%;
     }
-}
-
-@media (max-width: 430px){
-    header{
-        flex-direction: column;
-    }
-    .video-container lite-youtube{
-        width: 395px;
+    .videoyt{
+        font-size: 38px;
     }
 }
 @media (max-width: 420px){
-    header{
-        flex-direction: column;
-    }
     .bio{
         font-size: 40px;
     }
     .presentation{
-        font-size: 19px;
+        font-size: 15px;
     }
     .video-container lite-youtube{
         width: 410px;
@@ -806,17 +707,14 @@ header{
         font-size: 40px;
     }
     .documentation p{
-        font-size: 22px;
+        font-size: 17px;
         padding-left: 10px;
         padding-right: 10px;
     }
 
     .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative; 
-        width: 290px; 
+        width: 265px; 
         height: auto;
         margin: 0 auto;
     }
@@ -828,65 +726,51 @@ header{
         width: 134%;
         height: 217%;
     }
+    .videoyt{
+        font-size: 37px;
+    }
 }
 
 @media (max-width: 400px){
-    header{
-        flex-direction: column;
-    }
     .video-container lite-youtube{
         width: 360px;
         height: 30px;
     }    
     .documentation p{
-        font-size: 22px;
+        font-size: 16px;
         padding-left: 5px;
         padding-right: 5px;
     }
-}
-
-@media (max-width: 395px){
-    header{
-        flex-direction: column;
+    .videoyt{
+        font-size: 36px;
     }
-    .video-container lite-youtube{
-        width: 395px;
-    }
-    .documentation p{
-        font-size: 22px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }    
 }
 
 @media (max-width: 390px){
-    header{
-        flex-direction: column;
-    }
     .bio{
-        font-size: 35px;
-    }
-    .video-container lite-youtube{
-        width: 375px;
+        font-size: 34px;
     }
     .presentation{
-        font-size: 16px;
+        font-size: 15px;
         padding-left: 6px;
         padding-right: 6px;
     }
     .documentation p{
-        font-size: 20px;
+        font-size: 14px;
         padding-left: 10px;
         padding-right: 10px;
     }
     .videoyt{
-        font-size: 40px;
+        font-size: 30px;
+    }
+    .video-container lite-youtube{
+        width: 375px;
     }
 }
 
 @media (max-width: 350px){
-    header{
-        flex-direction: column;
+    .videoyt{
+        font-size: 25px;
     }
     .video-container lite-youtube{
         width: 325px;
