@@ -12,6 +12,17 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    opacity: 2;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 header{
@@ -34,14 +45,7 @@ header{
     height: auto;
 }
 
-.mainpage{
-    display: flex;
-    justify-content: center;
-    align-items: center
-}
-
-
-#diamond{
+.diamond{
     max-width: 20%;
     height: auto;
     border: 7px solid rgb(0, 255, 174);
@@ -163,16 +167,6 @@ header{
 .KanitLink{
     color: rgb(0, 255, 255);
 }
-
-.disclaimer, p{
-    color: rgb(193, 202, 255);
-    font-family: "Kanit", sans-serif;
-    font-style: italic;
-    text-align: center;
-    font-size: 23px;
-    margin-top: 15px;
-}
-
 .bio{
     text-align: center;
     font-family: "Kanit", sans-serif;
@@ -370,7 +364,7 @@ header{
 }
 
 @media (max-width: 1200px) {
-    #diamond {
+    .diamond {
         max-width: 50%;
     }
     .redes img {
@@ -677,7 +671,6 @@ header{
         padding-left: 25px;
         padding-right: 25px;
     }
-
     .gif-container{
         display: flex;
         justify-content: center;
@@ -743,7 +736,6 @@ header{
     header{
         flex-direction: column;
     }
-
     .video-container lite-youtube{
         width: 410px;
     }
@@ -752,7 +744,6 @@ header{
     header{
         flex-direction: column;
     }
-
     .video-container lite-youtube{
         width: 430px;
     }
@@ -793,13 +784,11 @@ header{
     header{
         flex-direction: column;
     }
-
     .video-container lite-youtube{
         width: 395px;
     }
 }
 @media (max-width: 420px){
-
     header{
         flex-direction: column;
     }
@@ -845,7 +834,6 @@ header{
     header{
         flex-direction: column;
     }
-
     .video-container lite-youtube{
         width: 360px;
         height: 30px;
