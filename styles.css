@@ -373,11 +373,6 @@ header{
     #diamond {
         max-width: 50%;
     }
-
-    body::before{
-        height: 250%;
-    }
-
     .redes img {
         width: 100px;
     }
@@ -396,10 +391,6 @@ header{
 }
 
 @media (max-width: 820px) {
-    .redes{
-        flex-direction: column;
-    }
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -435,10 +426,6 @@ header{
 }
 
 @media (max-width: 780px) {
-    .redes{
-        flex-direction: column;
-    }
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -474,10 +461,6 @@ header{
 }
 
 @media (max-width: 750px) {
-    .redes{
-        flex-direction: column;
-    }
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -513,10 +496,6 @@ header{
 }
 
 @media (max-width: 650px) {
-    .redes{
-        flex-direction: column;
-    }
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -552,10 +531,6 @@ header{
 }
 
 @media (max-width: 610px) {
-    .redes{
-        flex-direction: column;
-    }
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -591,10 +566,6 @@ header{
 }
 
 @media (max-width: 590px) {
-    .redes{
-        flex-direction: column;
-    }
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -630,10 +601,6 @@ header{
 }
 
 @media (max-width: 550px) {
-    .redes{
-        flex-direction: column;
-    }
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -669,10 +636,6 @@ header{
 }
 
 @media (max-width: 520px) {
-    .redes{
-        flex-direction: column;
-    }
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -708,9 +671,6 @@ header{
 }
 
 @media (max-width: 500px) {
-    .redes{
-        flex-direction: column;
-    }
 
     .presentation{
         font-size: 19px;
@@ -758,15 +718,6 @@ header{
         max-width: 350px;
     }
 
-    body::before{
-        height: 300%;
-    }
-
-    .redes{
-        flex-direction: column;
-        gap: 20px;
-    }
-
     .redes img{
         width: 100px;
     }
@@ -778,7 +729,7 @@ header{
     }
 
     .video-container lite-youtube{
-        width: 375px;
+        width: 450px;
         height: 40px;
     }
 
@@ -788,13 +739,8 @@ header{
     }
 
 }
-
 @media (max-width: 478px){
     header{
-        flex-direction: column;
-    }
-
-    .redes{
         flex-direction: column;
     }
 
@@ -802,14 +748,8 @@ header{
         width: 410px;
     }
 }
-
 @media (max-width: 450px){
-
     header{
-        flex-direction: column;
-    }
-
-    .redes{
         flex-direction: column;
     }
 
@@ -835,15 +775,14 @@ header{
         justify-content: center;
         align-items: center;
         position: relative; 
-        width: 430px; 
+        width: 370px; 
         height: auto;
         margin: 0 auto;
     }
-
     .marco2{
         position: absolute; 
-        top: -175px;
-        left: -70px;
+        top: -160px;
+        left: -60px;
         z-index: 2; 
         width: 131%;
         height: 211%;
@@ -852,10 +791,6 @@ header{
 
 @media (max-width: 430px){
     header{
-        flex-direction: column;
-    }
-
-    .redes{
         flex-direction: column;
     }
 
@@ -868,15 +803,6 @@ header{
     header{
         flex-direction: column;
     }
-
-    .redes{
-        flex-direction: column;
-    }
-
-    body::before{
-        height: 280%;
-    }
-
     .bio{
         font-size: 40px;
     }
@@ -901,14 +827,14 @@ header{
         justify-content: center;
         align-items: center;
         position: relative; 
-        width: 320px; 
+        width: 290px; 
         height: auto;
         margin: 0 auto;
     }
     .marco2{
         position: absolute; 
-        top: -147px;
-        left: -60px;
+        top: -131px;
+        left: -50px;
         z-index: 2; 
         width: 134%;
         height: 217%;
@@ -920,12 +846,8 @@ header{
         flex-direction: column;
     }
 
-    .redes{
-        flex-direction: column;
-    }
-
     .video-container lite-youtube{
-        width: 320px;
+        width: 360px;
         height: 30px;
     }    
     .documentation p{
@@ -938,14 +860,6 @@ header{
 @media (max-width: 395px){
     header{
         flex-direction: column;
-    }
-
-    .redes{
-        flex-direction: column;
-    }
-    
-    body::before{
-        height: 310%;
     }
     .video-container lite-youtube{
         width: 395px;
@@ -961,16 +875,8 @@ header{
     header{
         flex-direction: column;
     }
-
-    .redes{
-        flex-direction: column;
-    }
-
-    body::before{
-        height: 385%;
-    }
     .bio{
-        font-size: 38px;
+        font-size: 35px;
     }
     .video-container lite-youtube{
         width: 375px;
@@ -986,21 +892,13 @@ header{
         padding-right: 10px;
     }
     .videoyt{
-        font-size: 46px;
+        font-size: 40px;
     }
 }
 
 @media (max-width: 350px){
     header{
         flex-direction: column;
-    }
-
-    .redes{
-        flex-direction: column;
-    }
-
-    body::before{
-        height: 300%;
     }
     .video-container lite-youtube{
         width: 325px;
