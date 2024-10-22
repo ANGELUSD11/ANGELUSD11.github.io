@@ -211,6 +211,10 @@ header{
     margin-top: 3.0rem;
 }
 
+.video-container lite-youtube{
+    aspect-ratio: 16/9;
+}
+
 .video-container img{
     position: absolute;
     max-width: 100%;
