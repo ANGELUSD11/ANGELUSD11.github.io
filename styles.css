@@ -163,7 +163,8 @@ header{
 .KanitLink{
     color: rgb(0, 255, 255);
 }
-.bio{
+
+.about-me-container{
     text-align: center;
     font-family: "Kanit", sans-serif;
     font-size: 50px;
@@ -178,7 +179,7 @@ header{
     margin: 2.0rem;
 }
 
-.videoyt{
+.fondospider{
     text-align: center;
     color: rgb(0, 255, 255);
     background-color: #000e17c7;
@@ -187,19 +188,25 @@ header{
     border-radius: 15px;
 }
 
+.blur-container{
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
 .presentation{
-    text-align: justify;
+    text-align: left;
     font-family: "Kanit", sans-serif;
     font-size: 25px;
+    letter-spacing: 1px;
     font-style: normal;
     color: rgb(162, 242, 242);
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 100px;
     padding-right: 100px;
-    background-color: #101010b7;
-    border: 5px solid aqua;
-    border-radius: 15px;
+    background-color: #292929b7;
+    border-radius: 17px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.79);
 }
 
 .video-container{
@@ -287,18 +294,18 @@ header{
 }
 
 .documentation p{
-    text-align: justify;
+    text-align: left;
     font-family: "Kanit", sans-serif;
     font-size: 25px;
+    letter-spacing: 1px;
     font-style: normal;
     color: rgb(162, 242, 242);
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     padding-left: 100px;
     padding-right: 100px;
-    background-color: #101010cc;
-    border: 5px solid aqua;
-    border-radius: 15px;
+    background-color: #292929b7;
+    border-radius: 19px;
     margin-bottom: 2.5rem;
 }
 
@@ -655,7 +662,7 @@ header{
     }
 
     .presentation{
-        padding-left: 10px;
+        padding-left: 17px;
         padding-right: 10px;
     }
 
@@ -756,12 +763,12 @@ header{
     }
     .presentation{
         font-size: 15px;
-        padding-left: 6px;
+        padding-left: 17px;
         padding-right: 6px;
     }
     .documentation p{
         font-size: 14px;
-        padding-left: 10px;
+        padding-left: 19px;
         padding-right: 10px;
     }
     .videoyt{
