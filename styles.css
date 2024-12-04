@@ -44,7 +44,7 @@ header{
 .diamond{
     max-width: 20%;
     height: auto;
-    border: 7px solid rgb(0, 255, 174);
+    border: 7px solid rgb(41, 254, 254);
     border-radius: 50%;
     animation: fadeIn 3s ease;
 }
@@ -168,7 +168,7 @@ header{
     text-align: center;
     font-family: "Kanit", sans-serif;
     font-size: 50px;
-    margin-top: 2.0rem;
+    margin-top: 3.0rem;
     color: rgb(0, 255, 255);
     background-color: #000e17b6;
     border: 5px solid aqua;
@@ -207,6 +207,47 @@ header{
     background-color: #292929b7;
     border-radius: 17px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.79);
+}
+
+.black-section{
+    color: aquamarine;
+    background-color: rgba(0, 21, 22, 0.785);
+    border: 5px solid aqua;
+    border-radius: 15px;
+}
+
+.fanarts{
+    margin-top: 30px;
+    padding: 40px;
+}
+
+.fanarts .row div{
+    height: 270px;
+}
+
+.fanarts-container{
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.fanarts-container h1{
+    font-size: 40px;
+}
+
+.card {
+    background-color: rgba(0, 128, 128, 0.708);
+    font-family: "Kanit", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+    color: rgb(0, 255, 221);
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow: 0 5px 28px rgb(0, 0, 0);
+}
+
+.card-body img{
+    border-radius: 15px;
 }
 
 .video-container{
@@ -253,7 +294,7 @@ header{
     width: 200px;
     height: auto;
     transition: 0.10s ease-out;
-    border: 7px solid rgb(0, 255, 174);
+    border: 7px solid rgb(41, 254, 254);
     border-radius: 50%;
 }
 
@@ -735,7 +776,7 @@ header{
         left: -50px;
         z-index: 2; 
         width: 134%;
-        height: 217%;
+        height: 227%;
     }
     .videoyt{
         font-size: 37px;
