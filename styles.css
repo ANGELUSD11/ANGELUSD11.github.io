@@ -14,7 +14,6 @@ body{
     background-attachment: fixed;
     opacity: 2;
     animation: fadeIn 1.5s forwards;
-    animation: circle-rotate 5s linear infinite 1s;
 }
 
 @keyframes fadeIn {
@@ -48,6 +47,7 @@ header{
     border: 7px solid rgb(41, 254, 254);
     border-radius: 50%;
     animation: fadeIn 3s ease;
+    animation: circle-rotate 5s linear infinite 1s;
 }
 
 @keyframes fadeIn {
