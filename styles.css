@@ -221,7 +221,7 @@ header{
     padding-right: 100px;
     background-color: #292929b7;
     border-radius: 17px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.79);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.79);
 }
 
 .black-section{
@@ -363,6 +363,7 @@ header{
     background-color: #292929b7;
     border-radius: 19px;
     margin-bottom: 2.5rem;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.79);
 }
 
 .gif-container {
