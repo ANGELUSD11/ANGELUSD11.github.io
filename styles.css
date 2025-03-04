@@ -769,9 +769,6 @@ header{
 }
 
 @media (max-width: 350px){
-    .presentation{
-        font-size: 15px;
-    }
     .videoyt{
         font-size: 25px;
     }
