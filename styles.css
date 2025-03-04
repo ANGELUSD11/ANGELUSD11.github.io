@@ -737,7 +737,7 @@ header{
         height: 30px;
     }    
     .documentation p{
-        font-size: 16px;
+        font-size: 20px;
         padding-left: 5px;
         padding-right: 5px;
     }
@@ -751,7 +751,7 @@ header{
         font-size: 34px;
     }
     .presentation{
-        font-size: 15px;
+        font-size: 30px;
         padding-left: 17px;
         padding-right: 6px;
     }
