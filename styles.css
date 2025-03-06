@@ -366,29 +366,6 @@ header{
         padding-right: 25px;
     }
 
-    .gif-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .marco2{
-        position: absolute; 
-        top: -147px;
-        left: -60px;
-        z-index: 2; 
-        width: 134%;
-        height: 201%;
-    }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
     .video-container{
         width: 470px;
     }
@@ -401,26 +378,6 @@ header{
         padding-right: 25px;
     }
 
-    .gif-container{
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .marco2{
-        position: absolute; 
-        top: -147px;
-        left: -60px;
-        z-index: 2; 
-        width: 134%;
-        height: 201%;
-    }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
     .video-container{
         width: 470px;
     }
@@ -433,26 +390,6 @@ header{
         padding-right: 25px;
     }
 
-    .gif-container{
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .marco2{
-        position: absolute; 
-        top: -147px;
-        left: -60px;
-        z-index: 2; 
-        width: 134%;
-        height: 201%;
-    }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
     .video-container{
         width: 470px;
     }
@@ -471,26 +408,6 @@ header{
         padding-right: 5px;
     }
 
-    .gif-container{
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .marco2{
-        position: absolute; 
-        top: -147px;
-        left: -60px;
-        z-index: 2; 
-        width: 134%;
-        height: 201%;
-    }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
     .video-container{
         width: 470px;
     }
@@ -503,26 +420,6 @@ header{
         padding-right: 25px;
     }
 
-    .gif-container{
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .marco2{
-        position: absolute; 
-        top: -147px;
-        left: -60px;
-        z-index: 2; 
-        width: 134%;
-        height: 201%;
-    }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
     .video-container{
         width: 470px;
     }
@@ -534,27 +431,7 @@ header{
         padding-left: 25px;
         padding-right: 25px;
     }
-
-    .gif-container{
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .marco2{
-        position: absolute; 
-        top: -147px;
-        left: -60px;
-        z-index: 2; 
-        width: 134%;
-        height: 201%;
-    }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
+    
     .video-container{
         width: 470px;
     }
@@ -567,13 +444,6 @@ header{
         padding-right: 25px;
     }
 
-    .gif-container{
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
     .marco2{
         position: absolute; 
         top: -147px;
@@ -582,11 +452,7 @@ header{
         width: 134%;
         height: 201%;
     }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
+    
     .videoyt{
         font-size: 45px;
     }
@@ -596,7 +462,6 @@ header{
 }
 
 @media (max-width: 500px) {
-
     .presentation{
         font-size: 19px;
         padding-left: 25px;
@@ -607,27 +472,6 @@ header{
         font-size: 40px;
         padding-left: 20px;
         padding-right: 5px;
-    }
-
-    .gif-container{
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .marco2{
-        position: absolute; 
-        top: -147px;
-        left: -60px;
-        z-index: 2; 
-        width: 134%;
-        height: 201%;
-    }
-    .documentation p{
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: 35px;
     }
     .video-container{
         width: 470px;
@@ -692,25 +536,7 @@ header{
         padding-left: 20px;
         padding-right: 5px;
     }
-    .documentation p{
-        font-size: 17px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .gif-container{
-        position: relative; 
-        width: 370px; 
-        height: auto;
-        margin: 0 auto;
-    }
-    .marco2{
-        position: absolute; 
-        top: -160px;
-        left: -60px;
-        z-index: 2; 
-        width: 131%;
-        height: 211%;
-    }
+    
     .videoyt{
         font-size: 38px;
     }
@@ -720,11 +546,11 @@ header{
         font-size: 40px;
     }
     .presentation{
-        font-size: 15px;
+        font-size: 17px;
     }
 
     .projects-title{
-        font-size: 48px;
+        font-size: 40px;
         padding-left: 20px;
         padding-right: 5px;
     }
@@ -737,20 +563,6 @@ header{
         width: 410px;
     }
 
-    .gif-container{
-        position: relative; 
-        width: 265px; 
-        height: auto;
-        margin: 0 auto;
-    }
-    .marco2{
-        position: absolute; 
-        top: -131px;
-        left: -50px;
-        z-index: 2; 
-        width: 134%;
-        height: 227%;
-    }
     .videoyt{
         font-size: 37px;
     }
@@ -761,11 +573,6 @@ header{
         width: 360px;
         height: 30px;
     }    
-    .documentation p{
-        font-size: 16px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
     .videoyt{
         font-size: 36px;
     }
