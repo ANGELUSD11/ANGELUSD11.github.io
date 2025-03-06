@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 html{
     width: 100%;
     height: 100%;
 }
 
 body{
-    background-color: #000000;
-    background-image: url(images/500.png);
+    background-color: black;
+    background-image: url(images/robot.png);
     justify-content: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -95,72 +93,32 @@ header{
     opacity: 0.65;
 }
 
-#Discord{
-    display: block;
-    font-family: "Kanit", sans-serif;
+#Discord, #Github, #YT, #X, #Twitch {
+    display: inline-block;
+    font-family: "Jersey 10", serif;
     white-space: nowrap;
     color: rgb(112, 253, 253);
-    border-right: 1px solid;
-    width: 11ch;
-    font-size: 15px;
-    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
+    border-right: 2px solid;
+    font-size: 20px;
     overflow: hidden;
+    width: 0; /* Inicialmente oculta el texto */
+    animation: typing 2s steps(15, end) forwards, blink .7s infinite step-end alternate;
 }
 
-#Github{
-    display: block;
-    font-family: "Kanit", sans-serif;
-    white-space: nowrap;
-    color: rgb(112, 253, 253);
-    border-right: 1px solid;
-    width: 9.5ch;
-    text-align: center;
-    font-size: 15px;
-    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
-    overflow: hidden;
-}
-
-#YT{
-    display: block;
-    font-family: "Kanit", sans-serif;
-    white-space: nowrap;
-    color: rgb(112, 253, 253);
-    border-right: 1px solid;
-    width: 9.5ch;
-    text-align: center;
-    font-size: 15px;
-    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
-    overflow: hidden;
-}
-
-#X{
-    display: block;
-    font-family: "Kanit", sans-serif;
-    white-space: nowrap;
-    color: rgb(112, 253, 253);
-    border-right: 1px solid;
-    width: 10ch;
-    text-align: center;
-    font-size: 15px;
-    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
-    overflow: hidden;
-}
-
-#Twitch{
-    display: block;
-    font-family: "Kanit", sans-serif;
-    white-space: nowrap;
-    color: rgb(112, 253, 253);
-    border-right: 1px solid;
-    width: 9.5ch;
-    text-align: center;
-    font-size: 15px;
-    animation: typing 2s steps(15), blink .5s infinite step-end alternate;
-    overflow: hidden;
-}
+/* Ajusta la cantidad de "steps()" según la cantidad de letras en cada palabra */
+#Discord { animation: typing 2s steps(8, end) forwards, blink .7s infinite step-end alternate; }
+#Github  { animation: typing 1.8s steps(6, end) forwards, blink .7s infinite step-end alternate; }
+#YT      { animation: typing 1.5s steps(2, end) forwards, blink .7s infinite step-end alternate; }
+#X       { animation: typing 1.2s steps(1, end) forwards, blink .7s infinite step-end alternate; }
+#Twitch  { animation: typing 2s steps(6, end) forwards, blink .7s infinite step-end alternate; }
 
 @keyframes typing {
-    from{ width: 0 }
+    from { width: 0; }
+    to { width: max-content; } /* Se ajusta al tamaño real del texto */
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
 }
 
 @keyframes blink {
@@ -179,28 +137,29 @@ header{
     color: rgb(0, 255, 255);
 }
 
+
 .about-me-container{
     text-align: center;
-    font-family: "Kanit", sans-serif;
+    max-width: 100%;
+    height: 170px;
+    font-family: "Jersey 10", serif;
     font-size: 50px;
-    margin-top: 3.0rem;
+    letter-spacing: 5px;
+    margin-top: 0.6rem;
+    max-height: 100%;
     color: rgb(0, 255, 255);
-    background-color: #000e17b6;
+    background-color: #000000;
     border: 5px solid aqua;
-    border-radius: 15px;
-}
-
-.fondospider{
-    margin: 2.0rem;
 }
 
 .fondospider{
     text-align: center;
     color: rgb(0, 255, 255);
-    background-color: #000e17c7;
+    letter-spacing: 5px;
+    background-color: #000000;
     font-size: 50px;
     border: 5px solid aqua;
-    border-radius: 15px;
+    margin: 0rem;
 }
 
 .blur-container{
@@ -208,9 +167,16 @@ header{
     -webkit-backdrop-filter: blur(7px);
 }
 
+.parrafo{
+    width: 100vw;
+    max-width: 100%;
+    padding: 0px;
+    padding-top: 10px;
+}
+
 .presentation{
     text-align: left;
-    font-family: "Kanit", sans-serif;
+    font-family: "Jersey 10", serif;
     font-size: 25px;
     letter-spacing: 1px;
     font-style: normal;
@@ -219,20 +185,23 @@ header{
     padding-bottom: 15px;
     padding-left: 100px;
     padding-right: 100px;
-    background-color: #292929b7;
-    border-radius: 17px;
+    background-color: #000000;
+    border: 5px solid aqua;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.79);
 }
 
 .black-section{
     color: rgb(0, 247, 255);
-    background-color: rgba(0, 78, 100, 0.71);
+    letter-spacing: 5px;
+    background-color: rgb(0, 0, 0);
     border: 5px solid aqua;
-    border-radius: 15px;
+}
+
+.galery-container{
+    padding-top: 25px;
 }
 
 .fanarts{
-    margin-top: 30px;
     padding: 40px;
 }
 
@@ -241,7 +210,6 @@ header{
 }
 
 .fanarts-container{
-    align-items: center;
     justify-content: center;
     margin-bottom: 35px;
 }
@@ -251,14 +219,32 @@ header{
 }
 
 .card {
-    background-color: rgb(0, 150, 158);
-    font-family: "Kanit", sans-serif;
+    background-color: rgb(0, 242, 255);
+    font-family: "Jersey 10", serif;
     font-size: x-large;
     font-weight: bold;
-    color: rgb(0, 255, 221);
-    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
     padding: 8px;
+    border-radius: 3px;
     box-shadow: 0 5px 28px rgb(0, 0, 0);
+}
+
+.shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.1) 100%);
+    transform: skewX(-30deg);
+    transition: 0.5s;
+}
+
+.card:hover .shine {
+    left: 100%;
+    transition: 0.7s ease-in-out;
 }
 
 .card-body img{
@@ -285,17 +271,15 @@ header{
 }
 
 .projects-title{
-    display: flex;
-    justify-content: center;
-    font-family: "Kanit", sans-serif;
+    font-family: "Jersey 10", serif;
     font-weight: bold;
     font-size: 50px;
+    letter-spacing: 5px;
     color: rgb(0, 255, 255);
     padding-left: 100px;
     padding-right: 100px;
-    background-color: #000e17c4;
+    background-color: #000000;
     border: 5px solid aqua;
-    border-radius: 15px;
 }
 
 .proyectos{
@@ -322,7 +306,7 @@ header{
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-    font-family: "Kanit", sans-serif;
+    font-family: "Jersey 10", serif;
     color: rgb(112, 253, 253);
     padding-top: 10px;
 }
@@ -331,89 +315,39 @@ header{
     display: block;
     font-size: 25px;
     text-align: center;
-    font-family: "Kanit", sans-serif;
+    font-family: "Jersey 10", serif;
     color: rgb(112, 253, 253);
 }
 
 .commands{
     display: flex;
     justify-content: center;
-    font-family: "Kanit", sans-serif;
+    font-family: "Jersey 10", serif;
     font-weight: bold;
-    font-size: 40px;
-    color: rgb(173, 255, 255);
-    background-color: #002c47c8;
+    font-size: 50px;
+    color: aqua;
+    background-color: #000000;
     border: 5px solid aqua;
-    border-radius: 15px;
     padding-left: 100px;
     padding-right: 100px;
 }
 
 .documentation p{
     text-align: left;
-    font-family: "Kanit", sans-serif;
+    font-family: "Jersey 10", serif;
+    background-color: #000000;
     font-size: 25px;
     letter-spacing: 1px;
     font-style: normal;
     color: rgb(162, 242, 242);
+    letter-spacing: 1px;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     padding-left: 100px;
     padding-right: 100px;
-    background-color: #292929b7;
-    border-radius: 19px;
+    border: 5px solid aqua;
     margin-bottom: 2.5rem;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.79);
-}
-
-.gif-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; 
-    width: 700px; 
-    height: auto;
-    margin: 0 auto;
-}
-
-.content-wrapper{
-    position: relative;
-    width: 100%;
-    height: auto;
-}
-
-.gif {
-    position: relative;
-    image-rendering: smooth;
-    width: 100%; 
-    height: auto;
-    margin: 0 auto;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    border-radius: 10%;
-    border: solid rgb(0, 255, 213);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-.marco2 {
-    position: absolute; 
-    top: -276px;
-    left: -120px;
-    z-index: 2; 
-    width: 135%;
-    height: 200%;
-}
-
-.suscriber-count span{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: "Kanit", sans-serif;
-    font-weight: bold;
-    font-size: 50px;
-    color: rgb(178, 255, 255);
-    padding-top: 5px;
 }
 
 @media (max-width: 1200px) {
@@ -529,6 +463,12 @@ header{
         font-size: 19px;
         padding-left: 25px;
         padding-right: 25px;
+    }
+
+    .projects-title{
+        font-size: 40px;
+        padding-left: 20px;
+        padding-right: 5px;
     }
 
     .gif-container{
@@ -662,6 +602,13 @@ header{
         padding-left: 25px;
         padding-right: 25px;
     }
+
+    .projects-title{
+        font-size: 40px;
+        padding-left: 20px;
+        padding-right: 5px;
+    }
+
     .gif-container{
         position: relative; 
         width: 370px; 
@@ -702,6 +649,12 @@ header{
     .bio{
         font-size: 49px;
     }
+    
+    .projects-title{
+        font-size: 40px;
+        padding-left: 20px;
+        padding-right: 5px;
+    }
 
     .videoyt{
         font-size: 43px;
@@ -736,6 +689,8 @@ header{
     }
     .projects-title{
         font-size: 40px;
+        padding-left: 20px;
+        padding-right: 5px;
     }
     .documentation p{
         font-size: 17px;
@@ -767,17 +722,19 @@ header{
     .presentation{
         font-size: 15px;
     }
-    .video-container lite-youtube{
-        width: 410px;
-    }
 
     .projects-title{
-        font-size: 40px;
+        font-size: 48px;
+        padding-left: 20px;
+        padding-right: 5px;
     }
-    .documentation p{
-        font-size: 17px;
-        padding-left: 10px;
-        padding-right: 10px;
+
+    .proyectos img{
+        width: 150px;
+    }
+
+    .video-container lite-youtube{
+        width: 410px;
     }
 
     .gif-container{
