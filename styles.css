@@ -5,7 +5,7 @@ html{
 
 body{
     background-color: black;
-    background-image: url(images/robot.png);
+    background-image: url(images/viñeta.png);
     justify-content: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -28,6 +28,7 @@ header{
     justify-content: center;
     align-items: center;
     padding-top: 50px;
+    padding-bottom: 30px;
 }
 
 .main{
@@ -42,7 +43,7 @@ header{
 .diamond{
     max-width: 20%;
     height: auto;
-    border: 7px solid rgb(41, 254, 254);
+    border: 5px solid rgb(41, 254, 254);
     border-radius: 50%;
     animation: fadeIn 3s ease;
     animation: circle-rotate 5s linear infinite 1s;
@@ -143,29 +144,25 @@ header{
     max-width: 100%;
     height: 170px;
     font-family: "Jersey 10", serif;
-    font-size: 50px;
     letter-spacing: 5px;
     margin-top: 0.6rem;
     max-height: 100%;
     color: rgb(0, 255, 255);
-    background-color: #000000;
-    border: 5px solid aqua;
+    background: linear-gradient(black, rgb(0, 36, 52));
+    border: 2px solid aqua;
+    border-radius: 15px;
 }
 
 .fondospider{
     text-align: center;
     color: rgb(0, 255, 255);
     letter-spacing: 5px;
-    background-color: #000000;
+    background: linear-gradient(black, rgb(0, 36, 52));
     font-size: 50px;
-    border: 5px solid aqua;
-    margin: 0rem;
+    border: 2px solid aqua;
+    border-radius: 15px;
 }
 
-.blur-container{
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
-}
 
 .parrafo{
     width: 100vw;
@@ -185,16 +182,18 @@ header{
     padding-bottom: 15px;
     padding-left: 100px;
     padding-right: 100px;
-    background-color: #000000;
-    border: 5px solid aqua;
+    background: linear-gradient(black, rgb(0, 36, 52));
+    border: 2px solid aqua;
+    border-radius: 15px;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.79);
 }
 
 .black-section{
     color: rgb(0, 247, 255);
     letter-spacing: 5px;
-    background-color: rgb(0, 0, 0);
-    border: 5px solid aqua;
+    background: linear-gradient(to right,black, rgb(0, 82, 82));
+    border: 2px solid aqua;
+    border-radius: 15px;
 }
 
 .galery-container{
@@ -257,7 +256,7 @@ header{
     align-items: center;
     position: relative;
     width: 560px;
-    margin-top: 3.0rem;
+    margin-top: 2.0rem;
 }
 
 .video-container lite-youtube{
@@ -271,6 +270,8 @@ header{
 }
 
 .projects-title{
+    width: 100%;
+    height: auto;
     font-family: "Jersey 10", serif;
     font-weight: bold;
     font-size: 50px;
@@ -279,7 +280,7 @@ header{
     padding-left: 100px;
     padding-right: 100px;
     background-color: #000000;
-    border: 5px solid aqua;
+    border-radius: 15px;
 }
 
 .proyectos{
@@ -293,7 +294,7 @@ header{
     width: 200px;
     height: auto;
     transition: 0.10s ease-out;
-    border: 7px solid rgb(41, 254, 254);
+    border: 2px solid aqua;
     border-radius: 50%;
 }
 
