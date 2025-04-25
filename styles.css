@@ -43,7 +43,7 @@ header{
 .diamond{
     max-width: 20%;
     height: auto;
-    border: 5px solid rgb(41, 254, 254);
+    border: 3px solid rgb(41, 254, 254);
     border-radius: 50%;
     animation: fadeIn 3s ease;
     animation: circle-rotate 5s linear infinite 1s;
