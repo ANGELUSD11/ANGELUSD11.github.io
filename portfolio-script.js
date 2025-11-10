@@ -21,11 +21,8 @@ async function fetchSubscriberCount() {
 
         // Intenta varios campos comunes de la API
         const subs =
-            data?.est_sub ??
-            data?.estSub ??
-            data?.API_sub ??
-            data?.value ??
-            data?.subscribers ??
+            data?.counters?.estimation?.subscriberCount ??
+            data?.counters?.api?.subscriberCount ??
             null;
 
         if (subs != null && !Number.isNaN(Number(subs))) {
@@ -119,3 +116,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
