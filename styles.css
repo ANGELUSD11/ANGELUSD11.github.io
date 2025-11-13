@@ -206,7 +206,43 @@ footer p {
     }
 }
 
-/* Smooth transitions for language change */
 [data-es], [data-en] {
     transition: opacity 0.2s ease;
+}
+
+.game-container {
+    background-color: var(--bg-dark-subtle);
+    border: 2px solid var(--primary-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.game-container iframe {
+    border-radius: 0.5rem;
+    border: none;
+    max-width: 100%;
+}
+
+.game-logo {
+    max-width: 80%; /* Adjust as needed */
+    height: auto;
+    display: block; 
+    margin: 0 auto 1.5rem auto; 
+    filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.7)); 
+
+}
+
+@media (max-width: 768px) {
+    .game-logo {
+        max-width: 90%;
+    }
+}
+
+body.game-page {
+    min-height: 100vh;
 }
