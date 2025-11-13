@@ -7,6 +7,7 @@ const CHANNEL_ID = 'UCFYLLqA03vesXUt-3eTP81A';
 // Fetch subscriber count usando SocialCounts
 async function fetchSubscriberCount() {
     const subscriberElement = document.getElementById('subscriberCount');
+    if (!subscriberElement) return; // Do nothing if the element doesn't exist
 
     try {
         const response = await fetch(
@@ -22,7 +23,7 @@ async function fetchSubscriberCount() {
         // Intenta varios campos comunes de la API
         const subs =
             data?.counters?.estimation?.subscriberCount ??
-            data?.counters?.api?.subscriberCount ??
+            data?.counters?.api?.subscriberCount ??
             null;
 
         if (subs != null && !Number.isNaN(Number(subs))) {
