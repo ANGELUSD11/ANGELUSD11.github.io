@@ -229,7 +229,7 @@ footer p {
 }
 
 .game-logo {
-    max-width: 80%; /* Adjust as needed */
+    max-width: 30%;
     height: auto;
     display: block; 
     margin: 0 auto 1.5rem auto; 
@@ -245,4 +245,26 @@ footer p {
 
 body.game-page {
     min-height: 100vh;
+    position: relative; /* Needed for pseudo-element positioning */
+    overflow-x: hidden; /* Prevent horizontal scroll if image is slightly wider */
+}
+
+body.game-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/conceptoadvad.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.08; /* Very low opacity */
+    z-index: -1; /* Place behind content */
+}
+
+body.game-page header {
+    background-color: var(--bg-dark-subtle); /* Solid color for the navbar */
+    border-bottom: 2px solid var(--primary-color) !important; /* Blue border */
 }
