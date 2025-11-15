@@ -60,8 +60,8 @@
                 <div class="card-body">
                     <h2 class="card-title text-info" data-es="Proceso de desarrollo de RobTopLvlID🔎" data-en="Development Process for RobTopLvlID🔎"></h2>
                     <p class="card-subtitle mb-2 text-muted" data-es="22 de mayo de 2025" data-en="May 22, 2025"></p>
+                    
                     <div class="card-text">
-                        
                         <p data-es="Hace unos meses, cuando comencé a explorar el campo de la inteligencia artificial, me pregunté si sería posible desarrollar un modelo capaz de reconocer niveles de Geometry Dash. Mi objetivo no era aprovechar esto para obtener una ventaja injusta en Sparky, especialmente considerando las evidentes limitaciones de hardware— incluso utilizando recursos en la nube.
                         Finalmente, decidí basar el proyecto en el modelo pre-entrenado MobileNetV2 de Keras, aprovechando redes neuronales convolucionales para el reconocimiento de imágenes. El código completo puede encontrarse en el repositorio GDLvlDetector.
 
@@ -73,160 +73,166 @@
                         
                         Initially, I attempted to build the network from scratch using TensorFlow, which surprisingly performed quite well in recognizing around two to five levels at most. However, the primary challenge with this approach was the sheer volume of data required and the hardware constraints. In the following sections, I will explain each phase of the training process I undertook."></p>
 
-                        <div class="ratio ratio-16x9 my-4 video-frame">
-                            <iframe src="https://www.youtube.com/embed/n_L2AG_-dxs?si=HRqAvSSNpA7IZpsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <a class="btn btn-outline-info btn-sm mb-3" data-bs-toggle="collapse" href="#robtop-content" role="button" aria-expanded="false" aria-controls="robtop-content" id="robtop-toggle">
+                            <span data-es="Mostrar más" data-en="Show more"></span> <i class="fas fa-chevron-down"></i>
+                        </a>
+
+                        <div class="collapse" id="robtop-content">
+                            <div class="ratio ratio-16x9 my-4 video-frame">
+                                <iframe src="https://www.youtube.com/embed/n_L2AG_-dxs?si=HRqAvSSNpA7IZpsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+
+                            <p data-es="Como en cualquier proyecto de machine learning, el primer paso que debe realizarse—y el que en última instancia determinará la calidad del modelo—es reunir los datos de entrenamiento.
+
+                            Para este proyecto, pasé varios días grabando todos los niveles que el modelo debería reconocer posteriormente usando imágenes. Sin embargo, no podía entrenar el modelo usando directamente el metraje de los videos, lo que nos lleva al segundo paso." 
+                            
+                            data-en="As with any machine learning project, the initial step that must be taken—and the one that will ultimately determine the quality of the model—is gathering the training data. 
+                            
+                            For this project, I spent several days recording all the levels that the model would later recognize using images. However, I could not train the model using video footage directly, which leads us to the second step.
+                            The proper way to train a convolutional neural network is by using images. Therefore, I extracted frames from the videos I had recorded earlier. Naturally, I didn’t do this manually but instead used OpenCV with the following script:"></p>
+
+                            <pre><code class="language-python">
+                                import os
+                                import cv2
+
+                                def extract_frames(video_path, output_folder, interval=30):
+                                    os.makedirs(output_folder, exist_ok=True)
+
+                                    cap = cv2.VideoCapture(video_path)
+
+                                    frame_count = 0
+                                    saved_frames = 0
+
+                                    while cap.isOpened(): 
+                                        ret, frame = cap.read()
+                                        if not ret:
+                                            break
+
+                                        if frame_count % interval == 0:
+                                            filename = os.path.join(output_folder, f"{os.path.basename(video_path).split('.')[0]}_frame_{saved_frames}.jpg")
+                                            cv2.imwrite(filename, frame)
+                                            saved_frames += 1
+
+                                        frame_count += 1
+
+                                    cap.release()
+                            </code></pre>
+                            <p data-es="En el paso anterior, las imágenes extraídas de los fotogramas fueron guardadas ordenadamente en carpetas nombradas según cada nivel.
+                            Ahora es necesario preparar los datos de la manera más óptima para usarlos con el modelo MobileNetV2, de forma que durante el proceso de convolución pueda clasificar y reconocer patrones correctamente.
+                            Esto implica tomar en cuenta varios aspectos, como:
+                            tamaño de las imágenes, tamaño de los lotes, tamaños de los vectores, canales de color y muchos otros detalles tediosos pero esenciales."
+                            
+                            data-en="In the previous step, the images from the frames were saved in an orderly manner into folders named after each level. Now, it is necessary to prepare the data in the most optimal way for use with the MobileNetV2 model, so that during the convolution process it can classify and recognize patterns correctly. This involves taking several aspects into account, such as image size, batch size, vector sizes, color channels, and many other tedious but essential details. The following script details this process:"></p>
+                            <pre><code class="language-python">
+                                import tensorflow as tf
+                                import numpy as np
+                                import json
+                                import matplotlib.pyplot as plt
+                                from keras.src.legacy.preprocessing.image import ImageDataGenerator
+                                from keras.src.callbacks import EarlyStopping, ModelCheckpoint
+                                from keras.src.applications.mobilenet_v2 import preprocess_input, MobileNetV2
+                                from keras.src import layers, models
+
+                                # Path to the train data
+                                data_path = "vidframes"
+
+                                # Callbacks
+                                callbacks = [
+                                    EarlyStopping(patience=10, restore_best_weights=True),
+                                    ModelCheckpoint("best_model.keras", save_best_only=True)
+                                ]
+
+                                # Data Augmentation + Preprocess MobileNetV2
+                                datagen = ImageDataGenerator(
+                                    preprocessing_function=preprocess_input,
+                                    validation_split=0.2,
+                                    rotation_range=15,
+                                    width_shift_range=0.1,
+                                    height_shift_range=0.1,
+                                    shear_range=0.1,
+                                    zoom_range=0.2,
+                                    horizontal_flip=True,
+                                    brightness_range=[0.8, 1.2],
+                                    fill_mode='nearest'
+                                )
+
+                                train_data = datagen.flow_from_directory(
+                                    data_path,
+                                    target_size=(160, 160),  # Size for MobileNetV2
+                                    batch_size=32,
+                                    class_mode='categorical',
+                                    subset='training'
+                                )
+
+                                val_data = datagen.flow_from_directory(
+                                    data_path,
+                                    target_size=(160, 160),
+                                    batch_size=32,
+                                    class_mode='categorical',
+                                    subset='validation'
+                                )
+                            </code></pre>
+
+                            <p data-es="En este paso, el modelo ya está listo para comenzar su proceso de entrenamiento.
+                            Después de preparar los datos, la red neuronal puede generalizar más información para reconocer casos especiales, como si la imagen está rotada o deformada, entre otros.
+
+                            En este punto uso un modelo pre-entrenado de Keras llamado MobileNetV2. Al cargarlo, esto me permite entrenar mi modelo utilizando la técnica de transfer learning, evitando crear mi propia red neuronal convolucional desde cero y lidiar con todos los problemas que eso implica.
+                            
+                            Importar modelos pre-entrenados MobileNetV2 desde keras y cargar el modelo en una variable:"
+
+                            data-en="Model Training In this step, the model is ready to begin its training process. After data preparation, the neural network can generalize to more information to order to recognize more special cases, such as if an image if rotated or deformed, among others. At this point i use an pre-trained Keras model called MobileNetV2. By loading it, this will me train my model using the transfer learning technique so i don't create my own Convolutional Neuronal Network from scratch and deal with all the problems that entails.
+
+                            Import MobileNetV2 Pre-trained models from keras and load the model in a variable:"></p>
+
+                            <pre><code class="language-python">
+                                from keras.src.legacy.preprocessing.image import ImageDataGenerator
+                                from keras.src.callbacks import EarlyStopping, ModelCheckpoint
+                                from keras.src.applications.mobilenet_v2 import preprocess_input, MobileNetV2
+                                from keras.src import layers, models
+
+                                base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(160, 160, 3))
+                            </code></pre>
+
+                            <p data-es="Proceso de Transfer Learning y configuración"
+                            data-en="Transfer Learning Process and configutation"></p>
+
+                            <pre><code class="language-python">
+                                for layer in base_model.layers:
+                                    layer.trainable = False
+
+                                for layer in base_model.layers[-30:]:  # Latest 30 layers
+                                    layer.trainable = True
+
+                                # Complete Model
+                                model = models.Sequential([
+                                    base_model,
+                                    layers.GlobalAveragePooling2D(),
+                                    layers.Dense(256, activation='relu'),
+                                    layers.Dropout(0.5),
+                                    layers.Dense(train_data.num_classes, activation='softmax')  
+                                ])
+                            </code></pre>
+
+                            <p data-es="Proceso de compilación y entrenamiento"
+                            data-en="Compile and training process"></p>
+
+                            <pre><code class="language-python">
+                                # Compile
+                                model.compile(
+                                    optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005),
+                                    loss='categorical_crossentropy',
+                                    metrics=['accuracy']
+                                )
+
+                                # Training
+                                history = model.fit(train_data, validation_data=val_data, epochs=50, callbacks=callbacks)
+                                with open("train_history.json", "w") as f:
+                                    json.dump(history.history, f)
+
+                                # Save Model .keras
+                                model.save("gd_level_classifier.keras")
+                            </code></pre>
                         </div>
-
-                        <p data-es="Como en cualquier proyecto de machine learning, el primer paso que debe realizarse—y el que en última instancia determinará la calidad del modelo—es reunir los datos de entrenamiento.
-
-                        Para este proyecto, pasé varios días grabando todos los niveles que el modelo debería reconocer posteriormente usando imágenes. Sin embargo, no podía entrenar el modelo usando directamente el metraje de los videos, lo que nos lleva al segundo paso." 
-                        
-                        data-en="As with any machine learning project, the initial step that must be taken—and the one that will ultimately determine the quality of the model—is gathering the training data. 
-                        
-                        For this project, I spent several days recording all the levels that the model would later recognize using images. However, I could not train the model using video footage directly, which leads us to the second step.
-                        The proper way to train a convolutional neural network is by using images. Therefore, I extracted frames from the videos I had recorded earlier. Naturally, I didn’t do this manually but instead used OpenCV with the following script:"></p>
-
-                        <pre><code class="language-python">
-                            import os
-                            import cv2
-
-                            def extract_frames(video_path, output_folder, interval=30):
-                                os.makedirs(output_folder, exist_ok=True)
-
-                                cap = cv2.VideoCapture(video_path)
-
-                                frame_count = 0
-                                saved_frames = 0
-
-                                while cap.isOpened(): 
-                                    ret, frame = cap.read()
-                                    if not ret:
-                                        break
-
-                                    if frame_count % interval == 0:
-                                        filename = os.path.join(output_folder, f"{os.path.basename(video_path).split('.')[0]}_frame_{saved_frames}.jpg")
-                                        cv2.imwrite(filename, frame)
-                                        saved_frames += 1
-
-                                    frame_count += 1
-
-                                cap.release()
-                        </code></pre>
-                        <p data-es="En el paso anterior, las imágenes extraídas de los fotogramas fueron guardadas ordenadamente en carpetas nombradas según cada nivel.
-                        Ahora es necesario preparar los datos de la manera más óptima para usarlos con el modelo MobileNetV2, de forma que durante el proceso de convolución pueda clasificar y reconocer patrones correctamente.
-                        Esto implica tomar en cuenta varios aspectos, como:
-                        tamaño de las imágenes, tamaño de los lotes, tamaños de los vectores, canales de color y muchos otros detalles tediosos pero esenciales."
-                        
-                        data-en="In the previous step, the images from the frames were saved in an orderly manner into folders named after each level. Now, it is necessary to prepare the data in the most optimal way for use with the MobileNetV2 model, so that during the convolution process it can classify and recognize patterns correctly. This involves taking several aspects into account, such as image size, batch size, vector sizes, color channels, and many other tedious but essential details. The following script details this process:"></p>
-                        <pre><code class="language-python">
-                            import tensorflow as tf
-                            import numpy as np
-                            import json
-                            import matplotlib.pyplot as plt
-                            from keras.src.legacy.preprocessing.image import ImageDataGenerator
-                            from keras.src.callbacks import EarlyStopping, ModelCheckpoint
-                            from keras.src.applications.mobilenet_v2 import preprocess_input, MobileNetV2
-                            from keras.src import layers, models
-
-                            # Path to the train data
-                            data_path = "vidframes"
-
-                            # Callbacks
-                            callbacks = [
-                                EarlyStopping(patience=10, restore_best_weights=True),
-                                ModelCheckpoint("best_model.keras", save_best_only=True)
-                            ]
-
-                            # Data Augmentation + Preprocess MobileNetV2
-                            datagen = ImageDataGenerator(
-                                preprocessing_function=preprocess_input,
-                                validation_split=0.2,
-                                rotation_range=15,
-                                width_shift_range=0.1,
-                                height_shift_range=0.1,
-                                shear_range=0.1,
-                                zoom_range=0.2,
-                                horizontal_flip=True,
-                                brightness_range=[0.8, 1.2],
-                                fill_mode='nearest'
-                            )
-
-                            train_data = datagen.flow_from_directory(
-                                data_path,
-                                target_size=(160, 160),  # Size for MobileNetV2
-                                batch_size=32,
-                                class_mode='categorical',
-                                subset='training'
-                            )
-
-                            val_data = datagen.flow_from_directory(
-                                data_path,
-                                target_size=(160, 160),
-                                batch_size=32,
-                                class_mode='categorical',
-                                subset='validation'
-                            )
-                        </code></pre>
-
-                        <p data-es="En este paso, el modelo ya está listo para comenzar su proceso de entrenamiento.
-                        Después de preparar los datos, la red neuronal puede generalizar más información para reconocer casos especiales, como si la imagen está rotada o deformada, entre otros.
-
-                        En este punto uso un modelo pre-entrenado de Keras llamado MobileNetV2. Al cargarlo, esto me permite entrenar mi modelo utilizando la técnica de transfer learning, evitando crear mi propia red neuronal convolucional desde cero y lidiar con todos los problemas que eso implica.
-                        
-                        Importar modelos pre-entrenados MobileNetV2 desde keras y cargar el modelo en una variable:"
-
-                        data-en="Model Training In this step, the model is ready to begin its training process. After data preparation, the neural network can generalize to more information to order to recognize more special cases, such as if an image if rotated or deformed, among others. At this point i use an pre-trained Keras model called MobileNetV2. By loading it, this will me train my model using the transfer learning technique so i don't create my own Convolutional Neuronal Network from scratch and deal with all the problems that entails.
-
-                        Import MobileNetV2 Pre-trained models from keras and load the model in a variable:"></p>
-
-                        <pre><code class="language-python">
-                            from keras.src.legacy.preprocessing.image import ImageDataGenerator
-                            from keras.src.callbacks import EarlyStopping, ModelCheckpoint
-                            from keras.src.applications.mobilenet_v2 import preprocess_input, MobileNetV2
-                            from keras.src import layers, models
-
-                            base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(160, 160, 3))
-                        </code></pre>
-
-                        <p data-es="Proceso de Transfer Learning y configuración"
-                        data-en="Transfer Learning Process and configutation"></p>
-
-                        <pre><code class="language-python">
-                            for layer in base_model.layers:
-                                layer.trainable = False
-
-                            for layer in base_model.layers[-30:]:  # Latest 30 layers
-                                layer.trainable = True
-
-                            # Complete Model
-                            model = models.Sequential([
-                                base_model,
-                                layers.GlobalAveragePooling2D(),
-                                layers.Dense(256, activation='relu'),
-                                layers.Dropout(0.5),
-                                layers.Dense(train_data.num_classes, activation='softmax')  
-                            ])
-                        </code></pre>
-
-                        <p data-es="Proceso de compilación y entrenamiento"
-                        data-en="Compile and training process"></p>
-
-                        <pre><code class="language-python">
-                            # Compile
-                            model.compile(
-                                optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005),
-                                loss='categorical_crossentropy',
-                                metrics=['accuracy']
-                            )
-
-                            # Training
-                            history = model.fit(train_data, validation_data=val_data, epochs=50, callbacks=callbacks)
-                            with open("train_history.json", "w") as f:
-                                json.dump(history.history, f)
-
-                            # Save Model .keras
-                            model.save("gd_level_classifier.keras")
-                        </code></pre>
                     </div>
                 </div>
             </article>

@@ -88,6 +88,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Establecer el texto inicial al cargar la página
     updateText(true);
+
+    // Blog post collapse functionality
+    const robtopToggle = document.getElementById('robtop-toggle');
+    if (robtopToggle) {
+        const robtopContent = document.getElementById('robtop-content');
+        const robtopToggleText = robtopToggle.querySelector('span');
+        const robtopToggleIcon = robtopToggle.querySelector('i');
+
+        robtopContent.addEventListener('show.bs.collapse', function () {
+            robtopToggleText.setAttribute('data-es', 'Mostrar menos');
+            robtopToggleText.setAttribute('data-en', 'Show less');
+            robtopToggleIcon.classList.remove('fa-chevron-down');
+            robtopToggleIcon.classList.add('fa-chevron-up');
+            updateText();
+        });
+
+        robtopContent.addEventListener('hide.bs.collapse', function () {
+            robtopToggleText.setAttribute('data-es', 'Mostrar más');
+            robtopToggleText.setAttribute('data-en', 'Show more');
+            robtopToggleIcon.classList.remove('fa-chevron-up');
+            robtopToggleIcon.classList.add('fa-chevron-down');
+            updateText();
+        });
+    }
 });
 
 // Smooth scroll
