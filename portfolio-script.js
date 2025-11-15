@@ -53,21 +53,41 @@ fetchSubscriberCount();
 setInterval(fetchSubscriberCount, 10000);
 
 // Language switcher
-document.getElementById('langBtn').addEventListener('click', function() {
-    currentLang = currentLang === 'es' ? 'en' : 'es';
-    document.getElementById('langText').textContent = currentLang === 'es' ? 'EN' : 'ES';
-
+function updateText(isInitialLoad = false) {
     const elements = document.querySelectorAll('[data-es][data-en]');
     elements.forEach(element => {
         const esText = element.getAttribute('data-es');
         const enText = element.getAttribute('data-en');
+        const newText = currentLang === 'es' ? esText : enText;
 
-        element.style.opacity = '0';
-        setTimeout(() => {
-            element.textContent = currentLang === 'es' ? esText : enText;
-            element.style.opacity = '1';
-        }, 200);
+        // No aplicar efecto de desvanecimiento en la carga inicial
+        if (isInitialLoad) {
+            element.innerHTML = newText;
+        } else {
+            if (element.innerHTML !== newText) {
+                element.style.opacity = '0';
+                setTimeout(() => {
+                    element.innerHTML = newText;
+                    element.style.opacity = '1';
+                }, 200);
+            }
+        }
     });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Configuración del conmutador de idioma
+    const langBtn = document.getElementById('langBtn');
+    if (langBtn) {
+        langBtn.addEventListener('click', function() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.getElementById('langText').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            updateText();
+        });
+    }
+    
+    // Establecer el texto inicial al cargar la página
+    updateText(true);
 });
 
 // Smooth scroll
