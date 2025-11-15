@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - ANGELUS11</title>
+    <meta name="description" content="Blog de desarrollo de ANGELUS11.">
+    <meta name="author" content="ANGELUS11">
+    <link rel="icon" type="image/png" href="icons/icon_glow.png">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
+</head>
+<body class="bg-dark text-light">
+
+    <nav class="navbar bg-dark-subtle py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Left side: Home button -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="index.html"><i class="fas fa-home me-1"></i><span data-es="Inicio" data-en="Home"></span></a>
+                </li>
+            </ul>
+
+            <!-- Right side: Language switcher -->
+            <div class="language-switcher">
+                <button id="langBtn" class="btn btn-outline-primary">
+                    <i class="fas fa-globe"></i> <span id="langText">EN</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="text-center text-primary mb-5">
+            <i class="fas fa-code me-2"></i>
+            <span data-es="Blog de Desarrollo" data-en="Development Blog"></span>
+        </h1>
+
+        <div class="blog-container">
+            <article class="blog-post card bg-dark-subtle border-primary mb-4">
+                <div class="card-body">
+                    <h2 class="card-title text-primary" data-es="Creación del Blog" data-en="Blog Creation"></h2>
+                    <p class="card-subtitle mb-2 text-muted" data-es="15 de noviembre de 2025" data-en="November 15, 2025"></p>
+                    <div class="card-text">
+                        <p data-es="¡Bienvenido a mi nuevo blog! He decidido crear este espacio para documentar el proceso de desarrollo de mis proyectos, compartir ideas y publicar los avances." data-en="Welcome to my new blog! I've decided to create this space to document the development process of my projects, share ideas, and post updates."></p>
+                        <p data-es="Para empezar, he creado esta misma página usando HTML y Bootstrap, manteniendo el estilo de mi portafolio principal. Aquí podrás ver cómo evolucionan mis proyectos como <strong>TDMBOT💠</strong>, <strong>Berto AI🌱</strong> y otros experimentos en los que trabaje." data-en="To start, I've created this very page using HTML and Bootstrap, maintaining the style of my main portfolio. Here you'll be able to see how my projects like <strong>TDMBOT💠</strong>, <strong>Berto AI🌱</strong>, and other experiments I work on evolve."></p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-post card bg-dark-subtle border-info mb-4">
+                <div class="card-body">
+                    <h2 class="card-title text-info" data-es="Proceso de desarrollo de RobTopLvlID🔎" data-en="Development Process for RobTopLvlID🔎"></h2>
+                    <p class="card-subtitle mb-2 text-muted" data-es="22 de mayo de 2025" data-en="May 22, 2025"></p>
+                    <div class="card-text">
+                        
+                        <p data-es="Hace unos meses, cuando comencé a explorar el campo de la inteligencia artificial, me pregunté si sería posible desarrollar un modelo capaz de reconocer niveles de Geometry Dash. Mi objetivo no era aprovechar esto para obtener una ventaja injusta en Sparky, especialmente considerando las evidentes limitaciones de hardware— incluso utilizando recursos en la nube.
+                        Finalmente, decidí basar el proyecto en el modelo pre-entrenado MobileNetV2 de Keras, aprovechando redes neuronales convolucionales para el reconocimiento de imágenes. El código completo puede encontrarse en el repositorio GDLvlDetector.
+
+                        Inicialmente intenté construir la red desde cero usando TensorFlow, y sorprendentemente funcionó bastante bien reconociendo alrededor de dos a cinco niveles como máximo. Sin embargo, el principal reto con este enfoque fue la gran cantidad de datos requerida y las limitaciones de hardware.
+                        En las siguientes secciones explicaré cada fase del proceso de entrenamiento que llevé a cabo." 
+                        
+                        data-en="
+                        A few months ago, as I began exploring the field of artificial intelligence, I wondered whether it would be possible to develop a model capable of recognizing Geometry Dash levels. My goal was not to exploit this for unfair advantage in Sparky, especially considering the evident hardware limitations—even when utilizing cloud resources. Ultimately, I decided to base the project on the pre-trained MobileNetV2 model from Keras, leveraging convolutional neural networks for image recognition. The complete code can be found in the repository GDLvlDetector. 
+                        
+                        Initially, I attempted to build the network from scratch using TensorFlow, which surprisingly performed quite well in recognizing around two to five levels at most. However, the primary challenge with this approach was the sheer volume of data required and the hardware constraints. In the following sections, I will explain each phase of the training process I undertook."></p>
+
+                        <div class="ratio ratio-16x9 my-4 video-frame">
+                            <iframe src="https://www.youtube.com/embed/n_L2AG_-dxs?si=HRqAvSSNpA7IZpsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+
+                        <p data-es="Como en cualquier proyecto de machine learning, el primer paso que debe realizarse—y el que en última instancia determinará la calidad del modelo—es reunir los datos de entrenamiento.
+
+                        Para este proyecto, pasé varios días grabando todos los niveles que el modelo debería reconocer posteriormente usando imágenes. Sin embargo, no podía entrenar el modelo usando directamente el metraje de los videos, lo que nos lleva al segundo paso." 
+                        
+                        data-en="As with any machine learning project, the initial step that must be taken—and the one that will ultimately determine the quality of the model—is gathering the training data. 
+                        
+                        For this project, I spent several days recording all the levels that the model would later recognize using images. However, I could not train the model using video footage directly, which leads us to the second step.
+                        The proper way to train a convolutional neural network is by using images. Therefore, I extracted frames from the videos I had recorded earlier. Naturally, I didn’t do this manually but instead used OpenCV with the following script:"></p>
+
+                        <pre><code class="language-python">
+                            import os
+                            import cv2
+
+                            def extract_frames(video_path, output_folder, interval=30):
+                                os.makedirs(output_folder, exist_ok=True)
+
+                                cap = cv2.VideoCapture(video_path)
+
+                                frame_count = 0
+                                saved_frames = 0
+
+                                while cap.isOpened(): 
+                                    ret, frame = cap.read()
+                                    if not ret:
+                                        break
+
+                                    if frame_count % interval == 0:
+                                        filename = os.path.join(output_folder, f"{os.path.basename(video_path).split('.')[0]}_frame_{saved_frames}.jpg")
+                                        cv2.imwrite(filename, frame)
+                                        saved_frames += 1
+
+                                    frame_count += 1
+
+                                cap.release()
+                        </code></pre>
+                        <p data-es="En el paso anterior, las imágenes extraídas de los fotogramas fueron guardadas ordenadamente en carpetas nombradas según cada nivel.
+                        Ahora es necesario preparar los datos de la manera más óptima para usarlos con el modelo MobileNetV2, de forma que durante el proceso de convolución pueda clasificar y reconocer patrones correctamente.
+                        Esto implica tomar en cuenta varios aspectos, como:
+                        tamaño de las imágenes, tamaño de los lotes, tamaños de los vectores, canales de color y muchos otros detalles tediosos pero esenciales."
+                        
+                        data-en="In the previous step, the images from the frames were saved in an orderly manner into folders named after each level. Now, it is necessary to prepare the data in the most optimal way for use with the MobileNetV2 model, so that during the convolution process it can classify and recognize patterns correctly. This involves taking several aspects into account, such as image size, batch size, vector sizes, color channels, and many other tedious but essential details. The following script details this process:"></p>
+                        <pre><code class="language-python">
+                            import tensorflow as tf
+                            import numpy as np
+                            import json
+                            import matplotlib.pyplot as plt
+                            from keras.src.legacy.preprocessing.image import ImageDataGenerator
+                            from keras.src.callbacks import EarlyStopping, ModelCheckpoint
+                            from keras.src.applications.mobilenet_v2 import preprocess_input, MobileNetV2
+                            from keras.src import layers, models
+
+                            # Path to the train data
+                            data_path = "vidframes"
+
+                            # Callbacks
+                            callbacks = [
+                                EarlyStopping(patience=10, restore_best_weights=True),
+                                ModelCheckpoint("best_model.keras", save_best_only=True)
+                            ]
+
+                            # Data Augmentation + Preprocess MobileNetV2
+                            datagen = ImageDataGenerator(
+                                preprocessing_function=preprocess_input,
+                                validation_split=0.2,
+                                rotation_range=15,
+                                width_shift_range=0.1,
+                                height_shift_range=0.1,
+                                shear_range=0.1,
+                                zoom_range=0.2,
+                                horizontal_flip=True,
+                                brightness_range=[0.8, 1.2],
+                                fill_mode='nearest'
+                            )
+
+                            train_data = datagen.flow_from_directory(
+                                data_path,
+                                target_size=(160, 160),  # Size for MobileNetV2
+                                batch_size=32,
+                                class_mode='categorical',
+                                subset='training'
+                            )
+
+                            val_data = datagen.flow_from_directory(
+                                data_path,
+                                target_size=(160, 160),
+                                batch_size=32,
+                                class_mode='categorical',
+                                subset='validation'
+                            )
+                        </code></pre>
+
+                        <p data-es="En este paso, el modelo ya está listo para comenzar su proceso de entrenamiento.
+                        Después de preparar los datos, la red neuronal puede generalizar más información para reconocer casos especiales, como si la imagen está rotada o deformada, entre otros.
+
+                        En este punto uso un modelo pre-entrenado de Keras llamado MobileNetV2. Al cargarlo, esto me permite entrenar mi modelo utilizando la técnica de transfer learning, evitando crear mi propia red neuronal convolucional desde cero y lidiar con todos los problemas que eso implica.
+                        
+                        Importar modelos pre-entrenados MobileNetV2 desde keras y cargar el modelo en una variable:"
+
+                        data-en="Model Training In this step, the model is ready to begin its training process. After data preparation, the neural network can generalize to more information to order to recognize more special cases, such as if an image if rotated or deformed, among others. At this point i use an pre-trained Keras model called MobileNetV2. By loading it, this will me train my model using the transfer learning technique so i don't create my own Convolutional Neuronal Network from scratch and deal with all the problems that entails.
+
+                        Import MobileNetV2 Pre-trained models from keras and load the model in a variable:"></p>
+
+                        <pre><code class="language-python">
+                            from keras.src.legacy.preprocessing.image import ImageDataGenerator
+                            from keras.src.callbacks import EarlyStopping, ModelCheckpoint
+                            from keras.src.applications.mobilenet_v2 import preprocess_input, MobileNetV2
+                            from keras.src import layers, models
+
+                            base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(160, 160, 3))
+                        </code></pre>
+
+                        <p data-es="Proceso de Transfer Learning y configuración"
+                        data-en="Transfer Learning Process and configutation"></p>
+
+                        <pre><code class="language-python">
+                            for layer in base_model.layers:
+                                layer.trainable = False
+
+                            for layer in base_model.layers[-30:]:  # Latest 30 layers
+                                layer.trainable = True
+
+                            # Complete Model
+                            model = models.Sequential([
+                                base_model,
+                                layers.GlobalAveragePooling2D(),
+                                layers.Dense(256, activation='relu'),
+                                layers.Dropout(0.5),
+                                layers.Dense(train_data.num_classes, activation='softmax')  
+                            ])
+                        </code></pre>
+
+                        <p data-es="Proceso de compilación y entrenamiento"
+                        data-en="Compile and training process"></p>
+
+                        <pre><code class="language-python">
+                            # Compile
+                            model.compile(
+                                optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005),
+                                loss='categorical_crossentropy',
+                                metrics=['accuracy']
+                            )
+
+                            # Training
+                            history = model.fit(train_data, validation_data=val_data, epochs=50, callbacks=callbacks)
+                            with open("train_history.json", "w") as f:
+                                json.dump(history.history, f)
+
+                            # Save Model .keras
+                            model.save("gd_level_classifier.keras")
+                        </code></pre>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <!-- Custom JS -->
+    <script src="portfolio-script.js"></script>
+    <script>
+        // Configuración de Prism Normalize Whitespace
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true,
+        });
+    </script>
+</body>
+</html>
