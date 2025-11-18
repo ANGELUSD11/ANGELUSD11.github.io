@@ -1,7 +1,17 @@
+
 .blog-container {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 15px; /* Añade un poco de padding para que no se pegue a los bordes en pantallas pequeñas */
 }
+
+/* Para pantallas grandes, permite que el contenedor ocupe más espacio */
+@media (min-width: 1200px) {
+    .blog-container {
+        max-width: 95%; /* Usa un porcentaje para que no se extienda indefinidamente */
+    }
+}
+
 
 .bg-dark-subtle {
     border: 2px solid aqua !important;
