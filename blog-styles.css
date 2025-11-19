@@ -18,25 +18,44 @@
     border-radius: 5px;
 }
 
-.blog-post pre {
-    background-color: #212529;
-    border: 1px solid #444;
-    border-radius: 5px;
-    padding: 1rem;
+article.blog-post pre {
+    background-color: #01000a; /* Tono oscuro suave */
+    border: none; /* Eliminamos el borde */
+    border-radius: 10px; /* Esquinas más redondeadas */
+    padding: 1.5rem;
     color: #f8f9fa;
     white-space: pre-wrap;
     word-wrap: break-word;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+    overflow: auto; /* Asegura que el scroll aparezca si el contenido es muy ancho */
 }
 
-.blog-post code {
-    font-family: 'Courier New', Courier, monospace;
+/* Estilo para la barra de scroll (funciona en navegadores WebKit) */
+article.blog-post pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
 }
 
-.blog-post .card-text {
+article.blog-post pre::-webkit-scrollbar-track {
+    background: #1E1E1E;
+}
+
+article.blog-post pre::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+    border: 2px solid #1E1E1E;
+}
+
+article.blog-post code {
+    font-family: 'Consolas', 'Liberation Mono', 'Menlo', 'Courier', monospace; /* Fuentes modernas */
+    font-size: 0.9rem;
+}
+
+article.blog-post .card-text {
     color: #87CEEB !important; /* Sky blue for readability */
 }
 
-.blog-post .card-subtitle {
+article.blog-post .card-subtitle {
     color: #FFFFFF !important; /* White for better visibility on dark background */
 }
 
