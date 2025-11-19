@@ -90,28 +90,31 @@ document.addEventListener('DOMContentLoaded', function() {
     updateText(true);
 
     // Blog post collapse functionality
-    const robtopToggle = document.getElementById('robtop-toggle');
-    if (robtopToggle) {
-        const robtopContent = document.getElementById('robtop-content');
-        const robtopToggleText = robtopToggle.querySelector('span');
-        const robtopToggleIcon = robtopToggle.querySelector('i');
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    toggleButtons.forEach(button => {
+        const contentId = button.getAttribute('href');
+        const content = document.querySelector(contentId);
+        const toggleText = button.querySelector('span');
+        const toggleIcon = button.querySelector('i');
 
-        robtopContent.addEventListener('show.bs.collapse', function () {
-            robtopToggleText.setAttribute('data-es', 'Mostrar menos');
-            robtopToggleText.setAttribute('data-en', 'Show less');
-            robtopToggleIcon.classList.remove('fa-chevron-down');
-            robtopToggleIcon.classList.add('fa-chevron-up');
-            updateText();
-        });
+        if (content) {
+            content.addEventListener('show.bs.collapse', function () {
+                toggleText.setAttribute('data-es', 'Mostrar menos');
+                toggleText.setAttribute('data-en', 'Show less');
+                toggleIcon.classList.remove('fa-chevron-down');
+                toggleIcon.classList.add('fa-chevron-up');
+                updateText();
+            });
 
-        robtopContent.addEventListener('hide.bs.collapse', function () {
-            robtopToggleText.setAttribute('data-es', 'Mostrar más');
-            robtopToggleText.setAttribute('data-en', 'Show more');
-            robtopToggleIcon.classList.remove('fa-chevron-up');
-            robtopToggleIcon.classList.add('fa-chevron-down');
-            updateText();
-        });
-    }
+            content.addEventListener('hide.bs.collapse', function () {
+                toggleText.setAttribute('data-es', 'Mostrar más');
+                toggleText.setAttribute('data-en', 'Show more');
+                toggleIcon.classList.remove('fa-chevron-up');
+                toggleIcon.classList.add('fa-chevron-down');
+                updateText();
+            });
+        }
+    });
 });
 
 // Smooth scroll
@@ -161,4 +164,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-
