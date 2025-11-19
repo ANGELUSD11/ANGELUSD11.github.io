@@ -51,7 +51,7 @@
                     <p class="card-subtitle mb-2 text-muted" data-es="18 de noviembre de 2025" data-en="November 18, 2025"></p>
                     <div class="card-text">
                         <p data-es="Esta entrada corresponde a una libreta de jupyter explicando a detalle los distintos elementos que conforman las estructuras de datos usadas en algebra lineal para machine learning." data-en="This entry corresponds to a Jupyter notebook explaining in detail the different elements that make up the data structures used in linear algebra for machine learning."></p>
-                        <a class="btn btn-outline-info btn-sm mb-3" data-bs-toggle="collapse" href="#ML-content" role="button" aria-expanded="false" aria-controls="robtop-content" id="robtop-toggle">
+                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse" href="#ML-content" role="button" aria-expanded="false" aria-controls="ML-content">
                             <span data-es="Mostrar más" data-en="Show more"></span> <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="collapse" id="ML-content">
@@ -370,13 +370,13 @@
                         
                         Initially, I attempted to build the network from scratch using TensorFlow, which surprisingly performed quite well in recognizing around two to five levels at most. However, the primary challenge with this approach was the sheer volume of data required and the hardware constraints. In the following sections, I will explain each phase of the training process I undertook."></p>
 
-                        <a class="btn btn-outline-info btn-sm mb-3" data-bs-toggle="collapse" href="#robtop-content" role="button" aria-expanded="false" aria-controls="robtop-content" id="robtop-toggle">
+                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse" href="#robtop-content" role="button" aria-expanded="false" aria-controls="robtop-content">
                             <span data-es="Mostrar más" data-en="Show more"></span> <i class="fas fa-chevron-down"></i>
                         </a>
 
                         <div class="collapse" id="robtop-content">
                             <div class="ratio ratio-16x9 my-4 video-frame">
-                                <iframe src="https://www.youtube.com/embed/n_L2AG_-dxs?si=HRqAvSSNpA7IZpsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/n_L2AG_-dxs?si=HRqAvSSNpA7IZpsU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
 
                             <p data-es="Como en cualquier proyecto de machine learning, el primer paso que debe realizarse—y el que en última instancia determinará la calidad del modelo—es reunir los datos de entrenamiento.
@@ -523,7 +523,7 @@
 
                                 # Training
                                 history = model.fit(train_data, validation_data=val_data, epochs=50, callbacks=callbacks)
-                                with open("train_history.json", "w") as f:
+                                with open("train_history.json", "w").
                                     json.dump(history.history, f)
 
                                 # Save Model .keras
