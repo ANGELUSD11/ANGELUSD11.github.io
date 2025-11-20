@@ -55,7 +55,7 @@
                     <p class="card-subtitle mb-2 text-muted" data-es="19 de noviembre de 2025" data-en="November 19, 2025"></p>
                     <div class="card-text">
                         <p data-es="Te has preguntado cómo una máquina, que solo entiende de números y lógica binaria, puede comprender las sutilezas del lenguaje humano? ¿Cómo es que
-                        modelos como GPT o BERT pueden escribir un poema, resumir un texto o mantener una conversación coherente?" data-en="Have you ever wondered how a machine, which only understands numbers and binary logic, can comprehend the subtleties of human language? How is it that models like GPT or
+                        modelos como GPT pueden escribir un poema, resumir un texto o mantener una conversación coherente?" data-en="Have you ever wondered how a machine, which only understands numbers and binary logic, can comprehend the subtleties of human language? How is it that models like GPT or
                         BERT can write a poem, summarize a text, or hold a coherent conversation?"></p>
 
                         <p data-es="La respuesta es una combinación de matemáticas y lingüística. En el núcleo de esta capacidad se encuentran dos conceptos clave: los
@@ -238,7 +238,7 @@
                                 print(f"Similitud entre 'king' y 'queen': {similarity.item()}") #da un valor cercano a 0.8
 
                                 #la similitud de estos 2 conceptos es alta, ya que ambos representan figuras de autoridad en un contexto monárquico
-                                #si el valor numérico es bajo, significa que los conceptos están más cerca entre si, en el espacio vectorial
+                                #si el valor numérico es más alto (cerca a 1.0), significa que los conceptos están más cerca entre si, en el espacio vectorial
                                 #Similitud entre 'king' y 'queen': 0.6468513011932373
 
                                 #nuevas palabras a probar
@@ -335,6 +335,38 @@
                             data-en="Each of these 768 numbers represents an abstract feature of the word’s meaning, learned by the model after analyzing billions of texts.
                             One dimension might (very simplistically) represent “royalty,” another “gender,” another “humanness,” and so on.
                             Words with similar meanings have similar values in relevant dimensions."></p>
+
+                            <p data-es="Espacios vectoriales, el universo donde viven las palabras"
+                            data-en="Vectorial spaces, the universe where words live"></p>
+
+                            <p data-es="Si cada palabra es un punto definido por su vector de embedding, entonces todas las palabras de un idioma viven juntas en un gigantesco 'universo'
+                            multidimensional. A esto lo llamamos espacio vectorial."
+                            data-en="If every word is a point defined by its embedding vector, then all words in a language live together in a gigantic multidimensional “universe.”
+                            This is what we call a vector space."></p>
+
+                            <p data-es="Lo realmente asombroso es que en este universo, la distancia y la dirección importan."
+                            data-en="What’s truly amazing is that in this universe, distance and direction matter:"></p>
+
+                            <p data-es="<strong>1. La Distancia es Significado:</strong> Palabras con significados similares, como 'rey' y 'reina', o 'perro' y 'lobo', estarán muy cerca la una de la otra en este
+                            espacio. En mi notebook, al calcular la similitud del coseno (una forma de medir la cercanía entre dos vectores) para 'king' y 'queen', obtuve un valor
+                            alto (0.64), confirmando su proximidad semántica."
+                            data-en="<strong>1. Distance = Meaning:</strong>
+                            Words with similar meanings — like “king” and “queen” or “dog” and “wolf” — are close to each other in this space.
+                            In my notebook, when I computed the cosine similarity (a measure of vector closeness) between “king” and “queen,” I got a high value (0.64), confirming their semantic proximity."></p>
+
+                            <p data-es="<strong>2. La Dirección es Relación:</strong> Las direcciones en este espacio capturan relaciones. El ejemplo más famoso, que pude explorar, es la analogía:"
+                            data-en="<strong>2. Direction = Relationship:</strong> Directions in this space capture relationships. The most famous example, which I explored, is the analogy:"></p>
+
+                            <pre><code class="language-python">
+                                vector('King') - vector('Man') + vector('Woman') ≈ vector('Queen')
+                            </code></pre>
+
+                            <p data-es="Esto significa que la 'dirección' que va de 'Hombre' a 'Mujer' es casi la misma que la que va de 'Rey' a 'Reina'. El modelo no sabe qué es un rey o una
+                            reina, pero ha aprendido que la relación de género que los diferencia es la misma que existe entre un hombre y una mujer. Ha capturado el concepto de 'género'
+                            de forma puramente matemática"
+                            data-en="This means the “direction” that goes from Man to Woman is almost the same as the direction from King to Queen.
+                            The model doesn’t know what a king or queen is — but it has learned that the gender relationship between them mirrors the one between man and woman.
+                            It has captured the concept of gender in a purely mathematical form"></p>
                         </div>
                     </div>
                 </div>
