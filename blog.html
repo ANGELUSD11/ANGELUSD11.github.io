@@ -251,7 +251,6 @@
 
                                 lion_token_id = tokenizer.convert_tokens_to_ids(['lion'])[0]
                                 print(f"ID de la palabra 'lion': {lion_token_id}")
-                                
 
                                 #orden de los token ids resultantes de las palabras
                                 sorted_token_ids = sorted([dog_token_id, wolf_token_id, cat_token_id, lion_token_id])
@@ -286,6 +285,54 @@
                                 sorted_token_ids = sorted([tokenid1, tokenid2, tokenid3, tokenid4])
                                 print(f"token IDs ordenados: {sorted_token_ids}\nvalor de cada token ID: {[tokenizer.convert_ids_to_tokens([id])[0] for id in sorted_token_ids]}")
                             </code></pre>
+
+                            <p data-es="<strong>El primer obstáculo, las palabras no son números:</strong>
+
+                            Una computadora no entiende qué es un 'gato' o una 'casa'. Para que pueda procesar texto, primero debemos convertir las palabras en números. El enfoque más
+                            simple sería asignar un número único a cada palabra del diccionario: 'rey' podría ser el 50, 'reina' el 51, y 'manzana' el 52." 
+                            data-en="<strong>The first hurdle, Words are not numbers:</strong>
+                            
+                            A computer doesn’t understand what a “cat” or a “house” is. To process text, we must convert words into numbers.
+                            The simplest approach would be to assign a unique number to each word in the vocabulary: “king” could be 50, “queen” 51, and “apple” 52.">
+                            </p>
+
+                            <p data-es=" Pero este método tiene un gran problema: los números 50, 51 y 52 no tienen ninguna relación entre sí. No le dicen a la máquina que 'rey' y 'reina' están mucho
+                            más relacionados semánticamente que 'rey' y 'manzana'. Aquí es donde entran en juego los embeddings."
+
+                            data-en="But this method has a major flaw: the numbers 50, 51, and 52 have no relationship to each other. They don’t tell the machine that “king” and “queen” are much more semantically related than “king” and “apple.”This is where embeddings come into play."></p>
+
+                            <p data-es="<strong>Embeddings, el ADN de las palabras:</strong>
+                            
+                            Imagina que cada palabra tiene un 'ADN' que define su significado en múltiples dimensiones. Este ADN es el embedding: una lista de números (un vector) que
+                            representa a la palabra en un espacio matemático."
+                            
+                            data-en="Imagine each word has a “DNA” that defines its meaning across many dimensions.
+                            This DNA is the embedding: a list of numbers (a vector) representing the word in a mathematical space."></p>
+
+                            <p data-es="En mi experimentación, usé un modelo pre-entrenado (BERT) para obtener estos vectores. Cuando pedí el embedding para la palabra 'king' (rey), no obtuve un solo
+                            número, sino un vector con 768 dimensiones."
+                            data-en="In my experiments, I used a pre-trained model (BERT) to obtain these vectors. When I asked for the embedding of the word “king”, I didn’t get a single number — I got a vector with 768 dimensions:"></p>
+
+                            <p data-es="Un tensor es basicamente una matríz multidimensional, lo puedes visualizar en código en otra entrada de mi blog :)"
+                            data-en="A tensor is basically a multidimensional matrix — you can visualize it in code in another entry of my blog :)"></p>
+
+                            <pre><code class="language-python">
+                                Embedding de la palabra 'king':
+                                tensor([[ 1.0459e-02, -4.1597e-02, -2.8762e-02, -2.1271e-03, -3.6137e-02,
+                                        -5.9453e-02, -1.8821e-02, -5.3518e-02, -4.5944e-02, -1.0334e-01,
+                                        -2.6336e-02, -3.7564e-02,  4.7280e-05, -4.1316e-02,  1.1089e-03,
+                                        -3.4041e-02,  3.6455e-03, -4.3182e-03,  4.5244e-02, -3.2792e-03,
+                                        ...
+                                        -5.9803e-02, -8.0030e-02, -1.9449e-02]], grad_fn=<EmbeddingBackward0>)
+                            </code></pre>
+
+                            <p data-es="Cada uno de estos 768 números representa una característica abstracta del significado de la palabra, aprendida por el modelo tras analizar miles de millones de
+                            textos. Una dimensión podría (de forma muy simplificada) representar 'realeza', otra 'género', otra 'humanidad', etc. Las palabras con significados similares
+                            tendrán valores parecidos en dimensiones relevantes."
+                            
+                            data-en="Each of these 768 numbers represents an abstract feature of the word’s meaning, learned by the model after analyzing billions of texts.
+                            One dimension might (very simplistically) represent “royalty,” another “gender,” another “humanness,” and so on.
+                            Words with similar meanings have similar values in relevant dimensions."></p>
                         </div>
                     </div>
                 </div>
