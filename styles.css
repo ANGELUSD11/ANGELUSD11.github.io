@@ -221,6 +221,22 @@ footer p {
         width: 60px;
         height: 60px;
     }
+
+    .language-switcher .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .language-switcher .btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .language-switcher {
+        top: 10px;
+        right: 10px;
+    }
 }
 
 [data-es], [data-en] {
