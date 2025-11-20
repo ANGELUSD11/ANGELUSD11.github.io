@@ -47,9 +47,252 @@
         </h1>
 
         <div class="blog-container">
-                        <article class="blog-post card bg-dark-subtle border-primary mb-4">
+            <article class="blog-post card bg-dark-subtle border-primary mb-4">
                 <div class="card-body">
-                    <h2 class="card-title text-primary" data-es="Algebra lineal para Machine Learning🤖" data-en="Linear Algebra for Machine Learning🤖"></h2>
+                    <h2 class="card-title text-primary" data-es="Fundamentos de los LLM: Embeddings y espacios vectoriales📖" data-en="Fundamentals of LLM: Embeddings and vector spaces📖"></h2>
+                    <p class="card-subtitle mb-2 text-muted" data-es="19 de noviembre de 2025" data-en="November 19, 2025"></p>
+                    <div class="card-text">
+                        <p data-es="Te has preguntado cómo una máquina, que solo entiende de números y lógica binaria, puede comprender las sutilezas del lenguaje humano? ¿Cómo es que
+                        modelos como GPT o BERT pueden escribir un poema, resumir un texto o mantener una conversación coherente?" data-en="Have you ever wondered how a machine, which only understands numbers and binary logic, can comprehend the subtleties of human language? How is it that models like GPT or
+                        BERT can write a poem, summarize a text, or hold a coherent conversation?"></p>
+
+                        <p data-es="La respuesta es una combinación de matemáticas y lingüística. En el núcleo de esta capacidad se encuentran dos conceptos clave: los
+                        embeddings y los espacios vectoriales. Recientemente, mientras experimentaba en mi propio notebook (tokens.ipynb), pude ver de primera mano cómo estas ideas
+                        abstractas funcionan" data-en="The answer is a combination of mathematics and linguistics. At the core of this ability lie two key concepts: embeddings and vector 
+                        spaces. Recently, while experimenting in my own notebook (tokens.ipynb), I saw firsthand how these abstract ideas actually work."></p>
+
+                        <p data-es="Una breve mirada a BERT: el modelo detrás de los ejemplos" data-en="A brief look to BERT: the model behind the examples"></p>
+
+                        <p data-es="  En mis ejemplos, he utilizado el modelo BERT (Bidirectional Encoder Representations from Transformers), específicamente la variante bert-base-uncased.
+                        Desarrollado por Google, BERT fue un hito en el procesamiento del lenguaje natural (PLN) por su capacidad de entender el contexto de una palabra de forma
+                        bidireccional, es decir, considerando tanto las palabras que la preceden como las que la siguen."
+                        data-en="In my examples, I used the BERT model (Bidirectional Encoder Representations from Transformers), specifically the bert-base-uncased variant.
+                        Developed by Google, BERT was a milestone in Natural Language Processing (NLP) because of its ability to understand the context of a word bidirectionally—meaning it considers both the words that come before it and the ones that come after."></p>
+
+                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse" href="#LLM-content" role="button" aria-expanded="false" aria-controls="LLM-content">
+                            <span data-es="Mostrar más" data-en="Show more"></span> <i class="fas fa-chevron-down"></i>
+                        </a>
+
+                        <div class="collapse" id="LLM-content">
+                            <p data-es="BERT se preentrenó en un vasto corpus de datos en inglés de manera auto-supervisada. Esto significa que aprendió del texto sin necesidad de etiquetarlo manualmente
+                            utilizando dos tareas principales" data-en="BERT was pre-trained on a vast English corpus in a self-supervised manner. This means it learned directly from text without manually labeled data, using two main tasks:"></p>
+
+
+                            <p data-es=" 1. Masked Language Modeling (MLM): El modelo toma una oración, enmascara aleatoriamente el 15% de las palabras en la entrada, luego ejecuta la oración
+                            enmascarada completa a través del modelo y tiene que predecir las palabras enmascaradas originales. Esto le permite aprender relaciones contextuales
+                            profundas entre las palabras." data-en="1. Masked Language Modeling (MLM):
+                            The model takes a sentence, randomly masks 15% of the words, then processes the entire masked sentence and must predict the original missing words. This allows it to learn deep contextual relationships between words."></p>
+
+                            <p data-es="2. Next Sentence Prediction (NSP): BERT también se entrena para predecir si dos oraciones dadas son consecutivas en el texto original o si la oración B es una
+                            oración aleatoria. Esto le ayuda a comprender las relaciones entre oraciones, lo cual es fundamental para tareas que requieren coherencia a nivel de
+                            párrafo." data-en="2. Next Sentence Prediction (NSP):
+                            BERT is also trained to predict whether two given sentences are consecutive in the original text or if sentence B is a random one. This helps it understand inter-sentence relationships, which is crucial for tasks requiring paragraph-level coherence."></p>
+
+                            <p data-es="La variante bert-base-uncased indica que es la versión base (más pequeña y rápida) del modelo y que no distingue entre mayúsculas y minúsculas (todas las
+                            palabras se convierten a minúsculas antes de procesar, es como hacer un .lower() en python). Este modelo es el que nos permite obtener los embeddings que exploraremos a continuación."
+                            data-en="The bert-base-uncased variant indicates that it is the base (smaller and faster) version of the model, and that it does not distinguish between uppercase and lowercase letters (all words are converted to lowercase before processing — like doing .lower() in Python).
+                            This is the model that provides the embeddings we will explore below."></p>
+
+                            <img src="images/ML images/BERT.png" class="figure-img img-fluid rounded" alt="BERT">
+
+                            <pre><code class="language-python">
+                                from transformers import BertTokenizer
+
+                                #se descarga el tokenizador preentrenado para usarlo
+                                tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+                                word = "Hola como estas"
+                                #se inicia con el proceso principal de tokenización
+                                tokens = tokenizer.tokenize(word)
+
+                                #['ho', '##la', 'como', 'est', '##as']
+
+                                import torch
+                                from transformers import BertModel
+
+                                model = BertModel.from_pretrained("bert-base-uncased")
+
+                                #La librería transformers de huggingface te descarga e instala el modelo que vayas a usar en vez de instalar todo de golpe  
+                                #usa tensorflow o pytorch como backend  
+                                #mensajes de advertencia, se pueden ignorar
+
+                                #2025-08-11 17:52:58.177918: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+                                #WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+                                #E0000 00:00:1754952778.233396    9070 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+                                #E0000 00:00:1754952778.249125    9070 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+                                #W0000 00:00:1754952778.360050    9070 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+                                #W0000 00:00:1754952778.360072    9070 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+                                #W0000 00:00:1754952778.360074    9070 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+                                #W0000 00:00:1754952778.360076    9070 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+                                #2025-08-11 17:52:58.374118: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+                                #To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+                                print(tokenizer.name_or_path)  # muestra el nombre del modelo de tokenización
+
+                                #busca el ID correspondiente a la palabra "King"
+                                king_token_id = tokenizer.convert_tokens_to_ids(["king"])[0] #al ser uncased, no distingue entre mayúsculas y minúsculas
+                                print(f"ID de la palabra 'king': {king_token_id}") #da 2332
+
+                                #inicia el proceso de embedding
+                                king_embedding = model.embeddings.word_embeddings(torch.tensor([king_token_id]))
+                                print(f"Embedding de la palabra 'king':\n{king_embedding}") #da un tensor de 768 dimensiones
+
+
+                                #los embeddings devuelven un tensor, (una matriz multidimensional)
+                                #no los pego todos porque son muy largos, pero el resultado es similar a este:
+
+                                '''
+                                bert-base-uncased
+                                ID de la palabra 'king': 2332
+                                Embedding de la palabra 'king':
+                                tensor([[ 1.0459e-02, -4.1597e-02, -2.8762e-02, -2.1271e-03, -3.6137e-02,
+                                        -5.9453e-02, -1.8821e-02, -5.3518e-02, -4.5944e-02, -1.0334e-01,
+                                        -2.6336e-02, -3.7564e-02,  4.7280e-05, -4.1316e-02,  1.1089e-03,
+                                        -3.4041e-02,  3.6455e-03, -4.3182e-03,  4.5244e-02, -3.2792e-03,
+                                        -2.9757e-02, -1.2348e-02,  2.7182e-02,  1.8084e-02, -8.3842e-03,
+                                        -4.1677e-02,  1.1041e-02,  3.2859e-03,  2.8347e-02, -1.0402e-02,
+                                        5.0695e-02, -5.3480e-02, -3.2858e-02, -2.4704e-02, -4.6392e-03,
+                                        -9.3113e-03,  3.9658e-02,  1.9593e-02, -3.8411e-03, -2.7013e-02,
+                                        -4.1830e-02, -3.2505e-02,  4.3060e-02, -3.7079e-02, -4.0751e-02,
+                                        2.2578e-02, -4.2186e-02, -9.9416e-03,  1.2697e-02,  4.2084e-02,
+                                        1.2595e-02, -1.4879e-02, -7.6563e-02,  4.5787e-03,  2.0950e-03,
+                                        -5.9803e-02, -8.0030e-02, -1.9449e-02]], grad_fn=<EmbeddingBackward0>)
+                                ID de la palabra 'man': 2158
+                                Embedding de la palabra 'man':
+                                tensor([[-7.6646e-03, -3.1175e-02, -6.9835e-03, -6.3297e-03, -1.1371e-02,
+                                        -1.7873e-02, -1.1434e-02,  1.0309e-02, -1.0764e-02, -1.9303e-02,
+                                        2.6435e-02, -1.0661e-03, -2.0635e-02, -9.0213e-03, -5.0599e-02,
+                                        -4.1205e-02, -2.5394e-02, -1.8961e-02,  7.6851e-03,  1.4840e-03,
+                                        -5.5302e-02,  3.7641e-03, -7.2016e-02, -7.0809e-03, -6.7614e-02,
+                                        4.3692e-02, -2.9522e-02,  1.2630e-02, -1.0300e-02,  2.8095e-02,
+                                        1.0858e-02, -2.7949e-02, -3.5180e-02, -1.6189e-02, -1.0497e-02,
+                                        -1.5819e-03, -1.0177e-02,  1.2386e-02, -4.2518e-03, -9.6997e-02,
+                                        -7.0927e-02,  1.4870e-02,  7.9696e-03,  1.7460e-02, -2.9262e-02,
+                                        5.2394e-03,  2.9746e-02, -1.8923e-02,  4.0893e-05, -2.5314e-02,
+                                        1.3420e-02,  3.3399e-02,  1.3250e-02, -9.0819e-02,  1.2010e-02,
+                                        -7.1084e-02,  5.4406e-03, -2.4264e-02, -2.8006e-02,  3.1375e-02,
+                                        4.4374e-03,  3.9825e-02, -6.9961e-02, -3.3235e-03, -1.9383e-02,
+                                        7.5572e-03, -4.2687e-02, -4.2618e-02]], grad_fn=<EmbeddingBackward0>)
+                                ID de la palabra 'woman': 2450
+                                Embedding de la palabra 'woman':
+                                tensor([[ 1.2108e-02, -3.0078e-02,  1.8451e-02,  7.0369e-03, -1.1504e-02,
+                                        -3.9431e-02, -1.4481e-02,  2.9047e-02,  6.7598e-03, -3.0685e-02,
+                                        -1.2698e-02, -5.3419e-02, -1.7568e-02,  4.7697e-02, -6.1417e-02,
+                                        -6.1463e-02, -4.8997e-04, -4.8986e-02, -5.5195e-02, -4.3894e-02,
+                                        -4.6776e-02, -4.0752e-02, -6.8575e-02, -2.2964e-02, -8.3177e-02,
+                                        -1.8618e-02, -1.4952e-02,  1.2415e-03, -1.3154e-03,  2.1765e-03,
+                                        6.1241e-02, -4.9063e-02, -2.1670e-02, -5.4052e-03, -3.4771e-02,
+                                        -3.4587e-02, -1.0134e-02,  8.1198e-03, -3.4730e-02, -5.6305e-02,
+                                        -7.1823e-02,  3.1932e-03, -3.6441e-05, -1.0609e-02, -9.4444e-03,
+                                        -1.9346e-02,  2.4101e-02, -9.0241e-03, -2.2390e-02,  1.0220e-02,
+                                        -6.3611e-02,  2.6824e-02, -9.4787e-03, -1.7875e-02, -1.5212e-02,
+                                        -1.2356e-02,  2.8417e-03, -3.5529e-02, -5.9514e-02,  4.6299e-02,
+                                        -4.3715e-02, -6.1539e-02, -1.2442e-02, -2.3420e-03,  2.8436e-02,
+
+                                ID de la palabra 'queen': 3035
+                                Embedding de la palabra 'queen':
+                                tensor([[ 5.7453e-02, -8.8483e-02, -5.9414e-02,  1.1624e-02, -3.5926e-02,
+                                        -8.9322e-02,  5.8101e-02, -3.5651e-03,  3.9393e-02, -8.2666e-02,
+                                        -3.2993e-02, -7.5832e-02, -9.6076e-03, -6.7638e-03, -3.8710e-02,
+                                        -3.5043e-02,  7.9793e-03, -3.3161e-02, -1.0924e-02, -2.8418e-02,
+                                        -1.1208e-02, -2.6782e-02, -1.3545e-02,  5.8899e-02,  1.1604e-02,
+                                        -6.2912e-02,  2.5502e-02, -1.7892e-02, -1.5072e-02, -1.8363e-02,
+                                        5.2739e-02, -5.0321e-02, -2.7009e-02, -2.8599e-03, -5.5977e-02,
+                                        -3.6614e-03,  3.9993e-02,  6.6724e-02, -2.6716e-02, -1.2417e-02,
+                                        -9.0510e-02, -1.2854e-02,  1.6648e-02, -3.3466e-02, -2.4335e-02,
+                                        5.5003e-02, -4.1292e-02, -1.7306e-02, -4.1601e-02, -1.0229e-02,
+                                        9.4465e-03, -6.1036e-02, -3.3751e-02, -3.0292e-02, -1.2840e-02,
+                                        -4.8447e-02, -2.1505e-02,  3.2084e-02, -5.3645e-02, -2.4236e-02,
+                                '''
+
+                                man_token_id = tokenizer.convert_tokens_to_ids(["man"])[0]
+                                print(f"ID de la palabra 'man': {man_token_id}") #da 2158
+
+                                man_embedding = model.embeddings.word_embeddings(torch.tensor([man_token_id]))
+                                print(f"Embedding de la palabra 'man':\n{man_embedding}") 
+
+                                woman_token_id = tokenizer.convert_tokens_to_ids(["woman"])[0]
+                                print(f"ID de la palabra 'woman': {woman_token_id}") #da 2450
+
+                                woman_embedding = model.embeddings.word_embeddings(torch.tensor([woman_token_id]))
+                                print(f"Embedding de la palabra 'woman':\n{woman_embedding}") 
+
+                                queen_token_id = tokenizer.convert_tokens_to_ids(["queen"])[0]
+                                print(f"ID de la palabra 'queen': {queen_token_id}") #da 3035
+
+                                queen_embedding = model.embeddings.word_embeddings(torch.tensor([queen_token_id]))
+                                print(f"Embedding de la palabra 'queen':\n{queen_embedding}")
+
+                                #orden de los token ids resultantes de las palabras
+                                sorted_token_ids = sorted([king_token_id, man_token_id, woman_token_id, queen_token_id])
+                                print(f"token IDs ordenados: {sorted_token_ids}\nvalor de cada token ID: {[tokenizer.convert_ids_to_tokens([id])[0] for id in sorted_token_ids]}")
+
+                                #aqui podemos ver que al ser conceptos cercanos, los valores numericos de sus token IDs también son cercanos
+                                #token IDs ordenados: [2158, 2332, 2450, 3035]
+                                #valor de cada token ID: ['man', 'king', 'woman', 'queen']
+
+                                #calcular similitud entre embeddings usando la similitud coseno
+                                cos = torch.nn.CosineSimilarity()
+                                similarity = cos(king_embedding, queen_embedding)
+                                print(f"Similitud entre 'king' y 'queen': {similarity.item()}") #da un valor cercano a 0.8
+
+                                #la similitud de estos 2 conceptos es alta, ya que ambos representan figuras de autoridad en un contexto monárquico
+                                #si el valor numérico es bajo, significa que los conceptos están más cerca entre si, en el espacio vectorial
+                                #Similitud entre 'king' y 'queen': 0.6468513011932373
+
+                                #nuevas palabras a probar
+                                dog_token_id = tokenizer.convert_tokens_to_ids(["dog"])[0]
+                                print(f"ID de la palabra 'dog': {dog_token_id}")
+
+                                wolf_token_id = tokenizer.convert_tokens_to_ids(["wolf"])[0]
+                                print(f"ID de la palabra 'wolf': {wolf_token_id}")
+
+                                cat_token_id = tokenizer.convert_tokens_to_ids(['cat'])[0]
+                                print(f"ID de la palabra 'cat': {cat_token_id}")
+
+                                lion_token_id = tokenizer.convert_tokens_to_ids(['lion'])[0]
+                                print(f"ID de la palabra 'lion': {lion_token_id}")
+                                
+
+                                #orden de los token ids resultantes de las palabras
+                                sorted_token_ids = sorted([dog_token_id, wolf_token_id, cat_token_id, lion_token_id])
+                                print(f"token IDs ordenados: {sorted_token_ids}\nvalor de cada token ID: {[tokenizer.convert_ids_to_tokens([id])[0] for id in sorted_token_ids]}")
+
+                                #ID de la palabra 'dog': 3899
+                                #ID de la palabra 'wolf': 4702
+                                #ID de la palabra 'cat': 4937
+                                #ID de la palabra 'lion': 7006
+                                #token IDs ordenados: [3899, 4702, 4937, 7006]
+                                #valor de cada token ID: ['dog', 'wolf', 'cat', 'lion']
+
+                                #palabras personalizadas
+
+                                word1 = input("Enter the first word: ").lower()
+                                word2 = input("Enter the second word: ").lower()
+                                word3 = input("Enter the third word: ").lower()
+                                word4 = input("Enter the fourth word: ").lower()
+
+                                tokenid1 = tokenizer.convert_tokens_to_ids([word1])[0]
+                                print(f"ID de la palabra '{word1}': {tokenid1}")
+
+                                tokenid2 = tokenizer.convert_tokens_to_ids([word2])[0]
+                                print(f"ID de la palabra '{word2}': {tokenid2}")
+
+                                tokenid3 = tokenizer.convert_tokens_to_ids([word3])[0]
+                                print(f"ID de la palabra '{word3}': {tokenid3}")
+
+                                tokenid4 = tokenizer.convert_tokens_to_ids([word4])[0]
+                                print(f"ID de la palabra '{word4}': {tokenid4}")
+
+                                sorted_token_ids = sorted([tokenid1, tokenid2, tokenid3, tokenid4])
+                                print(f"token IDs ordenados: {sorted_token_ids}\nvalor de cada token ID: {[tokenizer.convert_ids_to_tokens([id])[0] for id in sorted_token_ids]}")
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="blog-post card bg-dark-subtle border-primary mb-4">
+                <div class="card-body">
+                    <h2 class="card-title text-primary" data-es="Álgebra lineal para Machine Learning🤖" data-en="Linear Algebra for Machine Learning🤖"></h2>
                     <p class="card-subtitle mb-2 text-muted" data-es="18 de noviembre de 2025" data-en="November 18, 2025"></p>
                     <div class="card-text">
                         <p data-es="Esta entrada corresponde a una libreta de jupyter explicando a detalle los distintos elementos que conforman las estructuras de datos usadas en algebra lineal para machine learning." data-en="This entry corresponds to a Jupyter notebook explaining in detail the different elements that make up the data structures used in linear algebra for machine learning."></p>
