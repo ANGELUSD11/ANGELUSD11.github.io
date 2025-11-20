@@ -1,4 +1,3 @@
-
 .blog-container {
     max-width: 800px;
     margin: 0 auto;
@@ -69,4 +68,23 @@ article.blog-post .card-subtitle {
 
 .video-frame iframe {
     border-radius: 6px; /* Slightly smaller than the parent's radius */
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.devlog-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.devlog-text {
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin: 0;
 }
