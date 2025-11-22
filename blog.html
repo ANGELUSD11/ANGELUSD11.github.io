@@ -354,6 +354,16 @@
                             Words with similar meanings — like “king” and “queen” or “dog” and “wolf” — are close to each other in this space.
                             In my notebook, when I computed the cosine similarity (a measure of vector closeness) between “king” and “queen,” I got a high value (0.64), confirming their semantic proximity."></p>
 
+                            <pre><code class="language-python">
+                                cos = torch.nn.CosineSimilarity()
+                                similarity = cos(king_embedding, queen_embedding)
+                                print(f"Similitud entre 'king' y 'queen': {similarity.item()}") #da un valor cercano a 0.8
+
+                                #la similitud de estos 2 conceptos es alta, ya que ambos representan figuras de autoridad en un contexto monárquico
+                                #si el valor numérico es más alto (cerca a 1.0), significa que los conceptos están más cerca entre si, en el espacio vectorial
+                                #Similitud entre 'king' y 'queen': 0.6468513011932373
+                            </code></pre>
+
                             <p data-es="<strong>2. La Dirección es Relación:</strong> Las direcciones en este espacio capturan relaciones. El ejemplo más famoso, que pude explorar, es la analogía:"
                             data-en="<strong>2. Direction = Relationship:</strong> Directions in this space capture relationships. The most famous example, which I explored, is the analogy:"></p>
 
