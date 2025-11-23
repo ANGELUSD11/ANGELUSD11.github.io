@@ -310,3 +310,22 @@ body.game-page header {
     background-color: var(--bg-dark-subtle); /* Solid color for the navbar */
     border-bottom: 2px solid var(--primary-color) !important; /* Blue border */
 }
+
+/* Itch.io Widget */
+.itch-io-widget-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.itch-io-widget-container iframe {
+    border-radius: 0.5rem;
+    border: 2px solid var(--primary-color) !important; /* Use important to override inline styles from itch.io */
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    transition: all 0.3s ease;
+    max-width: 90%;
+}
+
+.itch-io-widget-container iframe:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+}
