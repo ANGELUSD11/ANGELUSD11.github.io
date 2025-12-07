@@ -133,7 +133,8 @@ body::before {
 /* Cards */
 .bg-dark-subtle {
     background-color: var(--bg-dark-subtle) !important;
-    border: 2px solid !important;
+    border: 2px solid aqua !important;
+    border-radius: 30px !important;
     corner-shape: bevel !important;
 }
 
