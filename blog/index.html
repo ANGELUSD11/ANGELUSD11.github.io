@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,8 @@
     <meta name="author" content="ANGELUS11">
     <meta name="keywords" content="ANGELUS11, ANGELUSD11, developer, Blog">
     <meta property="og:image" content="https://angelus11.dev/images/patrondiamantes.jpg" />
-    <link rel="icon" type="image/png" href="icons/icon_glow.png">
-    
+    <link rel="icon" type="image/png" href="../icons/icon_glow.png">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -17,15 +18,16 @@
     <!-- Prism.js Theme -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="blog-styles.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../blog-styles.css">
 </head>
+
 <body class="bg-dark text-light">
 
     <nav class="navbar bg-dark-subtle py-3">
         <div class="container d-flex justify-content-between align-items-center">
             <!-- Left side: Home button -->
-            <a href="index.html" class="btn btn-outline-primary">
+            <a href="../index.html" class="btn btn-outline-primary">
                 <i class="fas fa-arrow-left"></i>
             </a>
 
@@ -46,56 +48,71 @@
     </nav>
 
     <main class="container py-5">
-        
+
 
         <div class="blog-container">
             <article class="blog-post card bg-dark-subtle border-primary mb-4">
                 <div class="card-body">
-                    <h2 class="card-title text-primary" data-es="Fundamentos de los LLM: Embeddings y espacios vectoriales📖" data-en="Fundamentals of LLM: Embeddings and vector spaces📖"></h2>
-                    <p class="card-subtitle mb-2 text-muted" data-es="19 de noviembre de 2025" data-en="November 19, 2025"></p>
+                    <h2 class="card-title text-primary"
+                        data-es="Fundamentos de los LLM: Embeddings y espacios vectoriales📖"
+                        data-en="Fundamentals of LLM: Embeddings and vector spaces📖"></h2>
+                    <p class="card-subtitle mb-2 text-muted" data-es="19 de noviembre de 2025"
+                        data-en="November 19, 2025"></p>
                     <div class="card-text">
                         <p data-es="Te has preguntado cómo una máquina, que solo entiende de números y lógica binaria, puede comprender las sutilezas del lenguaje humano? ¿Cómo es que
-                        modelos como GPT pueden escribir un poema, resumir un texto o mantener una conversación coherente?" data-en="Have you ever wondered how a machine, which only understands numbers and binary logic, can comprehend the subtleties of human language? How is it that models like GPT
+                        modelos como GPT pueden escribir un poema, resumir un texto o mantener una conversación coherente?"
+                            data-en="Have you ever wondered how a machine, which only understands numbers and binary logic, can comprehend the subtleties of human language? How is it that models like GPT
                         can write a poem, summarize a text, or hold a coherent conversation?"></p>
 
                         <p data-es="La respuesta es una combinación de matemáticas y lingüística. En el núcleo de esta capacidad se encuentran dos conceptos clave: los
                         embeddings y los espacios vectoriales. Recientemente, mientras experimentaba en mi propio notebook (tokens.ipynb), pude ver de primera mano cómo estas ideas
-                        abstractas funcionan" data-en="The answer is a combination of mathematics and linguistics. At the core of this ability lie two key concepts: embeddings and vector 
-                        spaces. Recently, while experimenting in my own notebook (tokens.ipynb), I saw firsthand how these abstract ideas actually work."></p>
+                        abstractas funcionan"
+                            data-en="The answer is a combination of mathematics and linguistics. At the core of this ability lie two key concepts: embeddings and vector 
+                        spaces. Recently, while experimenting in my own notebook (tokens.ipynb), I saw firsthand how these abstract ideas actually work.">
+                        </p>
 
-                        <p data-es="Una breve mirada a BERT: el modelo detrás de los ejemplos" data-en="A brief look to BERT: the model behind the examples"></p>
+                        <p data-es="Una breve mirada a BERT: el modelo detrás de los ejemplos"
+                            data-en="A brief look to BERT: the model behind the examples"></p>
 
                         <p data-es="  En mis ejemplos, he utilizado el modelo BERT (Bidirectional Encoder Representations from Transformers), específicamente la variante bert-base-uncased.
                         Desarrollado por Google, BERT fue un hito en el procesamiento del lenguaje natural (PLN) por su capacidad de entender el contexto de una palabra de forma
                         bidireccional, es decir, considerando tanto las palabras que la preceden como las que la siguen."
-                        data-en="In my examples, I used the BERT model (Bidirectional Encoder Representations from Transformers), specifically the bert-base-uncased variant.
-                        Developed by Google, BERT was a milestone in Natural Language Processing (NLP) because of its ability to understand the context of a word bidirectionally—meaning it considers both the words that come before it and the ones that come after."></p>
+                            data-en="In my examples, I used the BERT model (Bidirectional Encoder Representations from Transformers), specifically the bert-base-uncased variant.
+                        Developed by Google, BERT was a milestone in Natural Language Processing (NLP) because of its ability to understand the context of a word bidirectionally—meaning it considers both the words that come before it and the ones that come after.">
+                        </p>
 
-                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse" href="#LLM-content" role="button" aria-expanded="false" aria-controls="LLM-content">
+                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse"
+                            href="#LLM-content" role="button" aria-expanded="false" aria-controls="LLM-content">
                             <span data-es="Mostrar más" data-en="Show more"></span> <i class="fas fa-chevron-down"></i>
                         </a>
 
                         <div class="collapse" id="LLM-content">
                             <p data-es="BERT se preentrenó en un vasto corpus de datos en inglés de manera auto-supervisada. Esto significa que aprendió del texto sin necesidad de etiquetarlo manualmente
-                            utilizando dos tareas principales" data-en="BERT was pre-trained on a vast English corpus in a self-supervised manner. This means it learned directly from text without manually labeled data, using two main tasks:"></p>
+                            utilizando dos tareas principales"
+                                data-en="BERT was pre-trained on a vast English corpus in a self-supervised manner. This means it learned directly from text without manually labeled data, using two main tasks:">
+                            </p>
 
 
                             <p data-es=" 1. Masked Language Modeling (MLM): El modelo toma una oración, enmascara aleatoriamente el 15% de las palabras en la entrada, luego ejecuta la oración
                             enmascarada completa a través del modelo y tiene que predecir las palabras enmascaradas originales. Esto le permite aprender relaciones contextuales
-                            profundas entre las palabras." data-en="1. Masked Language Modeling (MLM):
-                            The model takes a sentence, randomly masks 15% of the words, then processes the entire masked sentence and must predict the original missing words. This allows it to learn deep contextual relationships between words."></p>
+                            profundas entre las palabras."
+                                data-en="1. Masked Language Modeling (MLM):
+                            The model takes a sentence, randomly masks 15% of the words, then processes the entire masked sentence and must predict the original missing words. This allows it to learn deep contextual relationships between words.">
+                            </p>
 
                             <p data-es="2. Next Sentence Prediction (NSP): BERT también se entrena para predecir si dos oraciones dadas son consecutivas en el texto original o si la oración B es una
                             oración aleatoria. Esto le ayuda a comprender las relaciones entre oraciones, lo cual es fundamental para tareas que requieren coherencia a nivel de
-                            párrafo." data-en="2. Next Sentence Prediction (NSP):
-                            BERT is also trained to predict whether two given sentences are consecutive in the original text or if sentence B is a random one. This helps it understand inter-sentence relationships, which is crucial for tasks requiring paragraph-level coherence."></p>
+                            párrafo."
+                                data-en="2. Next Sentence Prediction (NSP):
+                            BERT is also trained to predict whether two given sentences are consecutive in the original text or if sentence B is a random one. This helps it understand inter-sentence relationships, which is crucial for tasks requiring paragraph-level coherence.">
+                            </p>
 
                             <p data-es="La variante bert-base-uncased indica que es la versión base (más pequeña y rápida) del modelo y que no distingue entre mayúsculas y minúsculas (todas las
                             palabras se convierten a minúsculas antes de procesar, es como hacer un .lower() en python). Este modelo es el que nos permite obtener los embeddings que exploraremos a continuación."
-                            data-en="The bert-base-uncased variant indicates that it is the base (smaller and faster) version of the model, and that it does not distinguish between uppercase and lowercase letters (all words are converted to lowercase before processing — like doing .lower() in Python).
+                                data-en="The bert-base-uncased variant indicates that it is the base (smaller and faster) version of the model, and that it does not distinguish between uppercase and lowercase letters (all words are converted to lowercase before processing — like doing .lower() in Python).
                             This is the model that provides the embeddings we will explore below."></p>
 
-                            <img src="images/ML images/BERT.png" class="figure-img img-fluid rounded" alt="BERT">
+                            <img src="../images/ML images/BERT.png" class="figure-img img-fluid rounded" alt="BERT">
 
                             <pre><code class="language-python">
                                 from transformers import BertTokenizer
@@ -291,8 +308,8 @@
                             <p data-es="<strong>El primer obstáculo, las palabras no son números:</strong>
 
                             Una computadora no entiende qué es un 'gato' o una 'casa'. Para que pueda procesar texto, primero debemos convertir las palabras en números. El enfoque más
-                            simple sería asignar un número único a cada palabra del diccionario: 'rey' podría ser el 50, 'reina' el 51, y 'manzana' el 52." 
-                            data-en="<strong>The first hurdle, Words are not numbers:</strong>
+                            simple sería asignar un número único a cada palabra del diccionario: 'rey' podría ser el 50, 'reina' el 51, y 'manzana' el 52."
+                                data-en="<strong>The first hurdle, Words are not numbers:</strong>
                             
                             A computer doesn’t understand what a “cat” or a “house” is. To process text, we must convert words into numbers.
                             The simplest approach would be to assign a unique number to each word in the vocabulary: “king” could be 50, “queen” 51, and “apple” 52.">
@@ -300,23 +317,24 @@
 
                             <p data-es=" Pero este método tiene un gran problema: los números 50, 51 y 52 no tienen ninguna relación entre sí. No le dicen a la máquina que 'rey' y 'reina' están mucho
                             más relacionados semánticamente que 'rey' y 'manzana'. Aquí es donde entran en juego los embeddings."
-
-                            data-en="But this method has a major flaw: the numbers 50, 51, and 52 have no relationship to each other. They don’t tell the machine that “king” and “queen” are much more semantically related than “king” and “apple.”This is where embeddings come into play."></p>
+                                data-en="But this method has a major flaw: the numbers 50, 51, and 52 have no relationship to each other. They don’t tell the machine that “king” and “queen” are much more semantically related than “king” and “apple.”This is where embeddings come into play.">
+                            </p>
 
                             <p data-es="<strong>Embeddings, el ADN de las palabras:</strong>
                             
                             Imagina que cada palabra tiene un 'ADN' que define su significado en múltiples dimensiones. Este ADN es el embedding: una lista de números (un vector) que
                             representa a la palabra en un espacio matemático."
-                            
-                            data-en="Imagine each word has a “DNA” that defines its meaning across many dimensions.
+                                data-en="Imagine each word has a “DNA” that defines its meaning across many dimensions.
                             This DNA is the embedding: a list of numbers (a vector) representing the word in a mathematical space."></p>
 
                             <p data-es="En mi experimentación, usé un modelo pre-entrenado (BERT) para obtener estos vectores. Cuando pedí el embedding para la palabra 'king' (rey), no obtuve un solo
                             número, sino un vector con 768 dimensiones."
-                            data-en="In my experiments, I used a pre-trained model (BERT) to obtain these vectors. When I asked for the embedding of the word “king”, I didn’t get a single number — I got a vector with 768 dimensions:"></p>
+                                data-en="In my experiments, I used a pre-trained model (BERT) to obtain these vectors. When I asked for the embedding of the word “king”, I didn’t get a single number — I got a vector with 768 dimensions:">
+                            </p>
 
                             <p data-es="Un tensor es basicamente una matríz multidimensional, lo puedes visualizar en código en otra entrada de mi blog :)"
-                            data-en="A tensor is basically a multidimensional matrix — you can visualize it in code in another entry of my blog :)"></p>
+                                data-en="A tensor is basically a multidimensional matrix — you can visualize it in code in another entry of my blog :)">
+                            </p>
 
                             <pre><code class="language-python">
                                 Embedding de la palabra 'king':
@@ -330,29 +348,28 @@
 
                             <p data-es="Cada uno de estos 768 números representa una característica abstracta del significado de la palabra, aprendida por el modelo tras analizar miles de millones de
                             textos. Una dimensión podría (de forma muy simplificada) representar 'realeza', otra 'género', otra 'humanidad', etc. Las palabras con significados similares
-                            tendrán valores parecidos en dimensiones relevantes."
-                            
-                            data-en="Each of these 768 numbers represents an abstract feature of the word’s meaning, learned by the model after analyzing billions of texts.
+                            tendrán valores parecidos en dimensiones relevantes." data-en="Each of these 768 numbers represents an abstract feature of the word’s meaning, learned by the model after analyzing billions of texts.
                             One dimension might (very simplistically) represent “royalty,” another “gender,” another “humanness,” and so on.
                             Words with similar meanings have similar values in relevant dimensions."></p>
 
                             <p data-es="Espacios vectoriales, el universo donde viven las palabras"
-                            data-en="Vectorial spaces, the universe where words live"></p>
+                                data-en="Vectorial spaces, the universe where words live"></p>
 
                             <p data-es="Si cada palabra es un punto definido por su vector de embedding, entonces todas las palabras de un idioma viven juntas en un gigantesco 'universo'
-                            multidimensional. A esto lo llamamos espacio vectorial."
-                            data-en="If every word is a point defined by its embedding vector, then all words in a language live together in a gigantic multidimensional “universe.”
+                            multidimensional. A esto lo llamamos espacio vectorial." data-en="If every word is a point defined by its embedding vector, then all words in a language live together in a gigantic multidimensional “universe.”
                             This is what we call a vector space."></p>
 
                             <p data-es="Lo realmente asombroso es que en este universo, la distancia y la dirección importan."
-                            data-en="What’s truly amazing is that in this universe, distance and direction matter:"></p>
+                                data-en="What’s truly amazing is that in this universe, distance and direction matter:">
+                            </p>
 
                             <p data-es="<strong>1. La Distancia es Significado:</strong> Palabras con significados similares, como 'rey' y 'reina', o 'perro' y 'lobo', estarán muy cerca la una de la otra en este
                             espacio. En mi notebook, al calcular la similitud del coseno (una forma de medir la cercanía entre dos vectores) para 'king' y 'queen', obtuve un valor
                             alto (0.64), confirmando su proximidad semántica."
-                            data-en="<strong>1. Distance = Meaning:</strong>
+                                data-en="<strong>1. Distance = Meaning:</strong>
                             Words with similar meanings — like “king” and “queen” or “dog” and “wolf” — are close to each other in this space.
-                            In my notebook, when I computed the cosine similarity (a measure of vector closeness) between “king” and “queen,” I got a high value (0.64), confirming their semantic proximity."></p>
+                            In my notebook, when I computed the cosine similarity (a measure of vector closeness) between “king” and “queen,” I got a high value (0.64), confirming their semantic proximity.">
+                            </p>
 
                             <pre><code class="language-python">
                                 cos = torch.nn.CosineSimilarity()
@@ -365,7 +382,8 @@
                             </code></pre>
 
                             <p data-es="<strong>2. La Dirección es Relación:</strong> Las direcciones en este espacio capturan relaciones. El ejemplo más famoso, que pude explorar, es la analogía:"
-                            data-en="<strong>2. Direction = Relationship:</strong> Directions in this space capture relationships. The most famous example, which I explored, is the analogy:"></p>
+                                data-en="<strong>2. Direction = Relationship:</strong> Directions in this space capture relationships. The most famous example, which I explored, is the analogy:">
+                            </p>
 
                             <pre><code class="language-python">
                                 vector('King') - vector('Man') + vector('Woman') ≈ vector('Queen')
@@ -373,27 +391,32 @@
 
                             <p data-es="Esto significa que la 'dirección' que va de 'Hombre' a 'Mujer' es casi la misma que la que va de 'Rey' a 'Reina'. El modelo no sabe qué es un rey o una
                             reina, pero ha aprendido que la relación de género que los diferencia es la misma que existe entre un hombre y una mujer. Ha capturado el concepto de 'género'
-                            de forma puramente matemática"
-                            data-en="This means the “direction” that goes from Man to Woman is almost the same as the direction from King to Queen.
+                            de forma puramente matemática" data-en="This means the “direction” that goes from Man to Woman is almost the same as the direction from King to Queen.
                             The model doesn’t know what a king or queen is — but it has learned that the gender relationship between them mirrors the one between man and woman.
                             It has captured the concept of gender in a purely mathematical form"></p>
 
                             <p data-es="<strong>¿Por qué esto es importante?:</strong> Esta representación numérica del lenguaje es la base de todo lo que hacen los LLMs. Cuando le pides a un modelo que 'escriba sobre un rey valiente que perdió su
                             corona', el modelo convierte tus palabras en vectores, opera matemáticamente con ellos en su espacio vectorial para 'entender' el contexto y, finalmente,
                             genera una respuesta traduciendo nuevos vectores de vuelta a palabras."
-                            data-en="<strong>Why this is so important?:</strong> This numerical representation of language is the foundation of everything LLMs do.
-                            When you ask a model to “write about a brave king who lost his crown”, the model converts your words into vectors, performs mathematical operations within its vector space to “understand” the context, and finally generates an answer by transforming new vectors back into words."></p>
+                                data-en="<strong>Why this is so important?:</strong> This numerical representation of language is the foundation of everything LLMs do.
+                            When you ask a model to “write about a brave king who lost his crown”, the model converts your words into vectors, performs mathematical operations within its vector space to “understand” the context, and finally generates an answer by transforming new vectors back into words.">
+                            </p>
                         </div>
                     </div>
                 </div>
             </article>
             <article class="blog-post card bg-dark-subtle border-primary mb-4">
                 <div class="card-body">
-                    <h2 class="card-title text-primary" data-es="Álgebra lineal para Machine Learning🤖" data-en="Linear Algebra for Machine Learning🤖"></h2>
-                    <p class="card-subtitle mb-2 text-muted" data-es="18 de noviembre de 2025" data-en="November 18, 2025"></p>
+                    <h2 class="card-title text-primary" data-es="Álgebra lineal para Machine Learning🤖"
+                        data-en="Linear Algebra for Machine Learning🤖"></h2>
+                    <p class="card-subtitle mb-2 text-muted" data-es="18 de noviembre de 2025"
+                        data-en="November 18, 2025"></p>
                     <div class="card-text">
-                        <p data-es="Esta entrada corresponde a una libreta de jupyter explicando a detalle los distintos elementos que conforman las estructuras de datos usadas en algebra lineal para machine learning." data-en="This entry corresponds to a Jupyter notebook explaining in detail the different elements that make up the data structures used in linear algebra for machine learning."></p>
-                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse" href="#ML-content" role="button" aria-expanded="false" aria-controls="ML-content">
+                        <p data-es="Esta entrada corresponde a una libreta de jupyter explicando a detalle los distintos elementos que conforman las estructuras de datos usadas en algebra lineal para machine learning."
+                            data-en="This entry corresponds to a Jupyter notebook explaining in detail the different elements that make up the data structures used in linear algebra for machine learning.">
+                        </p>
+                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse"
+                            href="#ML-content" role="button" aria-expanded="false" aria-controls="ML-content">
                             <span data-es="Mostrar más" data-en="Show more"></span> <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="collapse" id="ML-content">
@@ -447,7 +470,7 @@
                             </code></pre>
 
                             <figure class="figure-text-center">
-                                <img src="images/ML images/grey_scale.webp" class="figure-img img-fluid rounded">
+                                <img src="../images/ML images/grey_scale.webp" class="figure-img img-fluid rounded">
                                 <figcaption class="figure-caption text-light-emphasis"></figcaption>
                             </figure>
 
@@ -464,7 +487,7 @@
                             </code></pre>
 
                             <figure class="figure text-center">
-                                <img src="images/ML images/rgb_example.webp" class="figure-img img-fluid rounded">
+                                <img src="../images/ML images/rgb_example.webp" class="figure-img img-fluid rounded">
                                 <figcaption class="figure-caption text-light-emphasis"></figcaption>
                             </figure>
 
@@ -604,12 +627,6 @@
                                 producto_interno = np.dot(matriz_a, matriz_c)
                                 print(f"\nProducto interno resultante:\n{producto_interno}")
 
-
-                                img = mpimg.imread('producto interno.png')
-                                plt.figure(figsize=(10, 10))
-                                plt.imshow(img)
-                                plt.show()
-
                                 #propiedades del producto interno
 
                                 A = np.array([[2, 3],
@@ -687,48 +704,58 @@
             <article class="blog-post card bg-dark-subtle border-primary mb-4">
                 <div class="card-body">
                     <h2 class="card-title text-primary" data-es="Creación del Blog" data-en="Blog Creation"></h2>
-                    <p class="card-subtitle mb-2 text-muted" data-es="15 de noviembre de 2025" data-en="November 15, 2025"></p>
+                    <p class="card-subtitle mb-2 text-muted" data-es="15 de noviembre de 2025"
+                        data-en="November 15, 2025"></p>
                     <div class="card-text">
-                        <p data-es="¡Bienvenido a mi nuevo blog! He decidido crear este espacio para documentar el proceso de desarrollo de mis proyectos, compartir ideas y publicar los avances." data-en="Welcome to my new blog! I've decided to create this space to document the development process of my projects, share ideas, and post updates."></p>
-                        <p data-es="Para empezar, he creado esta misma página usando HTML y Bootstrap, manteniendo el estilo de mi portafolio principal. Aquí podrás ver cómo evolucionan mis proyectos como <strong>TDMBOT💠</strong>, <strong>Berto AI🌱</strong> y otros experimentos en los que trabaje." data-en="To start, I've created this very page using HTML and Bootstrap, maintaining the style of my main portfolio. Here you'll be able to see how my projects like <strong>TDMBOT💠</strong>, <strong>Berto AI🌱</strong>, and other experiments I work on evolve."></p>
+                        <p data-es="¡Bienvenido a mi nuevo blog! He decidido crear este espacio para documentar el proceso de desarrollo de mis proyectos, compartir ideas y publicar los avances."
+                            data-en="Welcome to my new blog! I've decided to create this space to document the development process of my projects, share ideas, and post updates.">
+                        </p>
+                        <p data-es="Para empezar, he creado esta misma página usando HTML y Bootstrap, manteniendo el estilo de mi portafolio principal. Aquí podrás ver cómo evolucionan mis proyectos como <strong>TDMBOT💠</strong>, <strong>Berto AI🌱</strong> y otros experimentos en los que trabaje."
+                            data-en="To start, I've created this very page using HTML and Bootstrap, maintaining the style of my main portfolio. Here you'll be able to see how my projects like <strong>TDMBOT💠</strong>, <strong>Berto AI🌱</strong>, and other experiments I work on evolve.">
+                        </p>
                     </div>
                 </div>
             </article>
 
             <article class="blog-post card bg-dark-subtle border-info mb-4">
                 <div class="card-body">
-                    <h2 class="card-title text-info" data-es="Proceso de desarrollo de RobTopLvlID🔎" data-en="Development Process for RobTopLvlID🔎"></h2>
+                    <h2 class="card-title text-info" data-es="Proceso de desarrollo de RobTopLvlID🔎"
+                        data-en="Development Process for RobTopLvlID🔎"></h2>
                     <p class="card-subtitle mb-2 text-muted" data-es="22 de mayo de 2025" data-en="May 22, 2025"></p>
-                    
+
                     <div class="card-text">
                         <p data-es="Hace unos meses, cuando comencé a explorar el campo de la inteligencia artificial, me pregunté si sería posible desarrollar un modelo capaz de reconocer niveles de Geometry Dash. Mi objetivo no era aprovechar esto para obtener una ventaja injusta en Sparky, especialmente considerando las evidentes limitaciones de hardware, incluso utilizando recursos en la nube.
                         Finalmente, decidí basar el proyecto en el modelo pre-entrenado MobileNetV2 de Keras, aprovechando redes neuronales convolucionales para el reconocimiento de imágenes. El código completo puede encontrarse en el repositorio GDLvlDetector.
 
                         Inicialmente intenté construir la red desde cero usando TensorFlow, y sorprendentemente funcionó bastante bien reconociendo alrededor de dos a cinco niveles como máximo. Sin embargo, el principal reto con este enfoque fue la gran cantidad de datos requerida y las limitaciones de hardware.
-                        En las siguientes secciones explicaré cada fase del proceso de entrenamiento que llevé a cabo." 
-                        
-                        data-en="
+                        En las siguientes secciones explicaré cada fase del proceso de entrenamiento que llevé a cabo."
+                            data-en="
                         A few months ago, as I began exploring the field of artificial intelligence, I wondered whether it would be possible to develop a model capable of recognizing Geometry Dash levels. My goal was not to exploit this for unfair advantage in Sparky, especially considering the evident hardware limitations even when utilizing cloud resources. Ultimately, I decided to base the project on the pre-trained MobileNetV2 model from Keras, leveraging convolutional neural networks for image recognition. The complete code can be found in the repository GDLvlDetector. 
                         
-                        Initially, I attempted to build the network from scratch using TensorFlow, which surprisingly performed quite well in recognizing around two to five levels at most. However, the primary challenge with this approach was the sheer volume of data required and the hardware constraints. In the following sections, I will explain each phase of the training process I undertook."></p>
+                        Initially, I attempted to build the network from scratch using TensorFlow, which surprisingly performed quite well in recognizing around two to five levels at most. However, the primary challenge with this approach was the sheer volume of data required and the hardware constraints. In the following sections, I will explain each phase of the training process I undertook.">
+                        </p>
 
-                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse" href="#robtop-content" role="button" aria-expanded="false" aria-controls="robtop-content">
+                        <a class="btn btn-outline-info btn-sm mb-3 toggle-btn" data-bs-toggle="collapse"
+                            href="#robtop-content" role="button" aria-expanded="false" aria-controls="robtop-content">
                             <span data-es="Mostrar más" data-en="Show more"></span> <i class="fas fa-chevron-down"></i>
                         </a>
 
                         <div class="collapse" id="robtop-content">
                             <div class="ratio ratio-16x9 my-4 video-frame">
-                                <iframe src="https://www.youtube.com/embed/n_L2AG_-dxs?si=HRqAvSSNpA7IZpsU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/n_L2AG_-dxs?si=HRqAvSSNpA7IZpsU"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
                             </div>
 
                             <p data-es="Como en cualquier proyecto de machine learning, el primer paso que debe realizarse—y el que en última instancia determinará la calidad del modelo—es reunir los datos de entrenamiento.
 
-                            Para este proyecto, pasé varios días grabando todos los niveles que el modelo debería reconocer posteriormente usando imágenes. Sin embargo, no podía entrenar el modelo usando directamente el metraje de los videos, lo que nos lleva al segundo paso." 
-                            
-                            data-en="As with any machine learning project, the initial step that must be taken—and the one that will ultimately determine the quality of the model—is gathering the training data. 
+                            Para este proyecto, pasé varios días grabando todos los niveles que el modelo debería reconocer posteriormente usando imágenes. Sin embargo, no podía entrenar el modelo usando directamente el metraje de los videos, lo que nos lleva al segundo paso."
+                                data-en="As with any machine learning project, the initial step that must be taken—and the one that will ultimately determine the quality of the model—is gathering the training data. 
                             
                             For this project, I spent several days recording all the levels that the model would later recognize using images. However, I could not train the model using video footage directly, which leads us to the second step.
-                            The proper way to train a convolutional neural network is by using images. Therefore, I extracted frames from the videos I had recorded earlier. Naturally, I didn’t do this manually but instead used OpenCV with the following script:"></p>
+                            The proper way to train a convolutional neural network is by using images. Therefore, I extracted frames from the videos I had recorded earlier. Naturally, I didn’t do this manually but instead used OpenCV with the following script:">
+                            </p>
 
                             <pre><code class="language-python">
                                 import os
@@ -760,8 +787,8 @@
                             Ahora es necesario preparar los datos de la manera más óptima para usarlos con el modelo MobileNetV2, de forma que durante el proceso de convolución pueda clasificar y reconocer patrones correctamente.
                             Esto implica tomar en cuenta varios aspectos, como:
                             tamaño de las imágenes, tamaño de los lotes, tamaños de los vectores, canales de color y muchos otros detalles tediosos pero esenciales."
-                            
-                            data-en="In the previous step, the images from the frames were saved in an orderly manner into folders named after each level. Now, it is necessary to prepare the data in the most optimal way for use with the MobileNetV2 model, so that during the convolution process it can classify and recognize patterns correctly. This involves taking several aspects into account, such as image size, batch size, vector sizes, color channels, and many other tedious but essential details. The following script details this process:"></p>
+                                data-en="In the previous step, the images from the frames were saved in an orderly manner into folders named after each level. Now, it is necessary to prepare the data in the most optimal way for use with the MobileNetV2 model, so that during the convolution process it can classify and recognize patterns correctly. This involves taking several aspects into account, such as image size, batch size, vector sizes, color channels, and many other tedious but essential details. The following script details this process:">
+                            </p>
                             <pre><code class="language-python">
                                 import tensorflow as tf
                                 import numpy as np
@@ -818,8 +845,7 @@
                             En este punto uso un modelo pre-entrenado de Keras llamado MobileNetV2. Al cargarlo, esto me permite entrenar mi modelo utilizando la técnica de transfer learning, evitando crear mi propia red neuronal convolucional desde cero y lidiar con todos los problemas que eso implica.
                             
                             Importar modelos pre-entrenados MobileNetV2 desde keras y cargar el modelo en una variable:"
-
-                            data-en="Model Training In this step, the model is ready to begin its training process. After data preparation, the neural network can generalize to more information to order to recognize more special cases, such as if an image if rotated or deformed, among others. At this point i use an pre-trained Keras model called MobileNetV2. By loading it, this will me train my model using the transfer learning technique so i don't create my own Convolutional Neuronal Network from scratch and deal with all the problems that entails.
+                                data-en="Model Training In this step, the model is ready to begin its training process. After data preparation, the neural network can generalize to more information to order to recognize more special cases, such as if an image if rotated or deformed, among others. At this point i use an pre-trained Keras model called MobileNetV2. By loading it, this will me train my model using the transfer learning technique so i don't create my own Convolutional Neuronal Network from scratch and deal with all the problems that entails.
 
                             Import MobileNetV2 Pre-trained models from keras and load the model in a variable:"></p>
 
@@ -833,7 +859,7 @@
                             </code></pre>
 
                             <p data-es="Proceso de Transfer Learning y configuración"
-                            data-en="Transfer Learning Process and configutation"></p>
+                                data-en="Transfer Learning Process and configutation"></p>
 
                             <pre><code class="language-python">
                                 for layer in base_model.layers:
@@ -852,8 +878,8 @@
                                 ])
                             </code></pre>
 
-                            <p data-es="Proceso de compilación y entrenamiento"
-                            data-en="Compile and training process"></p>
+                            <p data-es="Proceso de compilación y entrenamiento" data-en="Compile and training process">
+                            </p>
 
                             <pre><code class="language-python">
                                 # Compile
@@ -871,7 +897,7 @@
                                 # Save Model .keras
                                 model.save("gd_level_classifier.keras")
                             </code></pre>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -884,10 +910,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Prism.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
     <!-- Custom JS -->
-    <script src="portfolio-script.js"></script>
+    <script src="../portfolio-script.js"></script>
     <script>
         // Configuración de Prism Normalize Whitespace
         Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -898,4 +926,5 @@
         });
     </script>
 </body>
+
 </html>
