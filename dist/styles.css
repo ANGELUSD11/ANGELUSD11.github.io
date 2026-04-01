@@ -1,0 +1,348 @@
+/* Custom CSS Variables */
+:root {
+    --primary-color: #06b6d4;
+    --primary-dark: #0891b2;
+    --bg-dark: #0f172a99;
+    --bg-dark-subtle: #1e293b;
+    --text-light: white;
+    --text-muted: white;
+    --border-color: #334155;
+}
+
+/* Global Styles */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 150vh;
+    position: relative;
+    isolation: isolate;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/araña.webp');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.08;
+    /* Very low opacity */
+    z-index: -1;
+    /* Place behind content */
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.logo-container img {
+    border-radius: 50%;
+    width: 200px;
+    height: auto;
+}
+
+
+/* Language Switcher */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.language-switcher .btn {
+    border: 2px solid var(--primary-color);
+    color: #e4f3f5;
+    background-color: rgb(6, 181, 212);
+    transition: all 0.3s ease;
+}
+
+.language-switcher .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero-section {
+    margin-top: 60px;
+}
+
+.logo-container {
+    animation: float 3s ease-in-out infinite;
+}
+
+.logo-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.5));
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@media (max-width: 768px) {
+    .logo-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-color), #0891b2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Social Links */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-dark-subtle);
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+}
+
+.social-link i {
+    font-size: 1.25rem;
+}
+
+/* Cards */
+.bg-dark-subtle {
+    background-color: var(--bg-dark-subtle) !important;
+    border: 2px solid aqua !important;
+    border-radius: 30px !important;
+    corner-shape: bevel !important;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+/* Project Cards */
+.project-card {
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.2);
+}
+
+.project-card .btn {
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .btn {
+    transform: translateX(5px);
+}
+
+/* Skill Icons */
+.skill-icon {
+    width: 80px;
+    height: 80px;
+    padding: 1rem;
+    background: var(--bg-dark-subtle);
+    border: 2px solid var(--primary-color);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.skill-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+}
+
+.skill-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* YouTube Section */
+.youtube-section iframe {
+    border-radius: 1rem;
+    border: 2px solid var(--primary-color);
+}
+
+
+footer p {
+    color: white;
+}
+
+/* Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.5));
+    }
+
+    to {
+        filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.8));
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    .diamond-icon {
+        font-size: 3rem;
+    }
+
+    .social-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .skill-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .language-switcher .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .language-switcher .btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .language-switcher {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+[data-es],
+[data-en] {
+    transition: opacity 0.2s ease;
+}
+
+.game-container {
+    background-color: var(--bg-dark-subtle);
+    border: 2px solid var(--primary-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.game-container iframe {
+    border-radius: 0.5rem;
+    border: none;
+    max-width: 100%;
+}
+
+.game-logo {
+    max-width: 30%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.7));
+
+}
+
+@media (max-width: 768px) {
+    .game-logo {
+        max-width: 90%;
+    }
+}
+
+body.game-page {
+    min-height: 100vh;
+    position: relative;
+    /* Needed for pseudo-element positioning */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll if image is slightly wider */
+}
+
+body.game-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/conceptoadvad.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+    /* Very low opacity */
+    z-index: -1;
+    /* Place behind content */
+}
+
+body.game-page header {
+    background-color: var(--bg-dark-subtle);
+    /* Solid color for the navbar */
+    border-bottom: 2px solid var(--primary-color) !important;
+    /* Blue border */
+}
+
+/* Itch.io Widget */
+.itch-io-widget-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.itch-io-widget-container iframe {
+    border-radius: 0.5rem;
+    border: 2px solid var(--primary-color) !important;
+    /* Use important to override inline styles from itch.io */
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    transition: all 0.3s ease;
+    max-width: 90%;
+}
+
+.itch-io-widget-container iframe:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+}

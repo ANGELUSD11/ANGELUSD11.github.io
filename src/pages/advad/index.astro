@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="ADVAD - ANGELUS11">
+    <div class="container-fluid p-0 position-relative" style="z-index: 10;">
+        <header class="py-4 px-4 border-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <div class="d-flex align-items-center gap-3 mx-auto">
+                        <i class="fas fa-rocket text-primary fs-4"></i>
+                        <h1 class="h3 mb-0 text-primary">ADVAD</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-5 px-4">
+            <div class="container">
+                <img src="/images/ADVADLOGODEF.png" alt="ADVAD Logo" class="game-logo img-fluid mb-3">
+                <div class="game-container">
+                    <div class="ratio ratio-16x9">
+                        <iframe frameborder="0" src="https://itch.io/embed-upload/16830827?color=00477e" allowfullscreen="" width="1280" height="720"><a href="https://angelus11.itch.io/advad-demo">Play ADVAD (DEMO) on itch.io</a></iframe>
+                    </div>
+                </div>
+
+                <div class="card bg-dark-subtle border-primary mt-4">
+                    <div class="card-body">
+                        <h2 class="card-title text-primary mb-4">
+                            <i class="fas fa-gamepad me-2"></i>
+                            <span data-es="Sobre el juego" data-en="About the game">Sobre el juego</span>
+                        </h2>
+                        <p class="card-text text-white" data-es="ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu nave, esquiva oleadas de enemigos y asteroides, y destruye todo a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo podrás sobrevivir?" data-en="ADVAD is a fast-paced space shoot 'em up. Pilot your ship, dodge waves of enemies and asteroids, and destroy everything in your path to get the highest score. How long can you survive?">
+                        ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu nave, esquiva oleadas de enemigos y asteroides, y destruye todo a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo podrás sobrevivir?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- The external itch.io widget at the bottom -->
+    <div class="d-flex justify-content-center itch-io-widget-container py-5">
+        <iframe
+            frameborder="0"
+            src="https://itch.io/embed/3972224?bg_color=234446&fg_color=58fffa&link_color=7bfffd&border_color=276ea5"
+            width="552"
+            height="167">
+            <a href="https://angelus11.itch.io/advad-demo">ADVAD (DEMO) by ANGELUSD11</a>
+        </iframe>
+    </div>
+
+    <!-- Language Switcher Button (floating in advad) -->
+    <div class="language-switcher">
+        <button id="langBtn" class="btn btn-outline-primary">
+            <i class="fas fa-globe"></i> <span id="langText">EN</span>
+        </button>
+    </div>
+</Layout>

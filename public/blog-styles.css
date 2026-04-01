@@ -1,0 +1,109 @@
+.blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px; /* Añade un poco de padding para que no se pegue a los bordes en pantallas pequeñas */
+}
+
+/* Para pantallas grandes, permite que el contenedor ocupe más espacio */
+@media (min-width: 1200px) {
+    .blog-container {
+        max-width: 95%; /* Usa un porcentaje para que no se extienda indefinidamente */
+    }
+}
+
+
+.bg-dark-subtle {
+    border: 2px solid aqua !important;
+    border-radius: 5px;
+}
+
+article.blog-post pre {
+    background-color: #01000a; /* Tono oscuro suave */
+    border: none; /* Eliminamos el borde */
+    border-radius: 10px; /* Esquinas más redondeadas */
+    padding: 1.5rem;
+    color: #f8f9fa;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+    overflow: auto; /* Asegura que el scroll aparezca si el contenido es muy ancho */
+}
+
+/* Estilo para la barra de scroll (funciona en navegadores WebKit) */
+article.blog-post pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+article.blog-post pre::-webkit-scrollbar-track {
+    background: #1E1E1E;
+}
+
+article.blog-post pre::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+    border: 2px solid #1E1E1E;
+}
+
+article.blog-post code {
+    font-family: 'Consolas', 'Liberation Mono', 'Menlo', 'Courier', monospace; /* Fuentes modernas */
+    font-size: 0.9rem;
+}
+
+article.blog-post .card-text {
+    color: #87CEEB !important; /* Sky blue for readability */
+}
+
+article.blog-post .card-subtitle {
+    color: #FFFFFF !important; /* White for better visibility on dark background */
+}
+
+.video-frame {
+    border: 2px solid #00e9d9; /* Bootstrap primary blue */
+    border-radius: 8px;
+    padding: 5px; /* Small padding inside the frame */
+    background-color: #212529; /* Dark background for contrast */
+    z-index: 2;
+}
+
+.video-frame iframe {
+    border-radius: 6px; /* Slightly smaller than the parent's radius */
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.devlog-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.devlog-text {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.blog-header-title {
+    font-weight: bold;
+    font-size: 2.5rem; /* Default for larger screens */
+}
+
+/* For medium screens */
+@media (max-width: 768px) {
+    .blog-header-title {
+        font-size: 2rem;
+    }
+}
+
+/* For small screens */
+@media (max-width: 576px) {
+    .blog-header-title {
+        font-size: 1.5rem;
+    }
+}
