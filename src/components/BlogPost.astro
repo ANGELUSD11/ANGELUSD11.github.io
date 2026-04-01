@@ -1,0 +1,21 @@
+---
+export interface Props {
+    titleEs: string;
+    titleEn: string;
+    dateEs: string;
+    dateEn: string;
+    color?: string;
+}
+
+const { titleEs, titleEn, dateEs, dateEn, color = 'primary' } = Astro.props;
+---
+
+<article class={`blog-post card bg-dark-subtle border-${color} mb-4`}>
+    <div class="card-body">
+        <h2 class={`card-title text-${color}`} data-es={titleEs} data-en={titleEn}>{titleEs}</h2>
+        <p class="card-subtitle mb-2 text-muted" data-es={dateEs} data-en={dateEn}>{dateEs}</p>
+        <div class="card-text">
+            <slot />
+        </div>
+    </div>
+</article>

@@ -1,0 +1,30 @@
+---
+export interface Props {
+  title: string;
+  icon?: string;
+}
+const { title, icon } = Astro.props;
+---
+<nav class="navbar bg-dark-subtle py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Left side: Home button -->
+        <a href="/" class="btn btn-outline-primary">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
+        <!-- Center: Title -->
+        <div class="header-title flex-grow-1 text-center">
+            <h1 class="gradient-text blog-header-title m-0">
+                {icon && <i class={`fas ${icon}`}></i>} {title}
+            </h1>
+        </div>
+
+        <!-- Right side: Language switcher -->
+        <div class="language-switcher position-static">
+            <!-- We add position-static if it was floating, but in navbar it should fit naturally -->
+            <button id="langBtn" class="btn btn-outline-primary">
+                <i class="fas fa-globe"></i> <span id="langText">EN</span>
+            </button>
+        </div>
+    </div>
+</nav>
