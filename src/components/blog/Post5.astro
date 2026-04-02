@@ -1,0 +1,109 @@
+---
+import BlogPost from '../BlogPost.astro';
+---
+<BlogPost titleEs="Cifrado de los recursos PCK en juegos de Godot" titleEn="Encrypt index.pck files in Godot Games" dateEs="1 de abril de 2026" dateEn="April 1, 2026" color="danger">
+
+    <!-- Escribe el contenido en Español dentro de data-es y en Inglés dentro de data-en -->
+    <p data-es="Al momento de crear un juego en Godot y publicarlo, se corre el gran riesgo de que alguien más
+    lo robe, aunque esto suene dificil de hacer, la realidad es que ya hay herramientas que lo hacen muy fácil,
+    la más conocida y usada por los desarrolladores para decompilar ejecutables compilados en el motor, es Godot RE Tools,
+    que viene de las siglas Godot Reverse Engineering Tools, esta herramienta es capaz de extraer los recursos de un juego
+    los cuales se alojan en el archivo index.pck, y de esta manera, recuperar el proyecto como si fueramos el 
+    desarrollaror original, por lo que es de suma importancia proteger nuestros proyectos mediant el cifrado o la 
+    encriptación de los recursos, ahora les enseñaré el paso a paso de como hacerlo."
+       data-en="When creating a game in Godot and publishing it, there is a high risk of someone else stealing it. Although this sounds difficult to do, the reality is that there are tools that make it very easy. The most known and used tool by developers to decompile executables compiled in the engine is Godot RE Tools, which stands for Godot Reverse Engineering Tools. This tool is capable of extracting the assets of a game which are stored in the index.pck file, and in this way, recovering the project as if we were the original developer. Therefore, it is of utmost importance to protect our projects through encryption or resource ciphering. Now I will show you step by step how to do it.">
+    </p>
+
+    <!-- Botón para expandir más contenido (Opcional) -->
+    <a class="btn btn-outline-danger btn-sm mb-3 toggle-btn" data-bs-toggle="collapse"
+        href="#post5-content" role="button" aria-expanded="false" aria-controls="post5-content">
+        <span data-es="Mostrar más" data-en="Show more"></span> <i class="fas fa-chevron-down"></i>
+    </a>
+
+    <div class="collapse" id="post5-content">
+        <p data-es="Primero, vamos a ver los prerequisitos básicos." 
+           data-en="First, let's look at the basic prerequisites."></p>
+
+        <p data-es="<strong>Git:</strong> Tenemos que tener instalado Git, el sistema de control de versiones,
+        para poder clonar el repositorio de Godot que necesitaremos para compilar una plantilla de 
+        exportación personalizada. Si no tienes Git puedes descargarlo <a href='https://git-scm.com/' target='_blank' class='text-danger'>aquí</a>" 
+        data-en="<strong>Git:</strong> We must have Git installed, the version control system, in order to clone the Godot repository that we will need to compile a custom export template. If you don't have Git, you can download it <a href='https://git-scm.com/' target='_blank' class='text-danger'>here</a>"></p>
+
+        <pre is:raw><code class="language-bash">git clone https://github.com/godotengine/godot.git</code></pre>
+
+        <p data-es="<strong>Python:</strong> Tenemos que tener instalado el lenguaje de programación Python, 
+        nos servirá para instalar la librería scons para automatizar la compilación. 
+        Si no lo tienes, lo puedes descargar <a href='https://www.python.org/' target='_blank' class='text-danger'>aquí</a>" 
+        data-en="<strong>Python:</strong> We must have the Python programming language installed. It will be used to install the scons library to automate the compilation. If you don't have it, you can download it <a href='https://www.python.org/' target='_blank' class='text-danger'>here</a>"></p>
+
+        <pre is:raw><code class="language-bash">pip install scons</code></pre>
+
+        <p data-es="<strong>MinGW:</strong> Necesitamos un compilador de C++, en muchos lugares verás que recomiendan MinGW por lo ligero que es, 
+        puedes descargarlo <a href='https://github.com/mstorsjo/llvm-mingw/releases/tag/20260324' target='_blank' class='text-danger'>aquí</a>. 
+        Recuerda agregarlo a PATH para poder usarlo desde la terminal: variables de entorno > variables de entorno del sistema > path > editar > nueva > pegas ruta del ejecutable" 
+        data-en="<strong>MinGW:</strong> We need a C++ compiler. In many places, you will see MinGW recommended for how lightweight it is. You can download it <a href='https://github.com/mstorsjo/llvm-mingw/releases/tag/20260324' target='_blank' class='text-danger'>here</a>. Remember to add it to your PATH to be able to use it from the terminal: Environment Variables > System Environment Variables > Path > Edit > New > paste the executable path."></p>
+
+        <p data-es="<strong>OpenSSL</strong> Necesitamos OpenSSL para poder generar las claves de cifrado, 
+        puedes descargarlo desde <a href='https://slproweb.com/products/Win32OpenSSL.html' target='_blank' class='text-danger'>aquí</a>. 
+        Recuerda agregarlo a PATH para poder usarlo desde la terminal: variables de entorno > variables de entorno del sistema > path > editar > nueva > pegas ruta del ejecutable" 
+        data-en="<strong>OpenSSL</strong> We need OpenSSL to generate the encryption keys. You can download it <a href='https://slproweb.com/products/Win32OpenSSL.html' target='_blank' class='text-danger'>here</a>. Remember to add it to your PATH to be able to use it from the terminal: Environment Variables > System Environment Variables > Path > Edit > New > paste the executable path."></p>
+
+        <p data-es="Ve a la ruta donde clonaste el código fuente de godot y ejecuta el siguiente comando para generar nuestra clave de cifrado:" 
+        data-en="Go to the path where you cloned the Godot source code and run the following command to generate our encryption key:"></p>
+        
+        <pre is:raw><code class="language-bash">openssl rand hex 32 > godot.gdkey</code></pre>
+
+        <p data-es="Puedes verla y copiarla con el comando cat, la clave siempre se guarda en godot.gdkey"
+        data-en="You can view and copy it with the cat command. The key is always saved in godot.gdkey"></p>
+
+        <pre is:raw><code class="language-bash">cat godot.gdkey</code></pre>
+
+        <p data-es="Establece la clave que generaste como variable de entorno en la terminal para poder utilizarla para compilar Godot"
+        data-en="Set the key you generated as an environment variable in the terminal so you can use it to compile Godot"></p>
+
+        <p data-es="En Linux/MacOS:"
+        data-en="On Linux/MacOS:"></p>
+
+        <pre is:raw><code class="language-bash">export SCRIPT_AES256_ENCRYPTION_KEY="your_hexadecimal_key_here"</code></pre>
+
+        <p data-es="En Windows(CMD):"
+        data-en="On Windows (CMD):"></p>
+
+        <pre is:raw><code class="language-bash">set SCRIPT_AES256_ENCRYPTION_KEY=your_hexadecimal_key_here</code></pre>
+
+        <p data-es="En Windows(PowerShell):"
+        data-en="On Windows (PowerShell):"></p>
+
+        <pre is:raw><code class="language-bash">$env:SCRIPT_AES256_ENCRYPTION_KEY="your_hexadecimal_key_here"</code></pre>
+
+        <p data-es="Ahora que tenemos la clave establecida, podemos compilar Godot con soporte para cifrado de PCK"
+        data-en="Now that we have the key set, we can compile Godot with PCK encryption support."></p>
+
+        <p data-es="Si NO usas C# en tu proyecto:"
+        data-en="If you DO NOT use C# in your project:"></p>
+
+        <pre is:raw><code class="language-bash">scons platform=windows use_mingw=yes arch=x86_64 target=template_release use_llvm=true mingw64_prefix=x86_64-w64-mingw32-</code></pre>
+
+        <p data-es="Si usas C# en tu proyecto:"
+        data-en="If you DO use C# in your project:"></p>
+
+        <pre is:raw><code class="language-bash">scons platform=windows use_mingw=yes arch=x86_64 target=template_release use_llvm=true mingw64_prefix=x86_64-w64-mingw32- module_mono_enabled=yes</code></pre>
+
+        <p data-es="Esto se demorará un buen rato, debido a que se tienen que parsear y compilar todos los módulos del motor, ve a estirar las piernas😉"
+        data-en="This will take a good while, as all the engine's modules have to be parsed and compiled. Go stretch your legs 😉"></p>
+
+        <p data-es="Cuando termine el proceso, se nos habrá guardado la plantilla de exportación compilada en la carpeta /bin/, ahora tenemos que configurar el proyecto desde godot para usarla."
+        data-en="When the process finishes, the compiled export template will be saved in the /bin/ folder. Now we have to configure the project from Godot to use it."></p>
+
+        <p data-es="Abre tu proyecto en godot, ve a Proyecto > Preferencias del proyecto > Exportar > Plantillas de exportación > en Release, seleccionas la que compilamos."
+        data-en="Open your project in Godot, go to Project > Export > Export Templates > in the Release field, select the one we compiled."></p>
+
+        <img src="../images/GodotP images/release template.png" class="figure-img img-fluid rounded" alt="release_template">
+
+        <p data-es="Ahora ve a cifrado, cifra todos los archivos escribiendo *.* y en clave de cifrado, pones la clave que habíamos sacado antes."
+        data-en="Now go to Encryption, encrypt all files by typing *.*, and in the Encryption Key field, paste the key we generated earlier."></p>
+
+        <img src="../images/GodotP images/encrypt options.png" class="figure-img img-fluid rounded" alt="encrypt_options">
+    </div>
+
+</BlogPost>

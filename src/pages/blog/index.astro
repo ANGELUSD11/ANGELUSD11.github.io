@@ -5,6 +5,9 @@ import Post1 from '../../components/blog/Post1.astro';
 import Post2 from '../../components/blog/Post2.astro';
 import Post3 from '../../components/blog/Post3.astro';
 import Post4 from '../../components/blog/Post4.astro';
+import Post5 from '../../components/blog/Post5.astro';
+import Post6 from '../../components/blog/Post6.astro';
+import Post5 from '../../components/blog/Post5.astro';
 ---
 <Layout title="Blog - ANGELUS11">
     <Fragment slot="head">
@@ -14,11 +17,13 @@ import Post4 from '../../components/blog/Post4.astro';
     <Navbar title="DEVLOG" icon="fa-blog" />
     <main class="container py-5">
         <div class="blog-container">
+
+            <Post5 />
             <Post1 />
             <Post2 />
             <Post3 />
             <Post4 />
-        </div>
+                </div>
     </main>
 
     <!-- Prism JS for syntax highlighting -->
