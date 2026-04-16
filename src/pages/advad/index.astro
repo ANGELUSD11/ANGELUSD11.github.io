@@ -1,10 +1,13 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="ADVAD - ANGELUS11">
     <div class="container-fluid p-0 position-relative" style="z-index: 10;">
-        <header class="py-4 px-4 border-bottom" style="background-color: rgba(2, 22, 36, 0.31); backdrop-filter: blur(8px);">
+        <header
+            class="py-4 px-4 border-bottom"
+            style="background-color: rgba(2, 22, 36, 0.31); backdrop-filter: blur(8px);"
+        >
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
                     <a href="/" class="btn btn-outline-primary btn-sm">
@@ -20,10 +23,23 @@ import Layout from '../../layouts/Layout.astro';
 
         <section class="py-5 px-4">
             <div class="container">
-                <img src="/images/ADVADLOGODEF.png" alt="ADVAD Logo" class="game-logo img-fluid mb-3">
+                <img
+                    src="/images/ADVADLOGODEF.png"
+                    alt="ADVAD Logo"
+                    class="game-logo img-fluid mb-3"
+                />
                 <div class="game-container">
                     <div class="ratio ratio-16x9">
-                        <iframe frameborder="0" src="https://itch.io/embed-upload/16830827?color=00477e" allowfullscreen="" width="1280" height="720"><a href="https://angelus11.itch.io/advad-demo">Play ADVAD (DEMO) on itch.io</a></iframe>
+                        <iframe
+                            frameborder="0"
+                            src="https://itch.io/embed-upload/16830827?color=00477e"
+                            allowfullscreen=""
+                            width="1280"
+                            height="720"
+                        >
+                            <a href="https://angelus11.itch.io/advad-demo">Play
+                            ADVAD (DEMO) on itch.io</a>
+                        </iframe>
                     </div>
                 </div>
 
@@ -31,10 +47,21 @@ import Layout from '../../layouts/Layout.astro';
                     <div class="card-body">
                         <h2 class="card-title text-primary mb-4">
                             <i class="fas fa-gamepad me-2"></i>
-                            <span data-es="Sobre el juego" data-en="About the game">Sobre el juego</span>
+                            <span
+                                data-es="Sobre el juego"
+                                data-en="About the game">Sobre el juego</span
+                            >
                         </h2>
-                        <p class="card-text text-white" data-es="ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu nave, esquiva oleadas de enemigos y asteroides, y destruye todo a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo podrás sobrevivir?" data-en="ADVAD is a fast-paced space shoot 'em up. Pilot your ship, dodge waves of enemies and asteroids, and destroy everything in your path to get the highest score. How long can you survive?">
-                        ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu nave, esquiva oleadas de enemigos y asteroides, y destruye todo a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo podrás sobrevivir?
+                        <p
+                            class="card-text text-white"
+                            data-es="ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu nave, esquiva oleadas de enemigos y asteroides, y destruye todo a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo podrás sobrevivir?"
+                            data-en="ADVAD is a fast-paced space shoot 'em up. Pilot your ship, dodge waves of enemies and asteroids, and destroy everything in your path to get the highest score. How long can you survive?"
+                        >
+                            ADVAD es un 'shoot 'em up' espacial de ritmo rápido.
+                            Pilota tu nave, esquiva oleadas de enemigos y
+                            asteroides, y destruye todo a tu paso para conseguir
+                            la puntuación más alta. ¿Cuánto tiempo podrás
+                            sobrevivir?
                         </p>
                     </div>
                 </div>
@@ -48,15 +75,39 @@ import Layout from '../../layouts/Layout.astro';
             frameborder="0"
             src="https://itch.io/embed/3972224?bg_color=234446&fg_color=58fffa&link_color=7bfffd&border_color=276ea5"
             width="552"
-            height="167">
-            <a href="https://angelus11.itch.io/advad-demo">ADVAD (DEMO) by ANGELUSD11</a>
+            height="167"
+        >
+            <a href="https://angelus11.itch.io/advad-demo">ADVAD (DEMO) by
+            ANGELUSD11</a>
         </iframe>
+    </div>
+
+    <div class="container py-5">
+        <div class="card bg-dark-subtle border-primary shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary mb-4 text-center">
+                    <i class="fas fa-trophy me-2"></i>
+                    Tabla de líderes
+                </h2>
+                <div class="mx-auto" style="max-width: 1140px;">
+                    <div class="ratio ratio-16x9" style="min-height: 600px;">
+                        <iframe
+                            src="https://advad1d.github.io/advad-leaderboard-front/embed/"
+                            width="100%"
+                            height="100%"
+                            style="border:0; border-radius: 8px;"
+                            loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Language Switcher Button (floating in advad) -->
     <div class="language-switcher">
         <button id="langBtn" class="btn btn-outline-primary">
-            <i class="fas fa-globe"></i> <span id="langText">EN</span>
+            <i class="fas fa-globe"></i>
+            <span id="langText">EN</span>
         </button>
     </div>
 </Layout>
