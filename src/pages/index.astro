@@ -328,10 +328,8 @@ import Layout from "../layouts/Layout.astro";
                     src="https://itch.io/embed/3972224?bg_color=234446&fg_color=58fffa&link_color=7bfffd&border_color=276ea5"
                     width="552"
                     height="167"
-                >
-                    <a href="https://angelus11.itch.io/advad-demo">ADVAD (DEMO)
-                    by ANGELUSD11</a>
-                </iframe>
+                    title="ADVAD (DEMO) by ANGELUSD11"
+                    allowfullscreen></iframe>
             </div>
         </section>
 
@@ -399,56 +397,31 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- Particles.js -->
-    <script
-        is:inline
-        src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
-    ></script>
-    <script is:inline>
-        particlesJS("particles-js", {
-            particles: {
-                number: {
-                    value: 50,
-                    density: {
-                        enable: true,
-                        value_area: 800,
-                    },
-                },
-                color: {
-                    value: "#06b6d4",
-                },
-                shape: {
-                    type: "circle",
-                },
-                opacity: {
-                    value: 0.3,
-                    random: true,
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                },
-                line_linked: {
-                    enable: false,
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    out_mode: "out",
-                },
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: false,
-                    },
-                    onclick: {
-                        enable: false,
-                    },
-                },
-            },
-            retina_detect: true,
-        });
-    </script>
 </Layout>
+<script
+    is:inline
+    src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
+></script>
+<script is:inline>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 50, density: { enable: true, value_area: 800 } },
+            color: { value: "#06b6d4" },
+            shape: { type: "circle" },
+            opacity: { value: 0.3, random: true },
+            size: { value: 3, random: true },
+            line_linked: { enable: false },
+            move: {
+                enable: true,
+                speed: 1,
+                direction: "none",
+                out_mode: "out",
+            },
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: { onhover: { enable: false }, onclick: { enable: false } },
+        },
+        retina_detect: true,
+    });
+</script>
