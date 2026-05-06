@@ -3,8 +3,8 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "ulimit -n 10000 2>/dev/null; astro dev",
+    "start": "ulimit -n 10000 2>/dev/null; astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
