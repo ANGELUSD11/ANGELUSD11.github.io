@@ -1,9 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CelestialOrrery from "../components/CelestialOrrery.astro";
 ---
 
 <Layout title="ANGELUS11 - Developer">
-    <div id="particles-js"></div>
+    <style is:global>
+        /* Home page uses the Celestial Orrery as its background.
+           Neutralize the old body::before image background so it doesn't
+           sit over the orrery (both were at z-index:-1). */
+        body::before {
+            display: none !important;
+        }
+        body {
+            background-color: #03060a !important;
+        }
+    </style>
+    <CelestialOrrery />
 
     <!-- Language Switcher Button -->
     <div class="language-switcher">
@@ -396,32 +408,5 @@ import Layout from "../layouts/Layout.astro";
         </section>
     </div>
 
-    <!-- Particles.js -->
+    <!-- Background: Celestial Orrery (fixed, behind content) -->
 </Layout>
-<script
-    is:inline
-    src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
-></script>
-<script is:inline>
-    particlesJS("particles-js", {
-        particles: {
-            number: { value: 50, density: { enable: true, value_area: 800 } },
-            color: { value: "#06b6d4" },
-            shape: { type: "circle" },
-            opacity: { value: 0.3, random: true },
-            size: { value: 3, random: true },
-            line_linked: { enable: false },
-            move: {
-                enable: true,
-                speed: 1,
-                direction: "none",
-                out_mode: "out",
-            },
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: { onhover: { enable: false }, onclick: { enable: false } },
-        },
-        retina_detect: true,
-    });
-</script>

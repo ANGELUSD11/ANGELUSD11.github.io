@@ -1,0 +1,145 @@
+---
+// Celestial Orrery — fixed full-screen background.
+// Self-contained: scoped styles (no Tailwind), so it won't collide with the
+// site's existing .hero-section / Bootstrap classes. Pure CSS animation.
+---
+
+<div class="celestial-orrery" aria-hidden="true">
+  <div class="glyph-field">
+    <div class="glyph-container glyph-1">
+      <div class="glyph-part part-1"></div>
+      <div class="glyph-part part-2"></div>
+      <div class="glyph-part part-3"></div>
+    </div>
+    <div class="glyph-container glyph-2">
+      <div class="glyph-part part-1"></div>
+      <div class="glyph-part part-2"></div>
+    </div>
+    <div class="glyph-container glyph-3">
+      <div class="glyph-part part-1"></div>
+      <div class="glyph-part part-2"></div>
+      <div class="glyph-part part-3"></div>
+    </div>
+  </div>
+
+  <div class="orrery-field">
+    <div class="orbit orbit-1"><div class="planet"></div></div>
+    <div class="orbit orbit-2"><div class="planet"></div></div>
+    <div class="orbit orbit-3"><div class="planet"></div></div>
+    <div class="orbit orbit-4"><div class="planet"></div></div>
+  </div>
+</div>
+
+<style>
+  /* Fixed background layer behind all page content */
+  .celestial-orrery {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    /* Near-black base with a subtle cool center, like the reference */
+    background:
+      radial-gradient(circle at 50% 45%, #07111a 0%, #050a10 45%, #03060a 100%);
+  }
+
+  /* Subtle dotted grid overlay */
+  .celestial-orrery::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(120, 200, 190, 0.16) 1px, transparent 1.4px);
+    background-size: 34px 34px;
+    opacity: 0.55;
+  }
+
+  /* ---------------- Orbits + planets ---------------- */
+  .orrery-field {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(58, 214, 188, 0.13);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    animation: orbit-spin linear infinite;
+  }
+
+  .orbit-1 { width: 28vmin; height: 28vmin; animation-duration: 18s; }
+  .orbit-2 { width: 52vmin; height: 52vmin; animation-duration: 30s; }
+  .orbit-3 { width: 78vmin; height: 78vmin; animation-duration: 46s; }
+  .orbit-4 { width: 108vmin; height: 108vmin; animation-duration: 66s; }
+
+  /* All planets the same glowing emerald-cyan as the reference */
+  .planet {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    margin-left: -7px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #d7fff1 0%, #2effc0 45%, #14c79a 100%);
+    box-shadow:
+      0 0 8px 2px rgba(46, 255, 192, 0.75),
+      0 0 18px 6px rgba(46, 255, 192, 0.35);
+  }
+
+  @keyframes orbit-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  /* ---------------- Faint floating glyphs ---------------- */
+  .glyph-field {
+    position: absolute;
+    inset: 0;
+  }
+
+  .glyph-container {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: glyph-float 12s ease-in-out infinite, glyph-rotate 36s linear infinite;
+  }
+
+  .glyph-1 { top: 16%; left: 13%; }
+  .glyph-2 { top: 68%; left: 82%; animation-duration: 16s, 48s; }
+  .glyph-3 { top: 80%; left: 16%; animation-duration: 9s, 30s; }
+
+  .glyph-part {
+    position: absolute;
+    border: 1.5px solid rgba(58, 214, 188, 0.18);
+    border-radius: 4px;
+  }
+
+  .glyph-part.part-1 { inset: 0; border-radius: 50%; }
+  .glyph-part.part-2 { inset: 14px; transform: rotate(45deg); }
+  .glyph-part.part-3 { inset: 24px; border-radius: 50%; border-color: rgba(215, 255, 241, 0.28); }
+
+  @keyframes glyph-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-18px); }
+  }
+
+  @keyframes glyph-rotate {
+    from { rotate: 0deg; }
+    to   { rotate: 360deg; }
+  }
+
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .orbit,
+    .glyph-container {
+      animation: none;
+    }
+  }
+</style>

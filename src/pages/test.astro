@@ -1,0 +1,32 @@
+---
+// 🧪 PLAYGROUND para probar componentes de 21st.dev tal cual.
+//
+// Flujo rápido (3 pasos):
+//   1. Pegá el .tsx de 21st.dev en src/components/ui/<nombre>.tsx (tal cual).
+//   2. Pegá el CSS que te dé 21st.dev al final de src/styles/global.css.
+//   3. Cambiá SOLO la línea de import de abajo por tu componente nuevo.
+//
+// Abrí http://localhost:4321/test para verlo.
+
+import "../styles/global.css";
+
+// 👇 cambiá esta línea por el componente que quieras probar
+import { Component } from "@/components/ui/celestial-orrery";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground — 21st.dev</title>
+  </head>
+  <!-- "dark" activa el modo oscuro de los tokens shadcn -->
+  <body class="dark m-0 bg-background text-foreground">
+    <!--
+      client:load = lo hidrata como React tal cual (sirve para cualquier
+      componente de 21st.dev, tenga o no interactividad).
+    -->
+    <Component client:load />
+  </body>
+</html>

@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/* Tailwind 4 dark-mode variant driven by a `.dark` class on <html> */
+@custom-variant dark (&:is(.dark *));
+
+/* shadcn design tokens — map CSS variables to Tailwind theme colors */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: var(--ring);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* ============================================================
+   CELESTIAL ORRERY ANIMATIONS
+   ============================================================ */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, #1a1a3a 0%, #0a0a18 60%, #050509 100%);
+  color: #e8e8ff;
+}
+
+/* Subtle starfield over the whole hero */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, #ffffff, transparent),
+    radial-gradient(1px 1px at 70% 60%, #cfd8ff, transparent),
+    radial-gradient(1px 1px at 40% 80%, #ffffff, transparent),
+    radial-gradient(1px 1px at 90% 20%, #aab4ff, transparent),
+    radial-gradient(1px 1px at 10% 70%, #ffffff, transparent);
+  background-repeat: repeat;
+  opacity: 0.6;
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.35; }
+  to   { opacity: 0.75; }
+}
+
+/* ---------------- Orrery: orbits + planets ---------------- */
+.orrery-field {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(170, 180, 255, 0.18);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  animation: orbit-spin linear infinite;
+}
+
+/* The planet sits on the orbit ring and is carried around by the spin */
+.planet {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #8aa0ff 60%, #4455cc);
+  box-shadow: 0 0 12px 2px rgba(138, 160, 255, 0.7);
+}
+
+.orbit-1 { width: 180px; height: 180px; animation-duration: 8s; }
+.orbit-2 { width: 320px; height: 320px; animation-duration: 14s; }
+.orbit-3 { width: 480px; height: 480px; animation-duration: 22s; }
+.orbit-4 { width: 660px; height: 660px; animation-duration: 34s; }
+
+.orbit-2 .planet { width: 10px; height: 10px; margin-left: -5px; top: -5px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ff9bd2 60%, #c44a9a); box-shadow: 0 0 10px 2px rgba(255, 155, 210, 0.7); }
+.orbit-3 .planet { width: 18px; height: 18px; margin-left: -9px; top: -9px;
+  background: radial-gradient(circle at 30% 30%, #fff, #9bffd8 60%, #3fa97e); box-shadow: 0 0 14px 3px rgba(155, 255, 216, 0.6); }
+.orbit-4 .planet { width: 8px; height: 8px; margin-left: -4px; top: -4px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffd58a 60%, #c99a3f); box-shadow: 0 0 10px 2px rgba(255, 213, 138, 0.7); }
+
+@keyframes orbit-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ---------------- Floating glyphs ---------------- */
+.glyph-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glyph-container {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  animation: glyph-float 12s ease-in-out infinite, glyph-rotate 30s linear infinite;
+}
+
+.glyph-1 { top: 18%; left: 14%; }
+.glyph-2 { top: 70%; left: 80%; animation-duration: 16s, 40s; }
+.glyph-3 { top: 78%; left: 18%; animation-duration: 9s, 26s; }
+
+.glyph-part {
+  position: absolute;
+  border: 1.5px solid rgba(170, 180, 255, 0.35);
+  border-radius: 4px;
+}
+
+.glyph-part.part-1 { inset: 0; border-radius: 50%; }
+.glyph-part.part-2 { inset: 14px; transform: rotate(45deg); }
+.glyph-part.part-3 { inset: 24px; border-radius: 50%; border-color: rgba(255, 255, 255, 0.5); }
+
+@keyframes glyph-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); }
+}
+
+@keyframes glyph-rotate {
+  from { rotate: 0deg; }
+  to   { rotate: 360deg; }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before,
+  .orbit,
+  .glyph-container {
+    animation: none;
+  }
+}
