@@ -26,17 +26,15 @@ import Layout from "../../layouts/Layout.astro";
                     src="/images/ADVADLOGODEF.png"
                     alt="ADVAD Logo"
                     class="game-logo img-fluid mb-3"/>
-                <div class="game-container">
-                    <div class="ratio ratio-16x9">
-                        <iframe
-                            frameborder="0"
-                            title="ADVAD demo"
-                            src="/advad-game/"
-                            allow="autoplay; fullscreen; gamepad; clipboard-write"
-                            allowfullscreen
-                            width="1280"
-                            height="720"></iframe>
-                    </div>
+                <div class="game-stage mx-auto">
+                    <iframe
+                        id="advadFrame"
+                        class="game-frame"
+                        frameborder="0"
+                        title="ADVAD demo"
+                        src="/advad-game/"
+                        allow="autoplay; fullscreen; gamepad; clipboard-write"
+                        allowfullscreen></iframe>
                 </div>
 
                 <div class="card bg-dark-subtle border-primary mt-4">
@@ -106,4 +104,48 @@ import Layout from "../../layouts/Layout.astro";
             <span id="langText">EN</span>
         </button>
     </div>
+
+    <style>
+        /* "Escenario" del juego: reserva el espacio visual y recorta el iframe escalado.
+           Misma proporción que la resolución nativa del juego (520x300). */
+        .game-stage {
+            position: relative;
+            width: 100%;
+            max-width: 1040px;          /* tope visual = 2x el render nativo */
+            aspect-ratio: 520 / 300;
+            margin-inline: auto;
+            overflow: hidden;
+            background: #000;
+            border-radius: 8px;
+        }
+
+        /* El iframe SOLO renderiza 520x300 px reales: con eso el shader CRT
+           procesa ~156k px en vez de ~2M, igual que en itch.io.
+           El tamano visual grande lo da el transform: scale() de fitAdvad(). */
+        .game-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 520px;
+            height: 300px;
+            border: 0;
+            transform-origin: top left;
+            image-rendering: pixelated; /* upscale nitido para el pixel-art */
+        }
+    </style>
+
+    <script is:inline>
+        // Renderiza a 520x300 (barato para el shader) y escala por CSS hasta
+        // llenar el ancho real del "escenario". Recalcula al cambiar tamano.
+        function fitAdvad() {
+            const stage = document.querySelector(".game-stage");
+            const frame = document.getElementById("advadFrame");
+            if (!stage || !frame) return;
+            const scale = stage.clientWidth / 520;
+            frame.style.transform = "scale(" + scale + ")";
+        }
+        window.addEventListener("resize", fitAdvad);
+        window.addEventListener("load", fitAdvad);
+        fitAdvad();
+    </script>
 </Layout>
