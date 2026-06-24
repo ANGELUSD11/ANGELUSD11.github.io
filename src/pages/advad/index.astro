@@ -6,7 +6,8 @@ import Layout from "../../layouts/Layout.astro";
     <div class="container-fluid p-0 position-relative" style="z-index: 10;">
         <header
             class="py-4 px-4 border-bottom"
-            style="background-color: rgba(2, 22, 36, 0.31); backdrop-filter: blur(8px);">
+            style="background-color: rgba(2, 22, 36, 0.31); backdrop-filter: blur(8px);"
+        >
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
                     <a href="/" class="btn btn-outline-primary btn-sm">
@@ -25,7 +26,8 @@ import Layout from "../../layouts/Layout.astro";
                 <img
                     src="/images/ADVADLOGODEF.png"
                     alt="ADVAD Logo"
-                    class="game-logo img-fluid mb-3"/>
+                    class="game-logo img-fluid mb-3"
+                />
                 <div class="game-stage mx-auto">
                     <iframe
                         id="advadFrame"
@@ -43,13 +45,15 @@ import Layout from "../../layouts/Layout.astro";
                             <i class="fas fa-gamepad me-2"></i>
                             <span
                                 data-es="Sobre el juego"
-                                data-en="About the game">Sobre el juego
+                                data-en="About the game"
+                                >Sobre el juego
                             </span>
                         </h2>
                         <p
                             class="card-text text-white"
                             data-es="ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu nave, esquiva oleadas de enemigos y asteroides, y destruye todo a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo podrás sobrevivir?"
-                            data-en="ADVAD is a fast-paced space shoot 'em up. Pilot your ship, dodge waves of enemies and asteroids, and destroy everything in your path to get the highest score. How long can you survive?">
+                            data-en="ADVAD is a fast-paced space shoot 'em up. Pilot your ship, dodge waves of enemies and asteroids, and destroy everything in your path to get the highest score. How long can you survive?"
+                        >
                             ADVAD es un 'shoot 'em up' espacial de ritmo rápido.
                             Pilota tu nave, esquiva oleadas de enemigos y
                             asteroides, y destruye todo a tu paso para conseguir
@@ -80,7 +84,8 @@ import Layout from "../../layouts/Layout.astro";
                     <i class="fas fa-trophy me-2"></i>
                     <span
                         data-es="Tabla de clasificación"
-                        data-en="Leaderboards">Tabla de clasificación
+                        data-en="Leaderboards"
+                        >Tabla de clasificación
                     </span>
                 </h2>
                 <div class="mx-auto" style="max-width: 1140px;">
@@ -111,7 +116,7 @@ import Layout from "../../layouts/Layout.astro";
         .game-stage {
             position: relative;
             width: 100%;
-            max-width: 1040px;          /* tope visual = 2x el render nativo */
+            max-width: 1040px; /* tope visual = 2x el render nativo */
             aspect-ratio: 520 / 300;
             margin-inline: auto;
             overflow: hidden;
@@ -126,8 +131,8 @@ import Layout from "../../layouts/Layout.astro";
             position: absolute;
             top: 0;
             left: 0;
-            width: 520px;
-            height: 300px;
+            width: 780px;
+            height: 450px;
             border: 0;
             transform-origin: top left;
             image-rendering: pixelated; /* upscale nitido para el pixel-art */
