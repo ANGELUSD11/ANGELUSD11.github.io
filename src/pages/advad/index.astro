@@ -116,7 +116,7 @@ import Layout from "../../layouts/Layout.astro";
         .game-stage {
             position: relative;
             width: 100%;
-            max-width: 1040px; /* tope visual = 2x el render nativo */
+            max-width: 1040px; /* ancho visual maximo (el render es 780, se escala ~1.33x) */
             aspect-ratio: 520 / 300;
             margin-inline: auto;
             overflow: hidden;
@@ -124,9 +124,10 @@ import Layout from "../../layouts/Layout.astro";
             border-radius: 8px;
         }
 
-        /* El iframe SOLO renderiza 520x300 px reales: con eso el shader CRT
-           procesa ~156k px en vez de ~2M, igual que en itch.io.
-           El tamano visual grande lo da el transform: scale() de fitAdvad(). */
+        /* El iframe renderiza 780x450 px reales (1.5x el nativo 520x300, misma
+           proporcion): el shader CRT procesa ~351k px en vez de ~2M, sigue barato
+           y los textos del juego se leen mejor. El tamano visual grande lo da el
+           transform: scale() de fitAdvad(). */
         .game-frame {
             position: absolute;
             top: 0;
@@ -140,13 +141,14 @@ import Layout from "../../layouts/Layout.astro";
     </style>
 
     <script is:inline>
-        // Renderiza a 520x300 (barato para el shader) y escala por CSS hasta
-        // llenar el ancho real del "escenario". Recalcula al cambiar tamano.
+        // Renderiza a 780x450 (barato para el shader) y escala por CSS hasta
+        // llenar el ancho real del "escenario". El divisor DEBE ser el mismo
+        // numero que el width del .game-frame, o el iframe se desborda.
         function fitAdvad() {
             const stage = document.querySelector(".game-stage");
             const frame = document.getElementById("advadFrame");
             if (!stage || !frame) return;
-            const scale = stage.clientWidth / 520;
+            const scale = stage.clientWidth / 780;
             frame.style.transform = "scale(" + scale + ")";
         }
         window.addEventListener("resize", fitAdvad);
