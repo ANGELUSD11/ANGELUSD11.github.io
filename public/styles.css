@@ -52,22 +52,29 @@ body::before {
 }
 
 
-/* Language Switcher */
-.language-switcher {
+/* Language Switcher and Back Button */
+.language-switcher, .back-button {
     position: fixed;
     top: 20px;
-    right: 20px;
     z-index: 1000;
 }
 
-.language-switcher .btn {
+.language-switcher {
+    right: 20px;
+}
+
+.back-button {
+    left: 20px;
+}
+
+.language-switcher .btn, .back-button .btn {
     border: 2px solid var(--primary-color);
     color: #e4f3f5;
     background-color: rgb(6, 181, 212);
     transition: all 0.3s ease;
 }
 
-.language-switcher .btn:hover {
+.language-switcher .btn:hover, .back-button .btn:hover {
     background-color: var(--primary-color);
     color: white;
     transform: scale(1.05);
@@ -239,21 +246,28 @@ footer p {
         height: 60px;
     }
 
-    .language-switcher .btn {
+    .language-switcher .btn, .back-button .btn {
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
     }
 }
 
 @media (max-width: 576px) {
-    .language-switcher .btn {
+    .language-switcher .btn, .back-button .btn {
         padding: 0.3rem 0.5rem;
         font-size: 0.8rem;
     }
 
-    .language-switcher {
+    .language-switcher, .back-button {
         top: 10px;
+    }
+
+    .language-switcher {
         right: 10px;
+    }
+
+    .back-button {
+        left: 10px;
     }
 }
 

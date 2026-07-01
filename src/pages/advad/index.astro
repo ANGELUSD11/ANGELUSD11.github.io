@@ -4,23 +4,6 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title="ADVAD - ANGELUS11">
     <div class="container-fluid p-0 position-relative" style="z-index: 10;">
-        <header
-            class="py-4 px-4 border-bottom"
-            style="background-color: rgba(2, 22, 36, 0.31); backdrop-filter: blur(8px);"
-        >
-            <div class="container">
-                <div class="d-flex justify-content-between align-items-center">
-                    <a href="/" class="btn btn-outline-primary btn-sm">
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
-                    <div class="d-flex align-items-center gap-3 mx-auto">
-                        <i class="fas fa-rocket text-primary fs-4"></i>
-                        <h1 class="h3 mb-0 text-primary">ADVAD</h1>
-                    </div>
-                </div>
-            </div>
-        </header>
-
         <section class="py-5 px-4">
             <div class="container">
                 <img
@@ -100,6 +83,13 @@ import Layout from "../../layouts/Layout.astro";
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Back Button (floating in advad) -->
+    <div class="back-button">
+        <a href="/" class="btn btn-outline-primary">
+            <i class="fas fa-arrow-left"></i>
+        </a>
     </div>
 
     <!-- Language Switcher Button (floating in advad) -->
