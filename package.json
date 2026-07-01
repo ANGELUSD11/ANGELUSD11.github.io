@@ -23,5 +23,8 @@
     "react-dom": "^19.2.6",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.0"
+  },
+  "overrides": {
+    "vite": "^6.4.3"
   }
 }
