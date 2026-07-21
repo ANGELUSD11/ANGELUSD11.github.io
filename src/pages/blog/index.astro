@@ -1,48 +1,85 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Post1 from '../../components/blog/Post1.astro';
-import Post2 from '../../components/blog/Post2.astro';
-import Post3 from '../../components/blog/Post3.astro';
-import Post4 from '../../components/blog/Post4.astro';
-import Post5 from '../../components/blog/Post5.astro';
+import Layout from "../../layouts/Layout.astro";
+import Post1 from "../../components/blog/Post1.astro";
+import Post2 from "../../components/blog/Post2.astro";
+import Post3 from "../../components/blog/Post3.astro";
+import Post4 from "../../components/blog/Post4.astro";
+import Post5 from "../../components/blog/Post5.astro";
 ---
+
 <Layout title="Blog - ANGELUS11">
-    <Fragment slot="head">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-        <link rel="stylesheet" href="/blog-styles.css">
-    </Fragment>
-    <Navbar title="DEVLOG" icon="fa-blog" />
-    <main class="container py-5">
-        <div class="blog-container">
+  <Fragment slot="head">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    />
+    <link rel="stylesheet" href="/blog-styles.css" />
+  </Fragment>
+  <header class="container d-flex justify-content-between align-items-center py-4 mt-3">
+    <!-- Left side: Home button -->
+    <div class="back-button position-static">
+      <a href="/" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i>
+      </a>
+    </div>
 
-            <Post5 />
-            <Post1 />
-            <Post2 />
-            <Post3 />
-            <Post4 />
-                </div>
-    </main>
+    <!-- Center: Title -->
+    <div class="header-title flex-grow-1 text-center">
+      <h1 class="gradient-text blog-header-title m-0">
+        <i class="fas fa-blog me-2"></i>DEVLOG
+      </h1>
+    </div>
 
-    <!-- Prism JS for syntax highlighting -->
-    <Fragment slot="scripts">
-        <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-        <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-        <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
-        <script is:inline>
-            // Configuración de Prism Normalize Whitespace
-            // Wait for DOM to finish loading just in case
-            window.addEventListener('DOMContentLoaded', () => {
-                if (typeof Prism !== 'undefined' && Prism.plugins && Prism.plugins.NormalizeWhitespace) {
-                    Prism.plugins.NormalizeWhitespace.setDefaults({
-                        'remove-trailing': true,
-                        'remove-indent': true,
-                        'left-trim': true,
-                        'right-trim': true,
-                    });
-                    Prism.highlightAll();
-                }
-            });
-        </script>
-    </Fragment>
+    <!-- Right side: Language switcher -->
+    <div class="language-switcher position-static">
+      <button id="langBtn" class="btn btn-outline-primary">
+        <i class="fas fa-globe"></i>
+        <span id="langText">EN</span>
+      </button>
+    </div>
+  </header>
+  <main class="container py-5">
+    <div class="blog-container">
+      <Post5 />
+      <Post1 />
+      <Post2 />
+      <Post3 />
+      <Post4 />
+    </div>
+  </main>
+
+  <!-- Prism JS for syntax highlighting -->
+  <Fragment slot="scripts">
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
+    ></script>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
+    ></script>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"
+    ></script>
+    <script is:inline>
+      // Configuración de Prism Normalize Whitespace
+      // Wait for DOM to finish loading just in case
+      window.addEventListener("DOMContentLoaded", () => {
+        if (
+          typeof Prism !== "undefined" &&
+          Prism.plugins &&
+          Prism.plugins.NormalizeWhitespace
+        ) {
+          Prism.plugins.NormalizeWhitespace.setDefaults({
+            "remove-trailing": true,
+            "remove-indent": true,
+            "left-trim": true,
+            "right-trim": true,
+          });
+          Prism.highlightAll();
+        }
+      });
+    </script>
+  </Fragment>
 </Layout>

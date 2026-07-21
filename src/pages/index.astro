@@ -4,549 +4,499 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
 ---
 
 <Layout title="ANGELUS11 - Developer">
-    <style is:global>
-        /* Home page uses the Celestial Orrery as its background.
+  <style is:global>
+    /* Home page uses the Celestial Orrery as its background.
            Neutralize the old body::before image background so it doesn't
            sit over the orrery (both were at z-index:-1). */
-        body::before {
-            display: none !important;
-        }
-        body {
-            background-color: #03060a !important;
-        }
-    </style>
-    <CelestialOrrery />
+    body::before {
+      display: none !important;
+    }
+    body {
+      background-color: #03060a !important;
+    }
+  </style>
+  <CelestialOrrery />
 
-    <!-- Language Switcher Button -->
-    <div class="language-switcher">
-        <button id="langBtn" class="btn btn-outline-primary">
-            <i class="fas fa-globe"></i>
-            <span id="langText">EN</span>
-        </button>
-    </div>
+  <!-- Language Switcher Button -->
+  <div class="language-switcher">
+    <button id="langBtn" class="btn btn-outline-primary">
+      <i class="fas fa-globe"></i>
+      <span id="langText">EN</span>
+    </button>
+  </div>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero-section text-center py-5">
-            <div class="logo-container">
-                <img src="/logo.webp" alt="ANGELUS11 Logo" class="logo-image" />
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero-section text-center py-5">
+      <div class="logo-container">
+        <img src="/logo.webp" alt="ANGELUS11 Logo" class="logo-image" />
+      </div>
+      <h1
+        class="display-1 fw-bold gradient-text mt-4"
+        data-es="ANGELUS11"
+        data-en="ANGELUS11"
+      >
+        ANGELUS11
+      </h1>
+      <p
+        class="lead text-primary"
+        data-es="Desarrollador de software/gamedev"
+        data-en="Software Developer/gamedev"
+      >
+        Desarrollador de software/gamedev
+      </p>
+    </section>
+
+    <!-- Social Links -->
+    <section class="social-section py-4">
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a
+          href="https://discord.com/invite/ne3U8RS8bA"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-discord"></i>
+          <span>Discord</span>
+        </a>
+        <a
+          href="https://github.com/ANGELUSD11"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a
+          href="https://www.youtube.com/@ANGELUSD11"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+        <a
+          href="https://www.twitch.tv/angelusd11"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-twitch"></i>
+          <span>Twitch</span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/angelleonardohern11"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="/blog" class="social-link">
+          <i class="fas fa-blog"></i>
+          <span>Blog</span>
+        </a>
+      </div>
+
+      <!-- Subscriber Counter -->
+      <div class="d-flex justify-content-center mt-4">
+        <div
+          class="card bg-dark-subtle border-primary"
+          style="max-width: 400px; width: 100%;"
+        >
+          <div class="card-body">
+            <div class="d-flex align-items-center gap-3">
+              <div class="p-3 rounded bg-primary bg-opacity-10">
+                <i class="fas fa-users text-primary" style="font-size: 2rem;"
+                ></i>
+              </div>
+              <div>
+                <p
+                  class="text-secondary mb-1"
+                  data-es="Suscriptores en YouTube"
+                  data-en="YouTube Subscribers"
+                  style="color: white !important;"
+                >
+                  Suscriptores en YouTube
+                </p>
+                <p
+                  class="text-primary fw-bold mb-0"
+                  style="font-size: 2rem; color: white !important;"
+                  id="subscriberCount"
+                >
+                  ...
+                </p>
+              </div>
             </div>
-            <h1
-                class="display-1 fw-bold gradient-text mt-4"
-                data-es="ANGELUS11"
-                data-en="ANGELUS11"
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section py-5">
+      <div class="card bg-dark-subtle border-primary">
+        <div class="card-body">
+          <h2 class="card-title text-primary mb-4">
+            <i class="fas fa-user me-2"></i>
+            <span data-es="Sobre mí" data-en="About Me">Sobre mí</span>
+          </h2>
+          <p
+            class="card-text"
+            data-es="Mi nombre es Angel💠, tengo 21 años. Desde los 16 me inicié en la programación de manera autodidacta, impulsado por una fuerte pasión por la tecnología y la innovación. Actualmente me desempeño como desarrollador e investigador de software en proyectos empresariales, mientras curso la carrera de ingeniería de software. Tengo mayor dominio en el ecosistema de Python🐍 y diversas librerías para visión por computadora, backend y videojuegos. También desarrollo juegos con Godot y comparto mi proceso en YouTube, donde hablo de programación, modding y gamedev."
+            data-en="My name is Angel💠, I'm 21 years old. Since I was 16, I've been self-taught in programming, driven by a passion for technology and innovation. I currently work as a software developer and researcher on enterprise projects, while studying software engineering. My core expertise is in the Python🐍 ecosystem, including libraries for computer vision, backend, and game development. I also build games with Godot and share my journey on YouTube, covering programming, modding, and gamedev."
+            style="color: white !important;"
+          >
+            Mi nombre es Angel💠, tengo 21 años. Desde los 16 me inicié en la
+            programación de manera autodidacta, impulsado por una fuerte pasión
+            por la tecnología y la innovación. Actualmente me desempeño como
+            desarrollador e investigador de software en proyectos empresariales,
+            mientras curso la carrera de ingeniería de software. Tengo mayor
+            dominio en el ecosistema de Python🐍 y diversas librerías para
+            visión por computadora, backend y videojuegos. También desarrollo
+            juegos con Godot y comparto mi proceso en YouTube, donde hablo de
+            programación, modding y gamedev.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section py-5">
+      <h2 class="text-center text-primary mb-5">
+        <i class="fas fa-briefcase me-2"></i>
+        <span data-es="Experiencia" data-en="Experience">Experiencia</span>
+      </h2>
+      <div class="experience-card card bg-dark-subtle border-primary">
+        <div class="card-body p-4">
+          <div
+            class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3"
+          >
+            <div>
+              <h3 class="text-primary mb-1">
+                <span
+                  data-es="Investigador & Desarrollador de Software"
+                  data-en="Software Researcher & Developer"
+                  >Investigador & Desarrollador de Software</span
+                >
+              </h3>
+              <p
+                class="mb-0"
+                style="font-size:1.05rem; color: rgba(255,255,255,0.7) !important;"
+              >
+                GSE Colombia ·
+                <span
+                  data-es="Semillero de Investigación Interno"
+                  data-en="Internal Research Incubator"
+                  >Semillero de Investigación Interno</span
+                >
+              </p>
+              <p
+                class="mb-0 mt-1"
+                style="font-size:0.88rem; color: rgba(255,255,255,0.45) !important;"
+              >
+                <i class="fas fa-calendar-alt me-1"></i>
+                <span
+                  data-es="Marzo 2026 — Actualidad"
+                  data-en="March 2026 — Present">Marzo 2026 — Actualidad</span
+                >
+              </p>
+            </div>
+            <span class="experience-badge">
+              <i class="fas fa-circle-dot me-1" style="font-size:0.6rem;"></i>
+              <span data-es="Actual" data-en="Present">Actual</span>
+            </span>
+          </div>
+
+          <p
+            class="mb-4"
+            style="color:rgba(255,255,255,0.85) !important;"
+            data-es="Formo parte del semillero de investigación interno de GSE Colombia, donde colaboro en el diseño, desarrollo e investigación de software empresarial. Mi trabajo abarca desde el desarrollo de herramientas de gestión de proyectos y soluciones gerenciales, hasta la exploración e implementación de tecnologías emergentes orientadas a la automatización y la eficiencia operativa."
+            data-en="I am part of the internal research incubator at GSE Colombia, where I collaborate on the design, development, and research of enterprise software. My work spans from building project management tools and managerial solutions to exploring and implementing emerging technologies focused on automation and operational efficiency."
+          >
+            Formo parte del semillero de investigación interno de GSE Colombia,
+            donde colaboro en el diseño, desarrollo e investigación de software
+            empresarial. Mi trabajo abarca desde el desarrollo de herramientas
+            de gestión de proyectos y soluciones gerenciales, hasta la
+            exploración e implementación de tecnologías emergentes orientadas a
+            la automatización y la eficiencia operativa.
+          </p>
+
+          <h5 class="text-primary mb-3">
+            <i class="fas fa-code-branch me-2"></i>
+            <span data-es="Proyectos Destacados" data-en="Key Projects"
+              >Proyectos Destacados</span
             >
-                ANGELUS11
-            </h1>
-            <p
-                class="lead text-primary"
-                data-es="Desarrollador de software/gamedev"
-                data-en="Software Developer/gamedev"
-            >
-                Desarrollador de software/gamedev
-            </p>
-        </section>
-
-        <!-- Social Links -->
-        <section class="social-section py-4">
-            <div class="d-flex flex-wrap justify-content-center gap-3">
-                <a
-                    href="https://discord.com/invite/ne3U8RS8bA"
-                    target="_blank"
-                    class="social-link"
+          </h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="experience-project-card p-3">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="experience-project-icon">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                  <h6
+                    class="mb-0 text-primary"
+                    data-es="Orquestador de Agentes IA"
+                    data-en="AI Agent Orchestrator"
+                  >
+                    Orquestador de Agentes IA
+                  </h6>
+                </div>
+                <p
+                  class="mb-0"
+                  style="font-size:0.9rem; color:rgba(255,255,255,0.75) !important;"
+                  data-es="Plataforma interna para orquestar agentes de inteligencia artificial, orientada al desarrollo de software asistido por modelos de lenguaje."
+                  data-en="Internal platform for orchestrating AI agents, aimed at model-assisted software development."
                 >
-                    <i class="fab fa-discord"></i>
-                    <span>Discord</span>
-                </a>
-                <a
-                    href="https://github.com/ANGELUSD11"
-                    target="_blank"
-                    class="social-link"
-                >
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a
-                    href="https://www.youtube.com/@ANGELUSD11"
-                    target="_blank"
-                    class="social-link"
-                >
-                    <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
-                </a>
-                <a
-                    href="https://twitter.com/ANGELUSD11"
-                    target="_blank"
-                    class="social-link"
-                >
-                    <i class="fab fa-twitter"></i>
-                    <span>Twitter</span>
-                </a>
-                <a
-                    href="https://www.twitch.tv/angelusd11"
-                    target="_blank"
-                    class="social-link"
-                >
-                    <i class="fab fa-twitch"></i>
-                    <span>Twitch</span>
-                </a>
-                <a
-                    href="https://www.linkedin.com/in/angelleonardohern11"
-                    target="_blank"
-                    class="social-link"
-                >
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="/blog" class="social-link">
-                    <i class="fas fa-blog"></i>
-                    <span>Blog</span>
-                </a>
+                  Plataforma interna para orquestar agentes de inteligencia
+                  artificial, orientada al desarrollo de software asistido por
+                  modelos de lenguaje.
+                </p>
+              </div>
             </div>
-
-            <!-- Subscriber Counter -->
-            <div class="d-flex justify-content-center mt-4">
-                <div
-                    class="card bg-dark-subtle border-primary"
-                    style="max-width: 400px; width: 100%;"
+            <div class="col-md-6">
+              <div class="experience-project-card p-3">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="experience-project-icon">
+                    <i class="fas fa-server"></i>
+                  </div>
+                  <h6
+                    class="mb-0 text-primary"
+                    data-es="Monitor DevOps & Gestión de Servidores"
+                    data-en="DevOps Monitor & Server Management"
+                  >
+                    Monitor DevOps & Gestión de Servidores
+                  </h6>
+                </div>
+                <p
+                  class="mb-0"
+                  style="font-size:0.9rem; color:rgba(255,255,255,0.75) !important;"
+                  data-es="Herramienta de monitoreo de procesos DevOps y administración de servidores para mejorar la visibilidad y control del ciclo de vida del software."
+                  data-en="DevOps process monitoring and server management tool to improve visibility and control over the software lifecycle."
                 >
-                    <div class="card-body">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="p-3 rounded bg-primary bg-opacity-10">
-                                <i
-                                    class="fas fa-users text-primary"
-                                    style="font-size: 2rem;"></i>
-                            </div>
-                            <div>
-                                <p
-                                    class="text-secondary mb-1"
-                                    data-es="Suscriptores en YouTube"
-                                    data-en="YouTube Subscribers"
-                                    style="color: white !important;"
-                                >
-                                    Suscriptores en YouTube
-                                </p>
-                                <p
-                                    class="text-primary fw-bold mb-0"
-                                    style="font-size: 2rem; color: white !important;"
-                                    id="subscriberCount"
-                                >
-                                    ...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  Herramienta de monitoreo de procesos DevOps y administración
+                  de servidores para mejorar la visibilidad y control del ciclo
+                  de vida del software.
+                </p>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- About Section -->
-        <section class="about-section py-5">
-            <div class="card bg-dark-subtle border-primary">
-                <div class="card-body">
-                    <h2 class="card-title text-primary mb-4">
-                        <i class="fas fa-user me-2"></i>
-                        <span data-es="Sobre mí" data-en="About Me"
-                            >Sobre mí</span
-                        >
-                    </h2>
-                    <p
-                        class="card-text"
-                        data-es="Mi nombre es Angel💠, tengo 21 años. Desde los 16 me inicié en la programación de manera autodidacta, impulsado por una fuerte pasión por la tecnología y la innovación. Actualmente me desempeño como desarrollador e investigador de software en proyectos empresariales, mientras curso la carrera de ingeniería de software. Tengo mayor dominio en el ecosistema de Python🐍 y diversas librerías para visión por computadora, backend y videojuegos. También desarrollo juegos con Godot y comparto mi proceso en YouTube, donde hablo de programación, modding y gamedev."
-                        data-en="My name is Angel💠, I'm 21 years old. Since I was 16, I've been self-taught in programming, driven by a passion for technology and innovation. I currently work as a software developer and researcher on enterprise projects, while studying software engineering. My core expertise is in the Python🐍 ecosystem, including libraries for computer vision, backend, and game development. I also build games with Godot and share my journey on YouTube, covering programming, modding, and gamedev."
-                        style="color: white !important;"
-                    >
-                        Mi nombre es Angel💠, tengo 21 años. Desde los 16 me
-                        inicié en la programación de manera autodidacta,
-                        impulsado por una fuerte pasión por la tecnología y la
-                        innovación. Actualmente me desempeño como desarrollador
-                        e investigador de software en proyectos empresariales,
-                        mientras curso la carrera de ingeniería de software.
-                        Tengo mayor dominio en el ecosistema de Python🐍 y
-                        diversas librerías para visión por computadora, backend
-                        y videojuegos. También desarrollo juegos con Godot y
-                        comparto mi proceso en YouTube, donde hablo de
-                        programación, modding y gamedev.
-                    </p>
-                </div>
+    <!-- Projects Section -->
+    <section class="projects-section py-5">
+      <h2 class="text-center text-primary mb-5">
+        <i class="fas fa-code me-2"></i>
+        <span data-es="Mis Proyectos" data-en="My Projects">Mis Proyectos</span>
+      </h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="card project-card h-100 bg-dark-subtle border-primary">
+            <img
+              src="/images/discordbot.webp"
+              class="card_img-top"
+              style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel;"
+              alt=""
+            />
+            <div class="card-body">
+              <h3 class="card-title text-primary">TDMBOT💠</h3>
+              <p
+                class="card-text text-secondary"
+                data-es="Un bot de Discord multifuncional con comandos de moderación, música y entretenimiento."
+                data-en="A multifunctional Discord bot with moderation, music, and entertainment commands."
+                style="color: white !important;"
+              >
+                Un bot de Discord multifuncional con comandos de moderación,
+                música y entretenimiento.
+              </p>
+              <a
+                href="https://discord.com/oauth2/authorize?client_id=1367861699683549276"
+                target="_blank"
+                class="btn btn-outline-primary"
+              >
+                <span data-es="Ver proyecto" data-en="View project"
+                  >Ver proyecto</span
+                > →
+              </a>
             </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section class="experience-section py-5">
-            <h2 class="text-center text-primary mb-5">
-                <i class="fas fa-briefcase me-2"></i>
-                <span data-es="Experiencia" data-en="Experience"
-                    >Experiencia</span
-                >
-            </h2>
-            <div class="experience-card card bg-dark-subtle border-primary">
-                <div class="card-body p-4">
-                    <div
-                        class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3"
-                    >
-                        <div>
-                            <h3 class="text-primary mb-1">
-                                <span
-                                    data-es="Investigador & Desarrollador de Software"
-                                    data-en="Software Researcher & Developer"
-                                    >Investigador & Desarrollador de Software</span
-                                >
-                            </h3>
-                            <p
-                                class="mb-0"
-                                style="font-size:1.05rem; color: rgba(255,255,255,0.7) !important;"
-                            >
-                                GSE Colombia ·
-                                <span
-                                    data-es="Semillero de Investigación Interno"
-                                    data-en="Internal Research Incubator"
-                                    >Semillero de Investigación Interno</span
-                                >
-                            </p>
-                            <p
-                                class="mb-0 mt-1"
-                                style="font-size:0.88rem; color: rgba(255,255,255,0.45) !important;"
-                            >
-                                <i class="fas fa-calendar-alt me-1"></i>
-                                <span
-                                    data-es="Marzo 2026 — Actualidad"
-                                    data-en="March 2026 — Present"
-                                    >Marzo 2026 — Actualidad</span
-                                >
-                            </p>
-                        </div>
-                        <span class="experience-badge">
-                            <i
-                                class="fas fa-circle-dot me-1"
-                                style="font-size:0.6rem;"></i>
-                            <span data-es="Actual" data-en="Present"
-                                >Actual</span
-                            >
-                        </span>
-                    </div>
-
-                    <p
-                        class="mb-4"
-                        style="color:rgba(255,255,255,0.85) !important;"
-                        data-es="Formo parte del semillero de investigación interno de GSE Colombia, donde colaboro en el diseño, desarrollo e investigación de software empresarial. Mi trabajo abarca desde el desarrollo de herramientas de gestión de proyectos y soluciones gerenciales, hasta la exploración e implementación de tecnologías emergentes orientadas a la automatización y la eficiencia operativa."
-                        data-en="I am part of the internal research incubator at GSE Colombia, where I collaborate on the design, development, and research of enterprise software. My work spans from building project management tools and managerial solutions to exploring and implementing emerging technologies focused on automation and operational efficiency."
-                    >
-                        Formo parte del semillero de investigación interno de
-                        GSE Colombia, donde colaboro en el diseño, desarrollo e
-                        investigación de software empresarial. Mi trabajo abarca
-                        desde el desarrollo de herramientas de gestión de
-                        proyectos y soluciones gerenciales, hasta la exploración
-                        e implementación de tecnologías emergentes orientadas a
-                        la automatización y la eficiencia operativa.
-                    </p>
-
-                    <h5 class="text-primary mb-3">
-                        <i class="fas fa-code-branch me-2"></i>
-                        <span
-                            data-es="Proyectos Destacados"
-                            data-en="Key Projects">Proyectos Destacados</span
-                        >
-                    </h5>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="experience-project-card p-3">
-                                <div
-                                    class="d-flex align-items-center gap-2 mb-2"
-                                >
-                                    <div class="experience-project-icon">
-                                        <i class="fas fa-robot"></i>
-                                    </div>
-                                    <h6
-                                        class="mb-0 text-primary"
-                                        data-es="Orquestador de Agentes IA"
-                                        data-en="AI Agent Orchestrator"
-                                    >
-                                        Orquestador de Agentes IA
-                                    </h6>
-                                </div>
-                                <p
-                                    class="mb-0"
-                                    style="font-size:0.9rem; color:rgba(255,255,255,0.75) !important;"
-                                    data-es="Plataforma interna para orquestar agentes de inteligencia artificial, orientada al desarrollo de software asistido por modelos de lenguaje."
-                                    data-en="Internal platform for orchestrating AI agents, aimed at model-assisted software development."
-                                >
-                                    Plataforma interna para orquestar agentes de
-                                    inteligencia artificial, orientada al
-                                    desarrollo de software asistido por modelos
-                                    de lenguaje.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="experience-project-card p-3">
-                                <div
-                                    class="d-flex align-items-center gap-2 mb-2"
-                                >
-                                    <div class="experience-project-icon">
-                                        <i class="fas fa-server"></i>
-                                    </div>
-                                    <h6
-                                        class="mb-0 text-primary"
-                                        data-es="Monitor DevOps & Gestión de Servidores"
-                                        data-en="DevOps Monitor & Server Management"
-                                    >
-                                        Monitor DevOps & Gestión de Servidores
-                                    </h6>
-                                </div>
-                                <p
-                                    class="mb-0"
-                                    style="font-size:0.9rem; color:rgba(255,255,255,0.75) !important;"
-                                    data-es="Herramienta de monitoreo de procesos DevOps y administración de servidores para mejorar la visibilidad y control del ciclo de vida del software."
-                                    data-en="DevOps process monitoring and server management tool to improve visibility and control over the software lifecycle."
-                                >
-                                    Herramienta de monitoreo de procesos DevOps
-                                    y administración de servidores para mejorar
-                                    la visibilidad y control del ciclo de vida
-                                    del software.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card h-100 bg-dark-subtle border-success">
+            <img
+              src="/images/bertochat.webp"
+              class="card_img-top"
+              style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel"
+              alt=""
+            />
+            <div class="card-body">
+              <h3 class="card-title text-success">Berto AI🌱</h3>
+              <p
+                class="card-text text-secondary"
+                data-es="Asistente de inteligencia artificial para agricultura con capacidades de conversación natural, puede leer imágenes."
+                data-en="Artificial intelligence assistant for agriculture with natural conversation capabilities, able to read images."
+                style="color: white !important;"
+              >
+                Asistente de inteligencia artificial para agricultura con
+                capacidades de conversación natural, puede leer imágenes.
+              </p>
+              <a
+                href="https://berto-ai.onrender.com/"
+                target="_blank"
+                class="btn btn-outline-success"
+              >
+                <span data-es="Ver proyecto" data-en="View project"
+                  >Ver proyecto</span
+                > →
+              </a>
             </div>
-        </section>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card h-100 bg-dark-subtle border-info">
+            <img
+              src="/images/lvlid.webp"
+              class="card_img-top"
+              style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel"
+              alt=""
+            />
+            <div class="card-body">
+              <h3 class="card-title text-info">RobTopLvlID🔎</h3>
+              <p
+                class="card-text text-secondary"
+                data-es="Herramienta basada en una red neuronal convolucional para buscar y analizar niveles de Geometry Dash."
+                data-en="CNN Tool to search and analyze Geometry Dash levels."
+                style="color: white !important;"
+              >
+                Herramienta basada en una red neuronal convolucional para buscar
+                y analizar niveles de Geometry Dash.
+              </p>
+              <a
+                href="https://huggingface.co/spaces/ANGELUSD11/RobtopLvlIdentifier1"
+                target="_blank"
+                class="btn btn-outline-info"
+              >
+                <span data-es="Ver proyecto" data-en="View project"
+                  >Ver proyecto</span
+                > →
+              </a>
 
-        <!-- Projects Section -->
-        <section class="projects-section py-5">
-            <h2 class="text-center text-primary mb-5">
-                <i class="fas fa-code me-2"></i>
-                <span data-es="Mis Proyectos" data-en="My Projects"
-                    >Mis Proyectos</span
-                >
-            </h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <div
-                        class="card project-card h-100 bg-dark-subtle border-primary"
-                    >
-                        <img
-                            src="/images/discordbot.webp"
-                            class="card_img-top"
-                            style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel;"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <h3 class="card-title text-primary">TDMBOT💠</h3>
-                            <p
-                                class="card-text text-secondary"
-                                data-es="Un bot de Discord multifuncional con comandos de moderación, música y entretenimiento."
-                                data-en="A multifunctional Discord bot with moderation, music, and entertainment commands."
-                                style="color: white !important;"
-                            >
-                                Un bot de Discord multifuncional con comandos de
-                                moderación, música y entretenimiento.
-                            </p>
-                            <a
-                                href="https://discord.com/oauth2/authorize?client_id=1367861699683549276"
-                                target="_blank"
-                                class="btn btn-outline-primary"
-                            >
-                                <span
-                                    data-es="Ver proyecto"
-                                    data-en="View project">Ver proyecto</span
-                                > →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div
-                        class="card project-card h-100 bg-dark-subtle border-success"
-                    >
-                        <img
-                            src="/images/bertochat.webp"
-                            class="card_img-top"
-                            style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <h3 class="card-title text-success">Berto AI🌱</h3>
-                            <p
-                                class="card-text text-secondary"
-                                data-es="Asistente de inteligencia artificial para agricultura con capacidades de conversación natural, puede leer imágenes."
-                                data-en="Artificial intelligence assistant for agriculture with natural conversation capabilities, able to read images."
-                                style="color: white !important;"
-                            >
-                                Asistente de inteligencia artificial para
-                                agricultura con capacidades de conversación
-                                natural, puede leer imágenes.
-                            </p>
-                            <a
-                                href="https://berto-ai.onrender.com/"
-                                target="_blank"
-                                class="btn btn-outline-success"
-                            >
-                                <span
-                                    data-es="Ver proyecto"
-                                    data-en="View project">Ver proyecto</span
-                                > →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div
-                        class="card project-card h-100 bg-dark-subtle border-info"
-                    >
-                        <img
-                            src="/images/lvlid.webp"
-                            class="card_img-top"
-                            style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel"
-                            alt=""
-                        />
-                        <div class="card-body">
-                            <h3 class="card-title text-info">RobTopLvlID🔎</h3>
-                            <p
-                                class="card-text text-secondary"
-                                data-es="Herramienta basada en una red neuronal convolucional para buscar y analizar niveles de Geometry Dash."
-                                data-en="CNN Tool to search and analyze Geometry Dash levels."
-                                style="color: white !important;"
-                            >
-                                Herramienta basada en una red neuronal
-                                convolucional para buscar y analizar niveles de
-                                Geometry Dash.
-                            </p>
-                            <a
-                                href="https://huggingface.co/spaces/ANGELUSD11/RobtopLvlIdentifier1"
-                                target="_blank"
-                                class="btn btn-outline-info"
-                            >
-                                <span
-                                    data-es="Ver proyecto"
-                                    data-en="View project">Ver proyecto</span
-                                > →
-                            </a>
-
-                            <a
-                                href="https://huggingface.co/ANGELUSD11/RobtopLvlID/tree/main"
-                                target="_blank"
-                                class="btn btn-outline-info"
-                            >
-                                <span data-es="Ver modelo" data-en="View model"
-                                    >Ver modelo</span
-                                > →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div
-                        class="card project-card h-100 bg-dark-subtle border-primary"
-                    >
-                        <img
-                            src="/images/conceptoadvad.png"
-                            class="card_img-top"
-                            style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel;"
-                            alt="ADVAD Game"
-                        />
-                        <div class="card-body">
-                            <h3 class="card-title text-primary">ADVAD</h3>
-                            <p
-                                class="card-text text-secondary"
-                                data-es="Juego de naves espaciales estilo 'shoot 'em up'. ¡Esquiva y dispara para sobrevivir!"
-                                data-en="A 'shoot 'em up' style spaceship game. Dodge and shoot to survive!"
-                                style="color: white !important;"
-                            >
-                                Juego de naves espaciales estilo 'shoot 'em up'.
-                                ¡Esquiva y dispara para sobrevivir!
-                            </p>
-                            <a href="/advad" class="btn btn-outline-primary">
-                                <span data-es="Jugar ahora" data-en="Play now"
-                                    >Jugar ahora</span
-                                > →
-                            </a>
-                        </div>
-                    </div>
-                </div>
+              <a
+                href="https://huggingface.co/ANGELUSD11/RobtopLvlID/tree/main"
+                target="_blank"
+                class="btn btn-outline-info"
+              >
+                <span data-es="Ver modelo" data-en="View model">Ver modelo</span
+                > →
+              </a>
             </div>
-        </section>
-
-        <!-- Game Section -->
-        <section class="game-section py-5">
-            <h2 class="text-center text-primary mb-5">
-                🚀 <span data-es="ADVAD (DEMO)" data-en="ADVAD (DEMO)"
-                    >ADVAD (DEMO)</span
-                >
-            </h2>
-            <div class="d-flex justify-content-center">
-                <iframe
-                    frameborder="0"
-                    src="https://itch.io/embed/3972224?bg_color=234446&fg_color=58fffa&link_color=7bfffd&border_color=276ea5"
-                    width="552"
-                    height="167"
-                    title="ADVAD (DEMO) by ANGELUSD11"
-                    allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card h-100 bg-dark-subtle border-primary">
+            <img
+              src="/images/conceptoadvad.png"
+              class="card_img-top"
+              style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel;"
+              alt="ADVAD Game"
+            />
+            <div class="card-body">
+              <h3 class="card-title text-primary">ADVAD</h3>
+              <p
+                class="card-text text-secondary"
+                data-es="Juego de naves espaciales estilo 'shoot 'em up'. ¡Esquiva y dispara para sobrevivir!"
+                data-en="A 'shoot 'em up' style spaceship game. Dodge and shoot to survive!"
+                style="color: white !important;"
+              >
+                Juego de naves espaciales estilo 'shoot 'em up'. ¡Esquiva y
+                dispara para sobrevivir!
+              </p>
+              <a href="/advad" class="btn btn-outline-primary">
+                <span data-es="Jugar ahora" data-en="Play now">Jugar ahora</span
+                > →
+              </a>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section class="skills-section py-5">
-            <h2 class="text-center text-primary mb-5">
-                <i class="fas fa-database me-2"></i>
-                <span data-es="Mis Skills" data-en="My Skills">Mis Skills</span>
-            </h2>
-            <div class="d-flex flex-wrap justify-content-center gap-3">
-                <div class="skill-icon">
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                        alt="HTML5"
-                    />
-                </div>
-                <div class="skill-icon">
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                        alt="CSS3"
-                    />
-                </div>
-                <div class="skill-icon">
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-                        alt="Bootstrap"
-                    />
-                </div>
-                <div class="skill-icon">
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                        alt="Python"
-                    />
-                </div>
-                <div class="skill-icon">
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                        alt="Git"
-                    />
-                </div>
-                <div class="skill-icon">
-                    <img
-                        src="https://skillicons.dev/icons?i=godot"
-                        alt="Godot"
-                    />
-                </div>
-            </div>
-        </section>
+    <!-- Game Section -->
+    <section class="game-section py-5">
+      <h2 class="text-center text-primary mb-5">
+        🚀 <span data-es="ADVAD (DEMO)" data-en="ADVAD (DEMO)"
+          >ADVAD (DEMO)</span
+        >
+      </h2>
+      <div class="d-flex justify-content-center">
+        <iframe
+          frameborder="0"
+          src="https://itch.io/embed/3972224?bg_color=234446&fg_color=58fffa&link_color=7bfffd&border_color=276ea5"
+          width="552"
+          height="167"
+          title="ADVAD (DEMO) by ANGELUSD11"
+          allowfullscreen></iframe>
+      </div>
+    </section>
 
-        <!-- YouTube Section -->
-        <section class="youtube-section py-5">
-            <h2 class="text-center text-primary mb-4">
-                <i class="fab fa-youtube me-2"></i>
-                <span data-es="Último Video" data-en="Latest Video"
-                    >Último Video</span
-                >
-            </h2>
-            <div class="ratio ratio-16x9">
-                <iframe
-                    src="https://www.youtube.com/embed/sAzCZgJi-3M?si=T7n6DEckk8E4oSph"
-                    title="YouTube video"
-                    allowfullscreen></iframe>
-            </div>
-        </section>
-    </div>
+    <!-- Skills Section -->
+    <section class="skills-section py-5">
+      <h2 class="text-center text-primary mb-5">
+        <i class="fas fa-database me-2"></i>
+        <span data-es="Mis Skills" data-en="My Skills">Mis Skills</span>
+      </h2>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <div class="skill-icon">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+            alt="HTML5"
+          />
+        </div>
+        <div class="skill-icon">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+            alt="CSS3"
+          />
+        </div>
+        <div class="skill-icon">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+            alt="Bootstrap"
+          />
+        </div>
+        <div class="skill-icon">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+            alt="Python"
+          />
+        </div>
+        <div class="skill-icon">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+            alt="Git"
+          />
+        </div>
+        <div class="skill-icon">
+          <img src="https://skillicons.dev/icons?i=godot" alt="Godot" />
+        </div>
+      </div>
+    </section>
 
-    <!-- Background: Celestial Orrery (fixed, behind content) -->
+    <!-- YouTube Section -->
+    <section class="youtube-section py-5">
+      <h2 class="text-center text-primary mb-4">
+        <i class="fab fa-youtube me-2"></i>
+        <span data-es="Último Video" data-en="Latest Video">Último Video</span>
+      </h2>
+      <div class="ratio ratio-16x9">
+        <iframe
+          src="https://www.youtube.com/embed/sAzCZgJi-3M?si=T7n6DEckk8E4oSph"
+          title="YouTube video"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+  </div>
+
+  <!-- Background: Celestial Orrery (fixed, behind content) -->
 </Layout>
