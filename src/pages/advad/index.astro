@@ -6,11 +6,37 @@ import Layout from "../../layouts/Layout.astro";
     <div class="container-fluid p-0 position-relative" style="z-index: 10;">
         <section class="py-5 px-4">
             <div class="container">
-                <img
-                    src="/images/ADVADLOGODEF.png"
-                    alt="ADVAD Logo"
-                    class="game-logo img-fluid mb-3"
-                />
+                <div
+                    class="d-flex justify-content-center align-items-center gap-3 mb-3"
+                >
+                    <img
+                        src="/images/ADVADLOGODEF.png"
+                        alt="ADVAD Logo"
+                        class="game-logo img-fluid"
+                    />
+                    <div class="d-flex flex-column gap-2">
+                        <a
+                            href="https://advad1d.github.io/advad-leaderboard-front/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline-primary rounded-circle"
+                            style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;"
+                            title="Leaderboards"
+                        >
+                            <i class="fas fa-trophy"></i>
+                        </a>
+                        <a
+                            href="https://angelus11.itch.io/advad-demo"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline-primary rounded-circle"
+                            style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;"
+                            title="Ver en itch.io"
+                        >
+                            <i class="fab fa-itch-io"></i>
+                        </a>
+                    </div>
+                </div>
                 <div class="game-stage mx-auto">
                     <iframe
                         id="advadFrame"
@@ -43,57 +69,55 @@ import Layout from "../../layouts/Layout.astro";
                             la puntuación más alta. ¿Cuánto tiempo podrás
                             sobrevivir?
                         </p>
-                        
-                        <div class="alert alert-info mt-4 mb-0 py-2" role="alert" style="font-size: 0.9rem;">
+
+                        <div
+                            class="alert alert-info mt-4 mb-0 py-2"
+                            role="alert"
+                            style="font-size: 0.9rem;"
+                        >
                             <i class="fas fa-info-circle me-2"></i>
                             <span
                                 data-es="Nota de privacidad: El juego genera y recopila un identificador único de tu navegador de forma local para guardar de manera anónima tu puntuación en la tabla de clasificación de nuestro servidor (alojado en Render)."
                                 data-en="Privacy note: The game generates and collects a unique identifier from your browser locally to anonymously save your score on our leaderboard server (hosted on Render)."
                             >
-                                Nota de privacidad: El juego genera y recopila un identificador único de tu navegador de forma local para guardar de manera anónima tu puntuación en la tabla de clasificación de nuestro servidor (alojado en Render).
+                                Nota de privacidad: El juego genera y recopila
+                                un identificador único de tu navegador de forma
+                                local para guardar de manera anónima tu
+                                puntuación en la tabla de clasificación de
+                                nuestro servidor (alojado en Render).
                             </span>
                         </div>
                     </div>
+                </div>
+
+                <!-- Giscus Comments -->
+                <div
+                    class="mt-4"
+                    style="border-radius: 12px; padding: 1.5rem; background: #01060D; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"
+                >
+                    <div class="giscus"></div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- The external itch.io widget at the bottom -->
-    <div class="d-flex justify-content-center itch-io-widget-container py-5">
-        <iframe
-            title="ADVAD itch.io widget"
-            frameborder="0"
-            src="https://itch.io/embed/3972224?bg_color=234446&fg_color=58fffa&link_color=7bfffd&border_color=276ea5"
-            width="552"
-            height="167"
-            loading="lazy"></iframe>
-    </div>
-
-    <div class="container py-5">
-        <div class="card bg-dark-subtle border-primary shadow-sm">
-            <div class="card-body">
-                <h2 class="card-title text-primary mb-4 text-center">
-                    <i class="fas fa-trophy me-2"></i>
-                    <span
-                        data-es="Tabla de clasificación"
-                        data-en="Leaderboards"
-                        >Tabla de clasificación
-                    </span>
-                </h2>
-                <div class="mx-auto" style="max-width: 1140px;">
-                    <div class="ratio ratio-16x9" style="min-height: 600px;">
-                        <iframe
-                            src="https://advad1d.github.io/advad-leaderboard-front/embed/"
-                            width="100%"
-                            height="100%"
-                            style="border:0; border-radius: 8px;"
-                            loading="lazy"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script
+        src="https://giscus.app/client.js"
+        data-repo="ADVAD1D/ADVAD1D"
+        data-repo-id="R_kgDOPjEwwA"
+        data-category="General"
+        data-category-id="DIC_kwDOPjEwwM4C3oXc"
+        data-mapping="number"
+        data-term="5"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_dimmed"
+        data-lang="es"
+        crossorigin="anonymous"
+        async
+        is:inline></script>
 
     <!-- Back Button (floating in advad) -->
     <div class="back-button">
