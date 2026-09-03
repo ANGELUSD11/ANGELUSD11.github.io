@@ -48,6 +48,25 @@ import Layout from "../../layouts/Layout.astro";
                         allowfullscreen></iframe>
                 </div>
 
+                <div class="d-flex justify-content-center flex-wrap gap-3 mt-4 mb-2">
+                    <button 
+                        class="btn btn-primary d-flex align-items-center justify-content-center" 
+                        onclick="setGameSource('repo')" 
+                        style="width: 50px; height: 50px; border-radius: 10px;"
+                        title="Local Server"
+                    >
+                        <i class="fas fa-server fs-5"></i>
+                    </button>
+                    <button 
+                        class="btn btn-outline-primary d-flex align-items-center justify-content-center" 
+                        onclick="setGameSource('itch')" 
+                        style="width: 50px; height: 50px; border-radius: 10px;"
+                        title="itch.io Version"
+                    >
+                        <i class="fab fa-itch-io fs-5"></i>
+                    </button>
+                </div>
+
                 <div class="card bg-dark-subtle border-primary mt-4">
                     <div class="card-body">
                         <h2 class="card-title text-primary mb-4">
@@ -135,12 +154,12 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <style>
-        /* "Escenario" del juego: reserva el espacio visual y recorta el iframe escalado.
-           Misma proporción que la resolución nativa del juego (520x300). */
+        /* Game "Stage": reserves visual space and clips the scaled iframe.
+           Same proportion as the game's native resolution (520x300). */
         .game-stage {
             position: relative;
             width: 100%;
-            max-width: 1040px; /* ancho visual maximo (el render es 780, se escala ~1.33x) */
+            max-width: 1040px; /* max visual width (render is 780, scales ~1.33x) */
             aspect-ratio: 520 / 300;
             margin-inline: auto;
             overflow: hidden;
@@ -148,10 +167,10 @@ import Layout from "../../layouts/Layout.astro";
             border-radius: 8px;
         }
 
-        /* El iframe renderiza 780x450 px reales (1.5x el nativo 520x300, misma
-           proporcion): el shader CRT procesa ~351k px en vez de ~2M, sigue barato
-           y los textos del juego se leen mejor. El tamano visual grande lo da el
-           transform: scale() de fitAdvad(). */
+        /* The iframe renders at an actual 780x450 px (1.5x the native 520x300, same
+           proportion): the CRT shader processes ~351k px instead of ~2M, keeping it cheap
+           and making in-game text more readable. The large visual size is provided by the
+           transform: scale() in fitAdvad(). */
         .game-frame {
             position: absolute;
             top: 0;
@@ -160,14 +179,28 @@ import Layout from "../../layouts/Layout.astro";
             height: 450px;
             border: 0;
             transform-origin: top left;
-            image-rendering: pixelated; /* upscale nitido para el pixel-art */
+            image-rendering: pixelated; /* crisp upscale for pixel-art */
         }
     </style>
 
     <script is:inline>
-        // Renderiza a 780x450 (barato para el shader) y escala por CSS hasta
-        // llenar el ancho real del "escenario". El divisor DEBE ser el mismo
-        // numero que el width del .game-frame, o el iframe se desborda.
+        function setGameSource(source) {
+            const frame = document.getElementById("advadFrame");
+            if (!frame) return;
+            
+            if (source === 'itch') {
+                frame.src = "https://itch.io/embed-upload/16830827?color=00477e";
+            } else {
+                frame.src = "/advad-game/";
+            }
+            
+            // Re-focus the frame so the user can play immediately without clicking inside first
+            frame.focus();
+        }
+
+        // Renders at 780x450 (cheap for the shader) and scales via CSS until
+        // it fills the actual width of the "stage". The divisor MUST be the same
+        // number as the width of the .game-frame, or the iframe will overflow.
         function fitAdvad() {
             const stage = document.querySelector(".game-stage");
             const frame = document.getElementById("advadFrame");

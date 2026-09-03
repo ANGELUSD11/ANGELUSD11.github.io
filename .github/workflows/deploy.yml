@@ -1,9 +1,11 @@
 name: Deploy Astro site to Pages
 
 on:
+  push:
+    branches: ["main"]
   workflow_dispatch:
 
-# Permisos necesarios para subir a Github Pages
+# Permissions required to deploy to Github Pages
 permissions:
   contents: read
   pages: write
