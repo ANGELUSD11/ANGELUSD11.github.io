@@ -7,6 +7,12 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ANGELUSD11.github.io',
+
+  redirects: {
+    // Redirects to the Discord server invitation.
+    '/discord': 'https://discord.com/invite/yS2APXgD7X'
+  },
+
   integrations: [react()],
 
   vite: {
