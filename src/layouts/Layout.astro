@@ -1,4 +1,6 @@
 ---
+import ParticleDrift from "@/components/ui/particle-drift";
+
 export interface Props {
     title?: string;
 }
@@ -47,8 +49,16 @@ const { title = "ANGELUS11 - Developer" } = Astro.props;
         <!-- Extra CSS slot -->
         <slot name="head" />
     </head>
-    <body class="bg-dark text-light">
-        <slot />
+    <body class="text-light" style="background-color: #030509; min-height: 100vh;">
+        <!-- Fondo animado fijo en todas las páginas -->
+        <div style="position: fixed; inset: 0; z-index: 0; pointer-events: none;">
+            <ParticleDrift client:load mode="dark" />
+        </div>
+        
+        <!-- Contenedor principal para elevar el contenido por encima del fondo -->
+        <div style="position: relative; z-index: 10;">
+            <slot />
+        </div>
 
         <!-- Bootstrap JS -->
         <script
