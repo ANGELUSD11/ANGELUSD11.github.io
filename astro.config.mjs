@@ -10,7 +10,8 @@ export default defineConfig({
 
   redirects: {
     // Redirects to the Discord server invitation.
-    '/discord': 'https://discord.com/invite/yS2APXgD7X'
+    '/discord': 'https://discord.com/invite/yS2APXgD7X',
+    '/tdmbot': 'https://discord.com/oauth2/authorize?client_id=1367861699683549276'
   },
 
   integrations: [react()],
