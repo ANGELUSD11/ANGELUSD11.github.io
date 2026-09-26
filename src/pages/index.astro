@@ -121,6 +121,43 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
           </div>
         </div>
       </div>
+
+      <!-- SoundCloud Mini Player (Sutil) -->
+      <div class="d-flex justify-content-center mt-3">
+        <div
+          style="max-width: 400px; width: 100%; opacity: 0.7; transition: opacity 0.3s;"
+          onmouseover="this.style.opacity='1'"
+          onmouseout="this.style.opacity='0.7'"
+        >
+          <iframe
+            width="100%"
+            height="120"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay; encrypted-media"
+            style="border-radius: 8px;"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/41457747&color=%2358fffa&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"
+          >
+          </iframe>
+          <div
+            style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100; text-align: center; margin-top: 4px;"
+          >
+            <a
+              href="https://soundcloud.com/andyburrows-1"
+              title="AndyBurrows"
+              target="_blank"
+              style="color: #cccccc; text-decoration: none;">AndyBurrows</a
+            > ·
+            <a
+              href="https://soundcloud.com/andyburrows-1/razorlight-america"
+              title="Razorlight - America"
+              target="_blank"
+              style="color: #cccccc; text-decoration: none;"
+              >Razorlight - America</a
+            >
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
@@ -409,6 +446,37 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
               </p>
               <a href="/advad" class="btn btn-outline-primary">
                 <span data-es="Jugar ahora" data-en="Play now">Jugar ahora</span
+                > →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card h-100 bg-dark-subtle border-warning">
+            <img
+              src="/images/meettts.webp"
+              class="card_img-top"
+              style="border: 1px solid aqua; height: 200px; border-radius: 30px; corner-shape: bevel; object-fit: cover;"
+              alt="MeetTTS"
+              onerror="this.src='https://placehold.co/600x400/111827/58fffa?text=MeetTTS'"
+            />
+            <div class="card-body">
+              <h3 class="card-title text-warning">MeetTTS</h3>
+              <p
+                class="card-text text-secondary"
+                data-es="Herramienta de traducción en tiempo real para google meet"
+                data-en="Real-time translation TTS tool for Google Meet"
+                style="color: white !important;"
+              >
+                Herramienta de traducción en tiempo real para google meet
+              </p>
+              <a
+                href="https://github.com/ANGELUSD11/meetTTS"
+                target="_blank"
+                class="btn btn-outline-warning"
+              >
+                <span data-es="Ver proyecto" data-en="View project"
+                  >Ver proyecto</span
                 > →
               </a>
             </div>
