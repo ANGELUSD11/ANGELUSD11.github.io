@@ -19,7 +19,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
 
   <!-- Language Switcher Button -->
   <div class="language-switcher">
-    <button id="langBtn" class="btn btn-outline-primary">
+    <button id="langBtn" class="btn mt-auto btn-outline-primary">
       <i class="fas fa-globe"></i>
       <span id="langText">EN</span>
     </button>
@@ -94,7 +94,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
           class="card bg-dark-subtle border-primary"
           style="max-width: 400px; width: 100%;"
         >
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <div class="d-flex align-items-center gap-3">
               <div class="p-3 rounded bg-primary bg-opacity-10">
                 <i class="fas fa-users text-primary" style="font-size: 2rem;"
@@ -163,7 +163,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
     <!-- About Section -->
     <section class="about-section py-5">
       <div class="card bg-dark-subtle border-primary">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h2 class="card-title text-primary mb-4">
             <i class="fas fa-user me-2"></i>
             <span data-es="Sobre mí" data-en="About Me">Sobre mí</span>
@@ -331,7 +331,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
               style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel;"
               alt=""
             />
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
               <h3 class="card-title text-primary">TDMBOT💠</h3>
               <p
                 class="card-text text-secondary mb-3"
@@ -351,12 +351,13 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
                 />
                 <i
                   class="fab fa-discord"
-                  style="font-size: 25px; color: #38bdf8;" title="Discord"></i>
+                  style="font-size: 25px; color: #38bdf8;"
+                  title="Discord"></i>
               </div>
               <a
                 href="https://discord.com/oauth2/authorize?client_id=1367861699683549276"
                 target="_blank"
-                class="btn btn-outline-primary"
+                class="btn mt-auto btn-outline-primary"
               >
                 <span data-es="Ver proyecto" data-en="View project"
                   >Ver proyecto</span
@@ -365,45 +366,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card project-card h-100 bg-dark-subtle border-success">
-            <img
-              src="/images/bertochat.webp"
-              class="card_img-top"
-              style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel"
-              alt=""
-            />
-            <div class="card-body">
-              <h3 class="card-title text-success">Berto AI🌱</h3>
-              <p
-                class="card-text text-secondary mb-3"
-                data-es="Asistente de inteligencia artificial para agricultura con capacidades de conversación natural, puede leer imágenes."
-                data-en="Artificial intelligence assistant for agriculture with natural conversation capabilities, able to read images."
-                style="color: white !important;"
-              >
-                Asistente de inteligencia artificial para agricultura con
-                capacidades de conversación natural, puede leer imágenes.
-              </p>
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                  alt="Python"
-                  style="width: 25px; height: 25px; filter: brightness(0) saturate(100%) invert(67%) sepia(31%) saturate(5436%) hue-rotate(170deg) brightness(101%) contrast(97%);"
-                  title="Python"
-                />
-              </div>
-              <a
-                href="https://berto-ai.onrender.com/"
-                target="_blank"
-                class="btn btn-outline-success"
-              >
-                <span data-es="Ver proyecto" data-en="View project"
-                  >Ver proyecto</span
-                > →
-              </a>
-            </div>
-          </div>
-        </div>
+
         <div class="col-md-4">
           <div class="card project-card h-100 bg-dark-subtle border-info">
             <img
@@ -412,7 +375,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
               style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel"
               alt=""
             />
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
               <h3 class="card-title text-info">RobTopLvlID🔎</h3>
               <p
                 class="card-text text-secondary mb-3"
@@ -440,7 +403,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
               <a
                 href="https://huggingface.co/spaces/ANGELUSD11/RobtopLvlIdentifier1"
                 target="_blank"
-                class="btn btn-outline-info"
+                class="btn mt-auto btn-outline-info"
               >
                 <span data-es="Ver proyecto" data-en="View project"
                   >Ver proyecto</span
@@ -449,7 +412,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
               <a
                 href="https://huggingface.co/ANGELUSD11/RobtopLvlID/tree/main"
                 target="_blank"
-                class="btn btn-outline-info"
+                class="btn mt-auto btn-outline-info"
               >
                 <span data-es="Ver modelo" data-en="View model">Ver modelo</span
                 > →
@@ -460,12 +423,12 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
         <div class="col-md-4">
           <div class="card project-card h-100 bg-dark-subtle border-primary">
             <img
-              src="/images/conceptoadvad.png"
+              src="/images/advad.webp"
               class="card_img-top"
-              style="border: 1px solid aqua; border-radius: 30px; corner-shape: bevel;"
+              style="border: 1px solid aqua; height: 450px; border-radius: 30px; corner-shape: bevel; object-fit: cover;"
               alt="ADVAD Game"
             />
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
               <h3 class="card-title text-primary">ADVAD</h3>
               <p
                 class="card-text text-secondary mb-3"
@@ -484,7 +447,7 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
                   title="Godot Engine"
                 />
               </div>
-              <a href="/advad" class="btn btn-outline-primary">
+              <a href="/advad" class="btn mt-auto btn-outline-primary">
                 <span data-es="Jugar ahora" data-en="Play now">Jugar ahora</span
                 > →
               </a>
@@ -492,7 +455,10 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card project-card h-100 bg-dark-subtle" style="border-color: #cba6f7 !important;">
+          <div
+            class="card project-card h-100 bg-dark-subtle"
+            style="border-color: #cba6f7 !important;"
+          >
             <img
               src="/images/tutorgebra.webp"
               class="card_img-top"
@@ -500,8 +466,10 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
               alt="Tutorgebra"
               onerror="this.src='https://placehold.co/600x400/111827/58fffa?text=Tutorgebra'"
             />
-            <div class="card-body">
-              <h3 class="card-title" style="color: #cba6f7 !important;">Tutorgebra</h3>
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title" style="color: #cba6f7 !important;">
+                Tutorgebra
+              </h3>
               <p
                 class="card-text text-secondary mb-3"
                 data-es="Tutor de geometría interactivo automatizado."
@@ -533,7 +501,8 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
               <a
                 href="https://github.com/ANGELUSD11/tutorgebra"
                 target="_blank"
-                class="btn" style="color: #cba6f7; border-color: #cba6f7;"
+                class="btn mt-auto"
+                style="color: #cba6f7; border-color: #cba6f7;"
               >
                 <span data-es="Ver proyecto" data-en="View project"
                   >Ver proyecto</span
@@ -623,7 +592,3 @@ import CelestialOrrery from "../components/CelestialOrrery.astro";
 
   <!-- Background: Celestial Orrery (fixed, behind content) -->
 </Layout>
-
-
-
-
