@@ -1,43 +1,41 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Prompt from "../../components/Prompt.astro";
 ---
 
-<Layout title="ADVAD - ANGELUS11">
-    <div class="container-fluid p-0 position-relative" style="z-index: 10;">
-        <section class="py-5 px-4">
-            <div class="container">
-                <div
-                    class="d-flex justify-content-center align-items-center gap-3 mb-3"
-                >
-                    <img
-                        src="/images/ADVADLOGODEF.png"
-                        alt="ADVAD Logo"
-                        class="game-logo img-fluid"
-                    />
-                    <div class="d-flex flex-column gap-2">
-                        <a
-                            href="https://advad1d.github.io/advad-leaderboard-front/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn btn-outline-primary rounded-circle"
-                            style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;"
-                            title="Leaderboards"
-                        >
-                            <i class="fas fa-trophy"></i>
-                        </a>
-                        <a
-                            href="https://angelus11.itch.io/advad-demo"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn btn-outline-primary rounded-circle"
-                            style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;"
-                            title="Ver en itch.io"
-                        >
-                            <i class="fab fa-itch-io"></i>
-                        </a>
-                    </div>
+<Layout title="ADVAD - ANGELUS11" path="~/advad" active="advad">
+    <section class="block">
+        <Prompt cmd="./advad --demo" path="~/advad" />
+        <div class="out">
+            <div class="advad-head">
+                <h1 class="sr-only">ADVAD</h1>
+                <img
+                    src="/images/ADVADLOGODEF.png"
+                    alt="ADVAD Logo"
+                    class="game-logo"
+                />
+                <div class="advad-links">
+                    <a
+                        href="https://advad1d.github.io/advad-leaderboard-front/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-term"
+                    >
+                        leaderboards →
+                    </a>
+                    <a
+                        href="https://angelus11.itch.io/advad-demo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-term"
+                    >
+                        itch.io →
+                    </a>
                 </div>
-                <div class="game-stage mx-auto">
+            </div>
+
+            <div class="crt">
+                <div class="game-stage">
                     <iframe
                         id="advadFrame"
                         class="game-frame"
@@ -47,78 +45,70 @@ import Layout from "../../layouts/Layout.astro";
                         allow="autoplay; fullscreen; gamepad; clipboard-write"
                         allowfullscreen></iframe>
                 </div>
-
-                <div class="d-flex justify-content-center flex-wrap gap-3 mt-4 mb-2">
-                    <button 
-                        class="btn btn-primary d-flex align-items-center justify-content-center" 
-                        onclick="setGameSource('repo')" 
-                        style="width: 50px; height: 50px; border-radius: 10px;"
-                        title="Local Server"
-                    >
-                        <i class="fas fa-server fs-5"></i>
-                    </button>
-                    <button 
-                        class="btn btn-outline-primary d-flex align-items-center justify-content-center" 
-                        onclick="setGameSource('itch')" 
-                        style="width: 50px; height: 50px; border-radius: 10px;"
-                        title="itch.io Version"
-                    >
-                        <i class="fab fa-itch-io fs-5"></i>
-                    </button>
-                </div>
-
-                <div class="card bg-dark-subtle border-primary mt-4">
-                    <div class="card-body">
-                        <h2 class="card-title text-primary mb-4">
-                            <i class="fas fa-gamepad me-2"></i>
-                            <span
-                                data-es="Sobre el juego"
-                                data-en="About the game"
-                                >Sobre el juego
-                            </span>
-                        </h2>
-                        <p
-                            class="card-text text-white"
-                            data-es="ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu nave, esquiva oleadas de enemigos y asteroides, y destruye todo a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo podrás sobrevivir?"
-                            data-en="ADVAD is a fast-paced space shoot 'em up. Pilot your ship, dodge waves of enemies and asteroids, and destroy everything in your path to get the highest score. How long can you survive?"
-                        >
-                            ADVAD es un 'shoot 'em up' espacial de ritmo rápido.
-                            Pilota tu nave, esquiva oleadas de enemigos y
-                            asteroides, y destruye todo a tu paso para conseguir
-                            la puntuación más alta. ¿Cuánto tiempo podrás
-                            sobrevivir?
-                        </p>
-
-                        <div
-                            class="alert alert-info mt-4 mb-0 py-2"
-                            role="alert"
-                            style="font-size: 0.9rem;"
-                        >
-                            <i class="fas fa-info-circle me-2"></i>
-                            <span
-                                data-es="Nota de privacidad: El juego genera y recopila un identificador único de tu navegador de forma local para guardar de manera anónima tu puntuación en la tabla de clasificación de nuestro servidor (alojado en Render)."
-                                data-en="Privacy note: The game generates and collects a unique identifier from your browser locally to anonymously save your score on our leaderboard server (hosted on Render)."
-                            >
-                                Nota de privacidad: El juego genera y recopila
-                                un identificador único de tu navegador de forma
-                                local para guardar de manera anónima tu
-                                puntuación en la tabla de clasificación de
-                                nuestro servidor (alojado en Render).
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Giscus Comments -->
-                <div
-                    class="mt-4"
-                    style="border-radius: 12px; padding: 1.5rem; background: #01060D; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"
-                >
-                    <div class="giscus"></div>
-                </div>
             </div>
-        </section>
-    </div>
+
+            <div class="source-switch">
+                <span class="dim">--source=</span>
+                <button
+                    class="btn-term active"
+                    type="button"
+                    data-source="repo"
+                    onclick="setGameSource('repo')"
+                    title="Local Server"
+                >
+                    local
+                </button>
+                <button
+                    class="btn-term"
+                    type="button"
+                    data-source="itch"
+                    onclick="setGameSource('itch')"
+                    title="itch.io Version"
+                >
+                    itch.io
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <Prompt cmd="cat README.md" path="~/advad" />
+        <div class="out">
+            <h2 data-es="Sobre el juego" data-en="About the game">
+                Sobre el juego
+            </h2>
+            <p
+                class="prose"
+                data-es="ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu nave, esquiva oleadas de enemigos y asteroides, y destruye todo a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo podrás sobrevivir?"
+                data-en="ADVAD is a fast-paced space shoot 'em up. Pilot your ship, dodge waves of enemies and asteroids, and destroy everything in your path to get the highest score. How long can you survive?"
+            >
+                ADVAD es un 'shoot 'em up' espacial de ritmo rápido. Pilota tu
+                nave, esquiva oleadas de enemigos y asteroides, y destruye todo
+                a tu paso para conseguir la puntuación más alta. ¿Cuánto tiempo
+                podrás sobrevivir?
+            </p>
+
+            <p class="log-warn prose" role="note">
+                <span
+                    data-es="Nota de privacidad: El juego genera y recopila un identificador único de tu navegador de forma local para guardar de manera anónima tu puntuación en la tabla de clasificación de nuestro servidor (alojado en Render)."
+                    data-en="Privacy note: The game generates and collects a unique identifier from your browser locally to anonymously save your score on our leaderboard server (hosted on Render)."
+                >
+                    Nota de privacidad: El juego genera y recopila un
+                    identificador único de tu navegador de forma local para
+                    guardar de manera anónima tu puntuación en la tabla de
+                    clasificación de nuestro servidor (alojado en Render).
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Giscus Comments -->
+    <section class="block">
+        <Prompt cmd="tail -f comments.log" path="~/advad" />
+        <div class="out panel" data-title="giscus">
+            <div class="giscus"></div>
+        </div>
+    </section>
 
     <script
         src="https://giscus.app/client.js"
@@ -132,26 +122,11 @@ import Layout from "../../layouts/Layout.astro";
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="dark_dimmed"
+        data-theme="transparent_dark"
         data-lang="es"
         crossorigin="anonymous"
         async
         is:inline></script>
-
-    <!-- Back Button (floating in advad) -->
-    <div class="back-button">
-        <a href="/" class="btn btn-outline-primary">
-            <i class="fas fa-arrow-left"></i>
-        </a>
-    </div>
-
-    <!-- Language Switcher Button (floating in advad) -->
-    <div class="language-switcher">
-        <button id="langBtn" class="btn btn-outline-primary">
-            <i class="fas fa-globe"></i>
-            <span id="langText">EN</span>
-        </button>
-    </div>
 
     <style>
         /* Game "Stage": reserves visual space and clips the scaled iframe.
@@ -159,12 +134,9 @@ import Layout from "../../layouts/Layout.astro";
         .game-stage {
             position: relative;
             width: 100%;
-            max-width: 1040px; /* max visual width (render is 780, scales ~1.33x) */
             aspect-ratio: 520 / 300;
-            margin-inline: auto;
             overflow: hidden;
             background: #000;
-            border-radius: 8px;
         }
 
         /* The iframe renders at an actual 780x450 px (1.5x the native 520x300, same
@@ -187,13 +159,17 @@ import Layout from "../../layouts/Layout.astro";
         function setGameSource(source) {
             const frame = document.getElementById("advadFrame");
             if (!frame) return;
-            
+
             if (source === 'itch') {
                 frame.src = "https://itch.io/embed-upload/16830827?color=00477e";
             } else {
                 frame.src = "/advad-game/";
             }
-            
+
+            document.querySelectorAll("[data-source]").forEach((btn) => {
+                btn.classList.toggle("active", btn.dataset.source === source);
+            });
+
             // Re-focus the frame so the user can play immediately without clicking inside first
             frame.focus();
         }

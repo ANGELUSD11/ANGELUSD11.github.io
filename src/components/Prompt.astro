@@ -1,0 +1,17 @@
+---
+// Línea de prompt de bash: `angelus11@dev:~$ <cmd>`.
+// El script global "tipea" el comando cuando el bloque entra en pantalla.
+export interface Props {
+    cmd: string;
+    path?: string;
+}
+
+const { cmd, path = "~" } = Astro.props;
+---
+
+<p class="prompt">
+    <span class="ps1"
+        ><span class="ps-host"><span class="ps-user">angelus11@dev</span>:</span
+        ><span class="ps-path">{path}</span><span class="ps-sign">$</span></span
+    ><span class="cmd">{cmd}</span><span class="caret" aria-hidden="true"></span>
+</p>

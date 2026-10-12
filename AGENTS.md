@@ -8,7 +8,7 @@ Guía para integrar componentes de **21st.dev** (y shadcn) en este proyecto **As
 - **Tailwind 4** vía `@tailwindcss/vite` (config CSS-first, sin `tailwind.config.js`)
 - **TypeScript** con alias `@/* → src/*`
 - Estructura shadcn: `src/components/ui/`, `src/lib/utils.ts` (`cn`), `components.json`
-- El **resto del sitio** (home, blog) usa **Bootstrap + CSS propio** (NO Tailwind). No los mezcles.
+- El **resto del sitio** (home, blog, advad) usa **CSS propio con tema terminal** en `src/styles/terminal.css` (sin Bootstrap ni Tailwind). No los mezcles.
 
 ## Flujo rápido para probar un componente de 21st.dev
 
@@ -47,8 +47,8 @@ La página **`src/pages/test.astro`** es un playground autónomo (solo Tailwind,
 - Animaciones custom (`@keyframes`) van a `global.css`, no a un config.
 
 ### Aislamiento / colisiones
-- El sitio usa la clase `.hero-section` y clases de Bootstrap. **No definas CSS global** que pise esos nombres. En `/test` (HTML propio) no hay riesgo.
-- Para meter un componente en el home como fondo, usá un **componente `.astro` con `<style>` scoped** y clases únicas (ej. `src/components/CelestialOrrery.astro`), no Tailwind global (su Preflight rompe Bootstrap).
+- El sitio usa las clases de `src/styles/terminal.css` (`.block`, `.panel`, `.prompt`, `.out`…). **No definas CSS global** que pise esos nombres. En `/test` (HTML propio) no hay riesgo.
+- Para meter un componente en el home como fondo, usá un **componente `.astro` con `<style>` scoped** y clases únicas (ej. `src/components/CelestialOrrery.astro`), no Tailwind global (su Preflight pisa los estilos del sitio).
 
 ## Comandos
 
