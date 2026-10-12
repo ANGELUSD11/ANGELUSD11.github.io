@@ -404,7 +404,17 @@ strong {
     user-select: none;
 }
 
+/* Subset de JetBrains Mono con solo los glifos del banner (espacio, bloque y
+   box-drawing). Sin esto cada sistema usa una fuente de respaldo distinta y las
+   columnas del arte ASCII se descuadran. */
+@font-face {
+    font-family: "A11 Box";
+    src: url("/fonts/a11-box.woff2") format("woff2");
+    font-display: block;
+}
+
 .banner {
+    font-family: "A11 Box", var(--font);
     font-size: clamp(5.5px, 2.05vw, 15px);
     color: transparent;
     background: linear-gradient(180deg, #d9f9ff 0%, var(--cyan) 45%, #1687a3 100%);
