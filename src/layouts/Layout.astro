@@ -7,13 +7,19 @@ export interface Props {
     path?: string;
     /** Ventana activa en la barra de tmux */
     active?: "home" | "devlog" | "advad";
+    canonical?: string;
 }
 
 const {
     title = "ANGELUS11 - Developer",
     path = "~",
     active = "home",
+    canonical,
 } = Astro.props;
+
+const canonicalURL = canonical
+    ? new URL(canonical, Astro.site ?? Astro.url)
+    : new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 
 const windows = [
     { id: "home", href: "/", label: "0:home" },
@@ -28,6 +34,7 @@ const windows = [
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
+        <link rel="canonical" href={canonicalURL.href} />
         <meta
             name="description"
             content="ANGELUSD11 - Desarrollador Python🐍, bots, gamedev - Godot. Proyectos y Social Media."
