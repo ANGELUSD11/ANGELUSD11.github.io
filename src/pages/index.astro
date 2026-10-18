@@ -36,15 +36,40 @@ const logo = String.raw`
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠡⠊⠐⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`.slice(1);
 
 const links = [
-  { name: "discord", href: "https://discord.gg/yS2APXgD7X", target: "discord.gg/yS2APXgD7X" },
-  { name: "github", href: "https://github.com/ANGELUSD11", target: "github.com/ANGELUSD11" },
-  { name: "youtube", href: "https://www.youtube.com/@ANGELUSD11", target: "youtube.com/@ANGELUSD11" },
-  { name: "twitch", href: "https://www.twitch.tv/angelusd11", target: "twitch.tv/angelusd11" },
+  {
+    name: "discord",
+    href: "https://discord.gg/yS2APXgD7X",
+    target: "discord.gg/yS2APXgD7X",
+  },
+  {
+    name: "github",
+    href: "https://github.com/ANGELUSD11",
+    target: "github.com/ANGELUSD11",
+  },
+  {
+    name: "youtube",
+    href: "https://www.youtube.com/@ANGELUSD11",
+    target: "youtube.com/@ANGELUSD11",
+  },
+  {
+    name: "twitch",
+    href: "https://www.twitch.tv/angelusd11",
+    target: "twitch.tv/angelusd11",
+  },
   { name: "devlog/", href: "/blog", target: "angelus11.dev/blog", dir: true },
 ];
 
 const skills = ["html5", "css3", "bootstrap", "python", "git", "godot"];
-const swatches = ["#12303f", "#ff6b7a", "#7ef0a8", "#ffc66d", "#3fe0ff", "#cba6f7", "#c5dde6", "#eaf8fc"];
+const swatches = [
+  "#12303f",
+  "#ff6b7a",
+  "#7ef0a8",
+  "#ffc66d",
+  "#3fe0ff",
+  "#cba6f7",
+  "#c5dde6",
+  "#eaf8fc",
+];
 ---
 
 <Layout title="ANGELUS11 - Developer" path="~" active="home">
@@ -73,42 +98,39 @@ const swatches = ["#12303f", "#ff6b7a", "#7ef0a8", "#ffc66d", "#3fe0ff", "#cba6f
         <div class="fetch-head">angel<span>@</span>angelus11.dev</div>
         <div class="fetch-rule" aria-hidden="true">--------------------</div>
         <dl>
-        <div class="fetch-row">
-          <dt data-es="Rol" data-en="Role">Rol</dt>
-          <dd
-            data-es="Desarrollador e investigador de software"
-            data-en="Software developer & researcher"
-          >
-            Desarrollador e investigador de software
-          </dd>
-        </div>
-        <div class="fetch-row">
-          <dt>Uptime</dt>
-          <dd data-es="21 años" data-en="21 years">21 años</dd>
-        </div>
-        <div class="fetch-row">
-          <dt data-es="Estudios" data-en="Studies">Estudios</dt>
-          <dd data-es="Ingeniería de software" data-en="Software engineering">
-            Ingeniería de software
-          </dd>
-        </div>
-        <div class="fetch-row">
-          <dt>Shell</dt>
-          <dd>python 🐍</dd>
-        </div>
-        <div class="fetch-row">
-          <dt>Engine</dt>
-          <dd>Godot</dd>
-        </div>
-        <div class="fetch-row">
-          <dt
-            data-es="Suscriptores en YouTube"
-            data-en="YouTube Subscribers"
-          >
-            Suscriptores en YouTube
-          </dt>
-          <dd id="subscriberCount">...</dd>
-        </div>
+          <div class="fetch-row">
+            <dt data-es="Rol" data-en="Role">Rol</dt>
+            <dd
+              data-es="Desarrollador e investigador de software"
+              data-en="Software developer & researcher"
+            >
+              Desarrollador e investigador de software
+            </dd>
+          </div>
+          <div class="fetch-row">
+            <dt>Uptime</dt>
+            <dd data-es="21 años" data-en="21 years">21 años</dd>
+          </div>
+          <div class="fetch-row">
+            <dt data-es="Estudios" data-en="Studies">Estudios</dt>
+            <dd data-es="Ingeniería de software" data-en="Software engineering">
+              Ingeniería de software
+            </dd>
+          </div>
+          <div class="fetch-row">
+            <dt>Shell</dt>
+            <dd>python 🐍</dd>
+          </div>
+          <div class="fetch-row">
+            <dt>Engine</dt>
+            <dd>Godot</dd>
+          </div>
+          <div class="fetch-row">
+            <dt data-es="Suscriptores en YouTube" data-en="YouTube Subscribers">
+              Suscriptores en YouTube
+            </dt>
+            <dd id="subscriberCount">...</dd>
+          </div>
         </dl>
         <div class="swatches" aria-hidden="true">
           {swatches.map((c) => <i style={`background:${c}`} />)}
@@ -307,11 +329,7 @@ const swatches = ["#12303f", "#ff6b7a", "#7ef0a8", "#ffc66d", "#3fe0ff", "#cba6f
 
       <article class="panel project is-violet" data-title="tutorgebra">
         <div class="project-shot">
-          <img
-            src="/images/tutorgebra.webp"
-            alt="Tutorgebra"
-            loading="lazy"
-          />
+          <img src="/images/tutorgebra.webp" alt="Tutorgebra" loading="lazy" />
         </div>
         <div class="project-body">
           <h3>Tutorgebra</h3>
@@ -362,16 +380,12 @@ const swatches = ["#12303f", "#ff6b7a", "#7ef0a8", "#ffc66d", "#3fe0ff", "#cba6f
     <Prompt cmd="mpv --playlist=latest.m3u" />
     <div class="out media">
       <div class="panel" data-title="youtube">
-        <h2
-          class="sr-only"
-          data-es="Último Video"
-          data-en="Latest Video"
-        >
+        <h2 class="sr-only" data-es="Último Video" data-en="Latest Video">
           Último Video
         </h2>
         <div class="ratio">
           <iframe
-            src="https://www.youtube.com/embed/RQeGkrLds7k?si=13QpriUBPsWsqkx_"
+            src="https://www.youtube.com/embed/fvGxdAOImEM?si=A5skYuDu_jpQ5wN4"
             title="YouTube video"
             loading="lazy"
             allowfullscreen></iframe>
