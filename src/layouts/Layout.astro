@@ -26,6 +26,15 @@ const windows = [
     { id: "devlog", href: "/blog", label: "1:devlog" },
     { id: "advad", href: "/advad", label: "2:advad" },
 ];
+
+// Temas de color: los valores viven en terminal.css (:root[data-theme=...])
+const themes = [
+    { id: "cyan", color: "#3fe0ff", label: "Cian / Cyan" },
+    { id: "green", color: "#5cff8f", label: "Verde / Green" },
+    { id: "yellow", color: "#ffd23f", label: "Amarillo / Yellow" },
+    { id: "pink", color: "#ff6ec7", label: "Rosa / Pink" },
+    { id: "navy", color: "#5b8cff", label: "Azul oscuro / Navy" },
+];
 ---
 
 <!doctype html>
@@ -45,6 +54,14 @@ const windows = [
             content="ANGELUS11, ANGELUSD11, developer, Python"
         />
         <meta name="theme-color" content="#04070b" />
+        <!-- Aplica el tema guardado antes de pintar, para que no parpadee el cian -->
+        <script is:inline>
+            try {
+                var t = localStorage.getItem("theme");
+                if (/^(green|yellow|pink|navy)$/.test(t))
+                    document.documentElement.dataset.theme = t;
+            } catch (e) {}
+        </script>
         <meta
             property="og:image"
             content="https://angelus11.dev/images/patrondiamantes.jpg"
@@ -72,6 +89,25 @@ const windows = [
         <header class="titlebar">
             <span class="tb-mark" aria-hidden="true">◆</span>
             <span class="tb-title">angelus11@dev: <b>{path}</b> — bash</span>
+            <div
+                class="theme-pick"
+                role="group"
+                aria-label="Color del tema / Theme color"
+            >
+                {
+                    themes.map((t) => (
+                        <button
+                            type="button"
+                            class="theme-dot"
+                            data-theme-set={t.id}
+                            aria-pressed={t.id === "cyan" ? "true" : "false"}
+                            aria-label={t.label}
+                            title={t.label}
+                            style={`--dot:${t.color}`}
+                        />
+                    ))
+                }
+            </div>
             <button
                 id="langBtn"
                 class="lang-btn"

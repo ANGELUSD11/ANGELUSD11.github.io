@@ -46,6 +46,53 @@ function setLang(lang) {
 }
 
 // ---------------------------------------------------------------------------
+// Tema de color (los valores viven en terminal.css, :root[data-theme=...])
+// ---------------------------------------------------------------------------
+const THEMES = ['cyan', 'green', 'yellow', 'pink', 'navy'];
+const THEME_ALIASES = { cian: 'cyan', verde: 'green', amarillo: 'yellow', rosa: 'pink', azul: 'navy', blue: 'navy' };
+// El script inline del <head> ya aplicó el tema guardado
+let currentTheme = document.documentElement.dataset.theme || 'cyan';
+// Color de las olas ASCII del fondo ("r, g, b"), sale de --accent-rgb
+let waveRgb = '63, 224, 255';
+
+function readThemeColors() {
+    const css = getComputedStyle(document.documentElement);
+    waveRgb = css.getPropertyValue('--accent-rgb').trim() || waveRgb;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    const bg = css.getPropertyValue('--bg').trim();
+    if (meta && bg) meta.content = bg;
+}
+
+function syncThemeButtons() {
+    document.querySelectorAll('[data-theme-set]').forEach(btn => {
+        btn.setAttribute('aria-pressed', String(btn.dataset.themeSet === currentTheme));
+    });
+}
+
+// Devuelve el id del tema aplicado, o null si el nombre no existe
+function setTheme(name) {
+    const key = String(name || '').toLowerCase();
+    const theme = THEME_ALIASES[key] || key;
+    if (!THEMES.includes(theme)) return null;
+
+    currentTheme = theme;
+    if (theme === 'cyan') {
+        delete document.documentElement.dataset.theme;
+    } else {
+        document.documentElement.dataset.theme = theme;
+    }
+    try {
+        localStorage.setItem('theme', theme);
+    } catch (e) {
+        // sin persistencia
+    }
+    readThemeColors();
+    syncThemeButtons();
+    document.dispatchEvent(new CustomEvent('themechange', { detail: theme }));
+    return theme;
+}
+
+// ---------------------------------------------------------------------------
 // Contador de suscriptores (SocialCounts)
 // ---------------------------------------------------------------------------
 // Channel ID - Cambia esto por tu ID de canal
@@ -150,7 +197,7 @@ function initWaves() {
                 line += RAMP[Math.min(RAMP.length - 1, Math.floor(n * RAMP.length))];
             }
             // una sola llamada por fila; más tenue hacia el horizonte
-            ctx.fillStyle = `rgba(63, 224, 255, ${0.03 + depth * 0.15})`;
+            ctx.fillStyle = `rgba(${waveRgb}, ${0.03 + depth * 0.15})`;
             ctx.fillText(line, 0, y * ROW_H);
         }
     };
@@ -170,6 +217,10 @@ function initWaves() {
         if (reduced) draw(0);
     };
     window.addEventListener('resize', refresh);
+    // con movimiento reducido no hay bucle: repintar al cambiar de tema
+    document.addEventListener('themechange', () => {
+        if (reduced) draw(0);
+    });
     // el ancho de celda cambia cuando termina de cargar la fuente
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
     refresh();
@@ -291,6 +342,7 @@ function initShell() {
             '  cat about.txt   imprime el "sobre mí"\n' +
             '  open <red>      abre discord | github | youtube | twitch\n' +
             '  lang [es|en]    cambia el idioma\n' +
+            '  theme [color]   cambia el color: cian | verde | amarillo | rosa | azul\n' +
             '  whoami, date, echo, clear',
             'Available commands:\n' +
             '  ls              list sections and pages\n' +
@@ -298,6 +350,7 @@ function initShell() {
             '  cat about.txt   print the about text\n' +
             '  open <site>     open discord | github | youtube | twitch\n' +
             '  lang [es|en]    switch language\n' +
+            '  theme [color]   switch color: cyan | green | yellow | pink | navy\n' +
             '  whoami, date, echo, clear'
         )),
         ls: () => print('about.txt  links/  experience/  projects/  skills/  media/  devlog/  advad/'),
@@ -329,6 +382,19 @@ function initShell() {
             }
             setLang(next);
             print(`LANG=${next}`);
+        },
+        theme: args => {
+            // sin argumento: pasa al siguiente tema
+            const next = args[0] || THEMES[(THEMES.indexOf(currentTheme) + 1) % THEMES.length];
+            const applied = setTheme(next);
+            if (applied) {
+                print(`THEME=${applied}`);
+            } else {
+                print(t(
+                    'uso: theme cian|verde|amarillo|rosa|azul',
+                    'usage: theme cyan|green|yellow|pink|navy'
+                ), 'err');
+            }
         },
         whoami: () => print('guest'),
         date: () => print(new Date().toString()),
@@ -388,6 +454,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Establecer el texto inicial al cargar la página
     updateText(true);
+
+    document.querySelectorAll('[data-theme-set]').forEach(btn => {
+        btn.addEventListener('click', () => setTheme(btn.dataset.themeSet));
+    });
+    readThemeColors();
+    syncThemeButtons();
 
     initWaves();
     initCollapse();

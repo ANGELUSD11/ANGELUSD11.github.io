@@ -21,10 +21,113 @@
     --red: #ff6b7a;
     --accent: var(--cyan);
 
+    /* Derivados del tema (los redefine cada [data-theme] de abajo) */
+    --fg-strong: #eaf8fc;
+    --accent-rgb: 63, 224, 255; /* = --cyan, para rgba() y el canvas */
+    --accent-hi: #d9f9ff;
+    --accent-lo: #1687a3;
+    --bg-rgb: 4, 7, 11; /* = --bg */
+    --panel-rgb: 7, 13, 20; /* = --bg-panel */
+    --bar-bg: #0a2733;
+    --bar-fg: #9fd3e2;
+    --code-bg: #020509;
+
     --font: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas,
         "Liberation Mono", Menlo, monospace;
     --bar-h: 2.25rem;
     --col: 62rem;
+}
+
+/* --------------------------------------------------------------------------
+   Temas de color (selector en la barra de título y comando `theme` del shell).
+   Sin data-theme = cian (el de arriba). --cyan es el color principal del tema.
+   -------------------------------------------------------------------------- */
+
+:root[data-theme="green"] {
+    --bg: #030a05;
+    --bg-panel: #06110a;
+    --bg-raise: #0a1a0f;
+    --line: #123b20;
+    --line-strong: #1d6034;
+    --fg: #c6e8d0;
+    --fg-dim: #74a283;
+    --fg-faint: #3d6049;
+    --fg-strong: #ebfcf0;
+    --cyan: #5cff8f;
+    --green: #3fe0ff;
+    --accent-rgb: 92, 255, 143;
+    --accent-hi: #dcffe7;
+    --accent-lo: #179c4a;
+    --bg-rgb: 3, 10, 5;
+    --panel-rgb: 6, 17, 10;
+    --bar-bg: #0a2e16;
+    --bar-fg: #9fe2b4;
+    --code-bg: #020603;
+}
+
+:root[data-theme="yellow"] {
+    --bg: #0a0803;
+    --bg-panel: #120e06;
+    --bg-raise: #1a150a;
+    --line: #3a2f12;
+    --line-strong: #5e4b1d;
+    --fg: #e8dfc6;
+    --fg-dim: #a39675;
+    --fg-faint: #605840;
+    --fg-strong: #fcf7e8;
+    --cyan: #ffd23f;
+    --amber: #ff9f5a;
+    --accent-rgb: 255, 210, 63;
+    --accent-hi: #fff4cc;
+    --accent-lo: #a37f16;
+    --bg-rgb: 10, 8, 3;
+    --panel-rgb: 18, 14, 6;
+    --bar-bg: #2e240a;
+    --bar-fg: #e2cf9f;
+    --code-bg: #060502;
+}
+
+:root[data-theme="pink"] {
+    --bg: #0b0408;
+    --bg-panel: #13070f;
+    --bg-raise: #1c0b16;
+    --line: #3f1231;
+    --line-strong: #661d50;
+    --fg: #ebc9de;
+    --fg-dim: #a67597;
+    --fg-faint: #613d56;
+    --fg-strong: #fdedf7;
+    --cyan: #ff6ec7;
+    --red: #ff5f5f;
+    --accent-rgb: 255, 110, 199;
+    --accent-hi: #ffd9f0;
+    --accent-lo: #a3166b;
+    --bg-rgb: 11, 4, 8;
+    --panel-rgb: 19, 7, 15;
+    --bar-bg: #330a26;
+    --bar-fg: #e2a0cb;
+    --code-bg: #070205;
+}
+
+:root[data-theme="navy"] {
+    --bg: #02040d;
+    --bg-panel: #050a1a;
+    --bg-raise: #091025;
+    --line: #142252;
+    --line-strong: #1f3684;
+    --fg: #c5d0ec;
+    --fg-dim: #7386b3;
+    --fg-faint: #3d4a72;
+    --fg-strong: #ebf0fd;
+    --cyan: #5b8cff;
+    --accent-rgb: 91, 140, 255;
+    --accent-hi: #dbe5ff;
+    --accent-lo: #1d3fa8;
+    --bg-rgb: 2, 4, 13;
+    --panel-rgb: 5, 10, 26;
+    --bar-bg: #0b1642;
+    --bar-fg: #a5b8ec;
+    --code-bg: #01020a;
 }
 
 *,
@@ -46,8 +149,8 @@ body {
     padding: var(--bar-h) 0;
     background-color: var(--bg);
     background-image:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(63, 224, 255, 0.09), transparent 70%),
-        radial-gradient(rgba(63, 224, 255, 0.055) 1px, transparent 1px);
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(var(--accent-rgb), 0.09), transparent 70%),
+        radial-gradient(rgba(var(--accent-rgb), 0.055) 1px, transparent 1px);
     background-size: 100% 100%, 22px 22px;
     background-attachment: fixed;
     color: var(--fg);
@@ -131,7 +234,7 @@ h4 {
 }
 
 strong {
-    color: #eaf8fc;
+    color: var(--fg-strong);
     font-weight: 700;
 }
 
@@ -170,7 +273,7 @@ strong {
 
 .titlebar {
     top: 0;
-    background: rgba(4, 7, 11, 0.92);
+    background: rgba(var(--bg-rgb), 0.92);
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(6px);
 }
@@ -190,6 +293,36 @@ strong {
 .tb-title b {
     color: var(--fg);
     font-weight: 500;
+}
+
+/* Selector de color: un cuadradito por tema */
+.theme-pick {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.theme-dot {
+    width: 0.85rem;
+    height: 0.85rem;
+    padding: 0;
+    background: var(--dot);
+    border: 1px solid transparent;
+    outline-offset: 2px;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.theme-dot:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.theme-dot[aria-pressed="true"] {
+    opacity: 1;
+    outline: 1px solid var(--fg);
 }
 
 .lang-btn {
@@ -215,8 +348,8 @@ strong {
     bottom: 0;
     padding: 0;
     gap: 0;
-    background: #0a2733;
-    color: #9fd3e2;
+    background: var(--bar-bg);
+    color: var(--bar-fg);
     border-top: 1px solid var(--line-strong);
     overflow-x: auto;
     scrollbar-width: none;
@@ -245,7 +378,7 @@ strong {
 }
 
 .tmux a:hover {
-    background: rgba(63, 224, 255, 0.14);
+    background: rgba(var(--accent-rgb), 0.14);
     text-decoration: none;
 }
 
@@ -300,7 +433,7 @@ strong {
 }
 
 .cmd {
-    color: #eaf8fc;
+    color: var(--fg-strong);
 }
 
 .caret {
@@ -350,7 +483,7 @@ strong {
 .panel {
     position: relative;
     border: 1px solid var(--line-strong);
-    background: rgba(7, 13, 20, 0.88);
+    background: rgba(var(--panel-rgb), 0.88);
     padding: 1.4rem 1.25rem 1.2rem;
 }
 
@@ -417,10 +550,10 @@ strong {
     font-family: "A11 Box", var(--font);
     font-size: clamp(5.5px, 2.05vw, 15px);
     color: transparent;
-    background: linear-gradient(180deg, #d9f9ff 0%, var(--cyan) 45%, #1687a3 100%);
+    background: linear-gradient(180deg, var(--accent-hi) 0%, var(--cyan) 45%, var(--accent-lo) 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 0 10px rgba(63, 224, 255, 0.35));
+    filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), 0.35));
     animation: flicker 7s linear infinite;
 }
 
@@ -607,7 +740,7 @@ strong {
 
 .commit h3 {
     margin: 1rem 0 0.5rem;
-    color: #eaf8fc;
+    color: var(--fg-strong);
     font-size: 1.0625rem;
 }
 
@@ -696,7 +829,7 @@ strong {
     inset: 0;
     background: repeating-linear-gradient(
         to bottom,
-        rgba(4, 7, 11, 0.35) 0 1px,
+        rgba(var(--bg-rgb), 0.35) 0 1px,
         transparent 1px 3px
     );
     pointer-events: none;
@@ -821,7 +954,7 @@ strong {
 }
 
 .shell-log .echo {
-    color: #eaf8fc;
+    color: var(--fg-strong);
 }
 
 .shell-log .err {
@@ -842,7 +975,7 @@ strong {
     flex: 1;
     min-width: 0;
     font: inherit;
-    color: #eaf8fc;
+    color: var(--fg-strong);
     background: none;
     border: 0;
     padding: 0;
@@ -1000,7 +1133,7 @@ strong {
 .post-body pre[class*="language-"] {
     margin: 1.25rem 0;
     padding: 1.1rem 1.25rem;
-    background: #020509;
+    background: var(--code-bg);
     border: 1px solid var(--line);
     border-left: 2px solid var(--accent);
     border-radius: 0;
@@ -1036,7 +1169,7 @@ strong {
 .game-logo {
     width: min(18rem, 60%);
     height: auto;
-    filter: drop-shadow(0 0 10px rgba(63, 224, 255, 0.5));
+    filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), 0.5));
 }
 
 .advad-links {
