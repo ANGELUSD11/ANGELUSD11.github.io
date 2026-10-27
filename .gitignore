@@ -1,5 +1,6 @@
 admin.js
 .astro/
+streamlabs/
 
 # build output
 dist/
