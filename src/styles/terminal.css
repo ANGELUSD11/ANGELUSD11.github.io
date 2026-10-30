@@ -877,6 +877,16 @@ strong {
     color: var(--fg-faint);
 }
 
+.project-body .project-authors {
+    margin: -0.4rem 0 1.1rem;
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+}
+
+.project-body .project-authors span {
+    color: var(--fg-faint);
+}
+
 .project-body .btn-term {
     margin-top: auto;
     text-align: center;

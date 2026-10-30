@@ -360,6 +360,41 @@ const swatches = [
     </div>
   </section>
 
+  <!-- Collaborative projects -->
+  <section class="block" id="collab">
+    <Prompt cmd="ls ~/projects/collab" />
+    <div class="out projects">
+      <article class="panel project" data-title="catruple">
+        <div class="project-shot">
+          <img src="/images/catruple.webp" alt="Catruple" loading="lazy" style="object-position: 38% center" />
+        </div>
+        <div class="project-body">
+          <h3>Catruple</h3>
+          <p
+            data-es="Buen software, descubre herramientas gratis y de código abierto."
+            data-en="Good software: discover free and open-source tools."
+          >
+            Buen software, descubre herramientas gratis y de código abierto.
+          </p>
+          <p class="project-authors">
+            <span data-es="autores:" data-en="authors:">autores:</span>
+            Odruu, ANGELUSD11
+          </p>
+          <a
+            href="https://catruple.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-term"
+          >
+            <span data-es="Ver proyecto" data-en="View project"
+              >Ver proyecto</span
+            > →
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- Skills -->
   <section class="block" id="skills">
     <Prompt cmd="systemctl list-units --type=skill" />
