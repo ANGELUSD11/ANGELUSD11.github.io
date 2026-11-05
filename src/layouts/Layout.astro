@@ -8,18 +8,66 @@ export interface Props {
     /** Ventana activa en la barra de tmux */
     active?: "home" | "devlog" | "advad";
     canonical?: string;
+    /** Descripción para Google y redes (≈150 caracteres) */
+    description?: string;
+    /** Imagen para compartir (ruta absoluta del sitio o URL) */
+    image?: string;
+    /** true = que Google no indexe la página */
+    noindex?: boolean;
 }
 
+const SITE_NAME = "ANGELUS11";
+const DEFAULT_DESCRIPTION =
+    "ANGELUS11 (ANGELUSD11): desarrollador de software, Python 🐍, bots de Discord y gamedev con Godot. Proyectos, devlog y redes sociales.";
+
 const {
-    title = "ANGELUS11 - Developer",
+    title = "ANGELUS11 (ANGELUSD11) - Developer",
     path = "~",
     active = "home",
     canonical,
+    description = DEFAULT_DESCRIPTION,
+    image = "/images/patrondiamantes.jpg",
+    noindex = false,
 } = Astro.props;
 
 const canonicalURL = canonical
     ? new URL(canonical, Astro.site ?? Astro.url)
     : new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const siteURL = new URL("/", Astro.site ?? Astro.url).href;
+const imageURL = new URL(image, Astro.site ?? Astro.url).href;
+
+// Datos estructurados: le dicen a Google el nombre del sitio ("ANGELUS11"),
+// su alias ("ANGELUSD11") y qué perfiles sociales son tuyos.
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": `${siteURL}#website`,
+            name: SITE_NAME,
+            alternateName: ["ANGELUSD11", "Angelus11", "angelus11.dev"],
+            url: siteURL,
+            inLanguage: "es",
+            publisher: { "@id": `${siteURL}#person` },
+        },
+        {
+            "@type": "Person",
+            "@id": `${siteURL}#person`,
+            name: SITE_NAME,
+            alternateName: "ANGELUSD11",
+            url: siteURL,
+            image: new URL("/icons/icon_glow.png", siteURL).href,
+            jobTitle: "Desarrollador de software",
+            knowsAbout: ["Python", "Godot", "Game development", "Discord bots", "Machine learning"],
+            sameAs: [
+                "https://github.com/ANGELUSD11",
+                "https://www.youtube.com/@ANGELUSD11",
+                "https://www.twitch.tv/angelusd11",
+                "https://angelus11.itch.io",
+            ],
+        },
+    ],
+};
 
 const windows = [
     { id: "home", href: "/", label: "0:home" },
@@ -43,17 +91,17 @@ const themes = [
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
+        <meta name="description" content={description} />
         <link rel="canonical" href={canonicalURL.href} />
         <meta
-            name="description"
-            content="ANGELUSD11 - Desarrollador Python🐍, bots, gamedev - Godot. Proyectos y Social Media."
+            name="robots"
+            content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}
         />
-        <meta name="author" content="ANGELUS11" />
-        <meta
-            name="keywords"
-            content="ANGELUS11, ANGELUSD11, developer, Python"
-        />
+        <meta name="author" content="ANGELUS11 (ANGELUSD11)" />
+        <meta name="application-name" content={SITE_NAME} />
+        <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
         <meta name="theme-color" content="#04070b" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <!-- Aplica el tema guardado antes de pintar, para que no parpadee el cian -->
         <script is:inline>
             try {
@@ -62,16 +110,32 @@ const themes = [
                     document.documentElement.dataset.theme = t;
             } catch (e) {}
         </script>
-        <meta
-            property="og:image"
-            content="https://angelus11.dev/images/patrondiamantes.jpg"
-        />
+
+        <!-- Open Graph (Discord, WhatsApp, Facebook...) -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:locale" content="es_ES" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:url" content={canonicalURL.href} />
         <meta property="og:title" content={title} />
-        <meta
-            property="og:description"
-            content="ANGELUSD11 - Desarrollador Python🐍, bots, gamedev - Godot. Proyectos y Social Media."
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={imageURL} />
+        <meta property="og:image:alt" content="ANGELUS11" />
+
+        <!-- Twitter / X -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={imageURL} />
+
+        <script
+            type="application/ld+json"
+            is:inline
+            set:html={JSON.stringify(jsonLd)}
         />
+
         <link rel="icon" type="image/png" href="/icons/icon_glow.png" />
+        <link rel="apple-touch-icon" href="/icons/icon_glow.png" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

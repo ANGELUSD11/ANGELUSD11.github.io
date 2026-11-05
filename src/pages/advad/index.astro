@@ -3,7 +3,13 @@ import Layout from "../../layouts/Layout.astro";
 import Prompt from "../../components/Prompt.astro";
 ---
 
-<Layout title="ADVAD - ANGELUS11" path="~/advad" active="advad">
+<Layout
+    title="ADVAD - Juego de ANGELUS11 (ANGELUSD11)"
+    description="ADVAD, el juego indie de ANGELUS11 hecho con Godot. Jugá la demo en el navegador, mirá las leaderboards o descargalo en itch.io."
+    image="/images/advad.webp"
+    path="~/advad"
+    active="advad"
+>
     <section class="block">
         <Prompt cmd="./advad --demo" path="~/advad" />
         <div class="out">
@@ -11,7 +17,7 @@ import Prompt from "../../components/Prompt.astro";
                 <h1 class="sr-only">ADVAD</h1>
                 <img
                     src="/images/ADVADLOGODEF.png"
-                    alt="ADVAD Logo"
+                    alt="ADVAD, juego de ANGELUS11"
                     class="game-logo"
                 />
                 <div class="advad-links">
