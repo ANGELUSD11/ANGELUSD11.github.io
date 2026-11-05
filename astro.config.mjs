@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://angelus11.dev',
+  site: 'https://www.angelus11.dev',
 
   redirects: {
     // Redirects to the Discord server invitation.

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /test
 
-Sitemap: https://angelus11.dev/sitemap.xml
+Sitemap: https://www.angelus11.dev/sitemap.xml

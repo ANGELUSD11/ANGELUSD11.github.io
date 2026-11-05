@@ -8,7 +8,7 @@ const pages = [
 ];
 
 export const GET: APIRoute = ({ site }) => {
-  const base = site ?? new URL("https://angelus11.dev");
+  const base = site ?? new URL("https://www.angelus11.dev");
   const lastmod = new Date().toISOString().slice(0, 10);
   const urls = pages
     .map(
