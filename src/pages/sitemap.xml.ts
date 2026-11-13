@@ -5,6 +5,8 @@ const pages = [
   { path: "/", priority: "1.0" },
   { path: "/blog/", priority: "0.8" },
   { path: "/advad/", priority: "0.8" },
+  { path: "/tangent/", priority: "0.8" },
+  { path: "/tangent/privacy/", priority: "0.3" },
 ];
 
 export const GET: APIRoute = ({ site }) => {

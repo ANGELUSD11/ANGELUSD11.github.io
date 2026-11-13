@@ -784,6 +784,27 @@ strong {
     gap: 2rem 1.25rem;
 }
 
+/* .center-last: si la última tarjeta queda sola en su fila, se centra.
+   Los umbrales salen del grid de arriba: 3 columnas desde 3×16.5 + 2×1.25 = 52rem,
+   2 columnas desde 2×16.5 + 1.25 = 34.25rem. */
+.projects.center-last {
+    container: projects / inline-size;
+}
+
+@container projects (min-width: 52rem) {
+    .center-last > :last-child:nth-child(3n + 1) {
+        grid-column: 2;
+    }
+}
+
+@container projects (min-width: 34.25rem) and (max-width: 51.99rem) {
+    .center-last > :last-child:nth-child(2n + 1) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - 1.25rem) / 2);
+    }
+}
+
 .project {
     display: flex;
     flex-direction: column;

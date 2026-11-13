@@ -1,0 +1,272 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Prompt from "../../components/Prompt.astro";
+import { PUBLISHED, PLAY_URL, PLAY_BADGE, PRIVACY_PATH } from "../../data/tangent";
+
+const badge = (lang: "es" | "en") =>
+    `<img src='${PLAY_BADGE[lang]}' alt='${lang === "es" ? "Disponible en Google Play" : "Get it on Google Play"}' class='play-badge' width='240' height='93' />`;
+
+const features = [
+    {
+        es: "<b>Un solo dedo.</b> Orbitá, soltá en el momento justo y salí disparado por la tangente.",
+        en: "<b>One finger.</b> Orbit, let go at the right moment and fly off along the tangent.",
+    },
+    {
+        es: "<b>Mantené para cargar.</b> Cuanto más esperás, más lejos llegás.",
+        en: "<b>Hold to charge.</b> The longer you wait, the farther you go.",
+    },
+    {
+        es: "<b>Subí sin parar.</b> Algo sube desde abajo: quedarse quieto no es una opción.",
+        en: "<b>Keep climbing.</b> Something is rising from below: standing still is not an option.",
+    },
+    {
+        es: "<b>Agujeros negros, láseres y minas.</b> Solo un buen impulso te salva.",
+        en: "<b>Black holes, lasers and mines.</b> Only a strong push will save you.",
+    },
+    {
+        es: "<b>Monedas y skins</b> para tu planeta, música relajante y frases entre órbitas.",
+        en: "<b>Coins and skins</b> for your planet, relaxing music and words between orbits.",
+    },
+];
+
+const shots = [
+    { src: "/tangent/shot-menu.webp", es: "Menú de TANGENT", en: "TANGENT menu" },
+    { src: "/tangent/shot-lasers.webp", es: "Orbitando entre láseres", en: "Orbiting between lasers" },
+    { src: "/tangent/shot-blackhole.webp", es: "Un agujero negro acecha", en: "A black hole lurks" },
+];
+---
+
+<Layout
+    title="TANGENT - Juego de ANGELUS11 para Android"
+    description="TANGENT: un juego de un solo toque. Orbitá planetas, soltate por la tangente y escalá hacia el infinito esquivando agujeros negros. Gratis en Google Play."
+    image="/tangent/og.webp"
+    path="~/tangent"
+    active="tangent"
+>
+    <section class="block">
+        <Prompt cmd="./tangent --launch" path="~/tangent" />
+        <div class="out">
+            <div class="tg-head">
+                <h1 class="sr-only">TANGENT</h1>
+                <img
+                    src="/tangent/logo.svg"
+                    alt="TANGENT"
+                    class="tg-logo"
+                    width="1329"
+                    height="266"
+                />
+                <p
+                    class="tg-tagline"
+                    data-es="Orbitá. Soltate. Subí."
+                    data-en="Orbit. Let go. Rise."
+                >
+                    Orbitá. Soltate. Subí.
+                </p>
+
+                {
+                    PUBLISHED ? (
+                        <a
+                            href={PLAY_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="play-link"
+                            data-es={badge("es")}
+                            data-en={badge("en")}
+                            set:html={badge("es")}
+                        />
+                    ) : (
+                        <div class="play-soon">
+                            <span
+                                class="play-link is-soon"
+                                aria-disabled="true"
+                                data-es={badge("es")}
+                                data-en={badge("en")}
+                                set:html={badge("es")}
+                            />
+                            <span
+                                class="dim"
+                                data-es="// próximamente en Google Play"
+                                data-en="// coming soon to Google Play"
+                            >
+                                // próximamente en Google Play
+                            </span>
+                        </div>
+                    )
+                }
+            </div>
+
+            <div class="tg-shots">
+                {
+                    shots.map((s) => (
+                        <figure class="tg-phone">
+                            <img
+                                src={s.src}
+                                alt={s.es}
+                                width="378"
+                                height="840"
+                                loading="lazy"
+                            />
+                        </figure>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <Prompt cmd="cat README.md" path="~/tangent" />
+        <div class="out">
+            <h2 data-es="Sobre el juego" data-en="About the game">
+                Sobre el juego
+            </h2>
+            <p
+                class="prose"
+                data-es="TANGENT es un juego minimalista de precisión para Android. Tu planeta gira alrededor de otros; tocá para soltarte y salir disparado en línea recta, tocá en el aire para engancharte al siguiente. Fácil de aprender, difícil de dominar."
+                data-en="TANGENT is a minimalist precision game for Android. Your planet spins around others; tap to let go and fly off in a straight line, tap mid-air to hook onto the next one. Easy to learn, hard to master."
+            >
+                TANGENT es un juego minimalista de precisión para Android. Tu
+                planeta gira alrededor de otros; tocá para soltarte y salir
+                disparado en línea recta, tocá en el aire para engancharte al
+                siguiente. Fácil de aprender, difícil de dominar.
+            </p>
+            <ul class="tg-features">
+                {
+                    features.map((f) => (
+                        <li data-es={f.es} data-en={f.en} set:html={f.es} />
+                    ))
+                }
+            </ul>
+        </div>
+    </section>
+
+    <section class="block">
+        <Prompt cmd="cat PRIVACY.md" path="~/tangent" />
+        <div class="out">
+            <p
+                class="log-warn prose"
+                role="note"
+                data-es="El juego es gratis y muestra anuncios de Google AdMob. Tu progreso se guarda solo en tu dispositivo."
+                data-en="The game is free and shows Google AdMob ads. Your progress is stored only on your device."
+            >
+                El juego es gratis y muestra anuncios de Google AdMob. Tu
+                progreso se guarda solo en tu dispositivo.
+            </p>
+            <p class="tg-links">
+                <a
+                    href={PRIVACY_PATH}
+                    class="btn-term"
+                    data-es="política de privacidad →"
+                    data-en="privacy policy →">política de privacidad →</a
+                >
+            </p>
+        </div>
+    </section>
+
+    <style>
+        .tg-head {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tg-logo {
+            width: min(26rem, 100%);
+            height: auto;
+        }
+
+        .tg-tagline {
+            margin: 0;
+            color: var(--fg-strong);
+            font-size: 1.125rem;
+            letter-spacing: 0.08em;
+        }
+
+        .play-link {
+            display: inline-block;
+            line-height: 0;
+        }
+
+        .play-link :global(.play-badge) {
+            width: 13rem;
+            height: auto;
+        }
+
+        .play-link.is-soon {
+            opacity: 0.45;
+            filter: grayscale(0.6);
+        }
+
+        .play-soon {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.25rem 1rem;
+        }
+
+        .tg-shots {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            max-width: 46rem;
+        }
+
+        .tg-phone {
+            margin: 0;
+            padding: 0.35rem;
+            border: 1px solid var(--line-strong);
+            border-radius: 1.1rem;
+            background: #000;
+            box-shadow: 0 0 36px -14px #2ee6c4;
+        }
+
+        .tg-phone img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 0.8rem;
+        }
+
+        .tg-features {
+            margin: 1.25rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tg-features li {
+            position: relative;
+            margin-bottom: 0.6rem;
+            padding-left: 2.5ch;
+            color: var(--fg-dim);
+        }
+
+        .tg-features li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .tg-features li :global(b) {
+            color: var(--fg-strong);
+        }
+
+        .tg-links {
+            margin-top: 1.25rem;
+        }
+
+        @media (max-width: 560px) {
+            .tg-shots {
+                grid-template-columns: repeat(3, 70%);
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 0.5rem;
+            }
+
+            .tg-phone {
+                scroll-snap-align: start;
+            }
+        }
+    </style>
+</Layout>

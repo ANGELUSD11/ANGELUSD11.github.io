@@ -1,0 +1,193 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Prompt from "../../components/Prompt.astro";
+import { CONTACT_EMAIL, PACKAGE } from "../../data/tangent";
+
+const UPDATED = { es: "13 de noviembre de 2026", en: "November 13, 2026" };
+
+const contact = CONTACT_EMAIL
+    ? `<a href='mailto:${CONTACT_EMAIL}'>${CONTACT_EMAIL}</a>`
+    : `<a href='https://github.com/ANGELUSD11' target='_blank' rel='noopener noreferrer'>github.com/ANGELUSD11</a>`;
+
+const gPrivacy = "<a href='https://policies.google.com/privacy' target='_blank' rel='noopener noreferrer'>policies.google.com/privacy</a>";
+const gPartners = "<a href='https://policies.google.com/technologies/partner-sites' target='_blank' rel='noopener noreferrer'>policies.google.com/technologies/partner-sites</a>";
+const gAds = "<a href='https://policies.google.com/technologies/ads' target='_blank' rel='noopener noreferrer'>policies.google.com/technologies/ads</a>";
+
+// Cada sección: título + párrafos/listas en español e inglés (el botón es|en los alterna).
+type Block = { es: string; en: string; list?: boolean };
+type Section = { title: Block; body: Block[] };
+
+const sections: Section[] = [
+    {
+        title: { es: "1. Quiénes somos", en: "1. Who we are" },
+        body: [
+            {
+                es: `TANGENT (paquete <code>${PACKAGE}</code>) es un juego para Android desarrollado por ANGELUS11 (ANGELUSD11), un desarrollador independiente. Esta política explica qué datos se usan cuando jugás y por qué.`,
+                en: `TANGENT (package <code>${PACKAGE}</code>) is an Android game developed by ANGELUS11 (ANGELUSD11), an independent developer. This policy explains what data is used when you play and why.`,
+            },
+        ],
+    },
+    {
+        title: { es: "2. Datos que guarda el juego", en: "2. Data stored by the game" },
+        body: [
+            {
+                es: "El juego no tiene cuentas ni registro, y el desarrollador no recopila ni recibe datos personales tuyos. Solo se guardan <b>en tu dispositivo</b>: tu mejor puntuación, tus monedas, las skins compradas y equipada, las frases ya vistas y tus preferencias (música activada y pista). Estos datos no salen de tu teléfono.",
+                en: "The game has no accounts or sign-up, and the developer does not collect or receive any personal data from you. Only the following is stored <b>on your device</b>: your best score, your coins, purchased and equipped skins, lines already seen and your preferences (music on/off and track). This data never leaves your phone.",
+            },
+        ],
+    },
+    {
+        title: { es: "3. Publicidad (Google AdMob)", en: "3. Advertising (Google AdMob)" },
+        body: [
+            {
+                es: "TANGENT es gratis y muestra anuncios a través de <b>Google AdMob</b>, un servicio de Google LLC. Para mostrar anuncios, medirlos y prevenir el fraude, el SDK de anuncios de Google puede recopilar y procesar automáticamente:",
+                en: "TANGENT is free and shows ads through <b>Google AdMob</b>, a service by Google LLC. To serve ads, measure them and prevent fraud, Google's ads SDK may automatically collect and process:",
+            },
+            {
+                es: "<li>El <b>identificador de publicidad</b> de Android (y el ID de conjunto de apps).</li><li>Tu <b>dirección IP</b>, de la que puede inferirse una ubicación aproximada.</li><li>Información del <b>dispositivo</b> (modelo, sistema operativo, idioma, red).</li><li>Interacciones con los anuncios (impresiones y toques) y datos de diagnóstico y rendimiento del SDK.</li>",
+                en: "<li>Android's <b>advertising ID</b> (and app set ID).</li><li>Your <b>IP address</b>, from which an approximate location may be inferred.</li><li><b>Device</b> information (model, operating system, language, network).</li><li>Ad interactions (impressions and taps) and SDK diagnostics and performance data.</li>",
+                list: true,
+            },
+            {
+                es: `Estos datos los trata Google conforme a su propia política. Más información: ${gPartners} y ${gPrivacy}. Cómo usa Google las cookies e identificadores en publicidad: ${gAds}.`,
+                en: `This data is handled by Google under its own policy. More information: ${gPartners} and ${gPrivacy}. How Google uses cookies and identifiers in advertising: ${gAds}.`,
+            },
+            {
+                es: "Los datos viajan cifrados (HTTPS). El juego usa dos formatos: un anuncio a pantalla completa ocasional entre partidas y un anuncio con recompensa <b>opcional</b> que duplica las monedas de la partida.",
+                en: "Data is transmitted encrypted (HTTPS). The game uses two formats: an occasional full-screen ad between runs and an <b>optional</b> rewarded ad that doubles the run's coins.",
+            },
+        ],
+    },
+    {
+        title: { es: "4. Consentimiento y tus opciones", en: "4. Consent and your choices" },
+        body: [
+            {
+                es: "Si estás en el Espacio Económico Europeo, el Reino Unido o Suiza, al abrir el juego se te pide el consentimiento mediante la plataforma de mensajes de Google (UMP) antes de mostrar anuncios personalizados. Podés cambiar tu elección en cualquier momento desde el botón del <b>escudo</b> en el menú principal.",
+                en: "If you are in the European Economic Area, the United Kingdom or Switzerland, the game asks for your consent through Google's User Messaging Platform (UMP) before showing personalized ads. You can change your choice at any time with the <b>shield</b> button in the main menu.",
+            },
+            {
+                es: "En cualquier país podés restablecer o eliminar tu identificador de publicidad, o desactivar los anuncios personalizados, desde <b>Ajustes de Android → Google → Anuncios</b>.",
+                en: "In any country you can reset or delete your advertising ID, or opt out of personalized ads, from <b>Android Settings → Google → Ads</b>.",
+            },
+        ],
+    },
+    {
+        title: { es: "5. Conservación y eliminación", en: "5. Retention and deletion" },
+        body: [
+            {
+                es: "Los datos del juego se borran al desinstalarlo o al borrar los datos de la app desde los ajustes de Android. El desarrollador no conserva ninguna copia. Los datos que procesa Google se rigen por los plazos de su política de privacidad.",
+                en: "Game data is deleted when you uninstall the game or clear the app's data in Android settings. The developer keeps no copy. Data processed by Google follows the retention periods in its privacy policy.",
+            },
+        ],
+    },
+    {
+        title: { es: "6. Menores", en: "6. Children" },
+        body: [
+            {
+                es: "TANGENT no está dirigido a menores de 13 años y no recopila a sabiendas datos de menores. Si creés que un menor nos proporcionó datos, escribinos y los eliminaremos.",
+                en: "TANGENT is not directed to children under 13 and does not knowingly collect data from children. If you believe a child provided us with data, contact us and we will delete it.",
+            },
+        ],
+    },
+    {
+        title: { es: "7. Cambios y contacto", en: "7. Changes and contact" },
+        body: [
+            {
+                es: "Si esta política cambia, se publicará aquí con una nueva fecha de actualización.",
+                en: "If this policy changes, the new version will be published here with a new update date.",
+            },
+            {
+                es: `Contacto: ${contact}`,
+                en: `Contact: ${contact}`,
+            },
+        ],
+    },
+];
+---
+
+<Layout
+    title="TANGENT - Política de privacidad"
+    description="Política de privacidad de TANGENT, el juego para Android de ANGELUS11: qué datos se usan, publicidad con Google AdMob y tus opciones."
+    image="/tangent/og.webp"
+    path="~/tangent/privacy"
+    active="tangent"
+>
+    <section class="block">
+        <Prompt cmd="less PRIVACY.md" path="~/tangent" />
+        <div class="out pv">
+            <h1
+                data-es="Política de privacidad — TANGENT"
+                data-en="Privacy policy — TANGENT"
+            >
+                Política de privacidad — TANGENT
+            </h1>
+            <p
+                class="dim"
+                data-es={`Última actualización: ${UPDATED.es}`}
+                data-en={`Last updated: ${UPDATED.en}`}
+            >
+                Última actualización: {UPDATED.es}
+            </p>
+
+            {
+                sections.map((s) => (
+                    <section class="pv-sec">
+                        <h2 data-es={s.title.es} data-en={s.title.en}>
+                            {s.title.es}
+                        </h2>
+                        {s.body.map((b) =>
+                            b.list ? (
+                                <ul data-es={b.es} data-en={b.en} set:html={b.es} />
+                            ) : (
+                                <p class="prose" data-es={b.es} data-en={b.en} set:html={b.es} />
+                            ),
+                        )}
+                    </section>
+                ))
+            }
+
+            <p class="pv-back">
+                <a href="/tangent/" class="btn-term">← TANGENT</a>
+            </p>
+        </div>
+    </section>
+
+    <style>
+        .pv h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .pv-sec {
+            margin-top: 2rem;
+        }
+
+        .pv-sec h2 {
+            font-size: 1.05rem;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .pv-sec ul {
+            margin: 0 0 1rem;
+            padding-left: 3ch;
+            color: var(--fg-dim);
+        }
+
+        .pv-sec :global(li) {
+            margin-bottom: 0.35rem;
+        }
+
+        .pv-sec :global(code) {
+            color: var(--fg-strong);
+        }
+
+        .pv-sec :global(b) {
+            color: var(--fg-strong);
+        }
+
+        .pv-back {
+            margin-top: 2.5rem;
+        }
+    </style>
+</Layout>
